@@ -555,10 +555,12 @@
 }
 .register-body {
   background-color: #f5f5f5;
-  padding-top: 100px;
+  padding-top: 200px;
+  width: auto;
   height: auto;
-  background: url("../../layout/images/login/login-image.png") no-repeat;
-  background-position: 0 -100px;
+  background-position:center;
+  background: url("../../layout/images/login/login-image.png");
+  background-size:cover;
 }
 .login-body .login-panel {
   background-color: #ffffff;
@@ -571,16 +573,16 @@
 }
 .login-body .login-panel .login-header {
   margin-bottom: 30px;
-  background-color: #607D8B;
-  color: #CFD8DC;
+  background-color: #258530;
+  color: #ffffff;
   position: relative;
 }
 .login-body .login-panel .login-header h1 {
-  font-size: 18px;
+  font-size: 26px;
   font-weight: 700;
 }
 .login-body .login-panel .login-header h2 {
-  font-size: 14px;
+  font-size: 22px;
   font-weight: normal;
   margin-top: 0;
 }
@@ -591,7 +593,7 @@
   right: 30px;
 }
 .login-body .login-panel .login-header.p-col-12 {
-  padding: 20px 30px;
+  padding: 20px 50px;
 }
 .login-body .login-panel .p-col-12 {
   padding: 20px 70px;
