@@ -6,8 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  city: string;
-
+  
     selectedCategory: any = null;
 
     categories: any[] = [{name: 'C.C', key: 'C'}, {name: 'C.E', key: 'E'}, {name: 'Pasaporte', key: 'P'}];
@@ -15,7 +14,7 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.selectedCategory = this.categories[1];
+    this.selectedCategory = this.categories[0];
   }
   
 
