@@ -1,4 +1,4 @@
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {DashboardDemoComponent} from './demo/view/dashboarddemo.component';
 import {FormLayoutDemoComponent} from './demo/view/formlayoutdemo.component';
@@ -35,51 +35,58 @@ import {AppCrudComponent} from './pages/app.crud.component';
 import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
+import { MainComponent } from './dashboard/pages/main/main.component';
+
+const routes: Routes = [
+
+    {
+        path: '', component: AppMainComponent,
+        children: [
+            {path: '', component: DashboardDemoComponent},
+            {path: 'uikit/formlayout', component: FormLayoutDemoComponent},
+            {path: 'uikit/input', component: InputDemoComponent},
+            {path: 'uikit/button', component: ButtonDemoComponent},
+            {path: 'uikit/table', component: TableDemoComponent},
+            {path: 'uikit/list', component: ListDemoComponent},
+            {path: 'uikit/tree', component: TreeDemoComponent},
+            {path: 'uikit/panel', component: PanelsDemoComponent},
+            {path: 'uikit/overlay', component: OverlaysDemoComponent},
+            {path: 'uikit/media', component: MediaDemoComponent},
+            {path: 'uikit/menu', component: MenusDemoComponent},
+            {path: 'uikit/message', component: MessagesDemoComponent},
+            {path: 'uikit/misc', component: MiscDemoComponent},
+            {path: 'uikit/charts', component: ChartsDemoComponent},
+            {path: 'uikit/file', component: FileDemoComponent},
+            {path: 'utilities/display', component: DisplayComponent},
+            {path: 'utilities/elevation', component: ElevationComponent},
+            {path: 'utilities/flexbox', component: FlexboxComponent},
+            {path: 'utilities/grid', component: GridComponent},
+            {path: 'utilities/icons', component: IconsComponent},
+            {path: 'utilities/widgets', component: WidgetsComponent},
+            {path: 'utilities/spacing', component: SpacingComponent},
+            {path: 'utilities/typography', component: TypographyComponent},
+            {path: 'utilities/text', component: TextComponent},
+            {path: 'pages/crud', component: AppCrudComponent},
+            {path: 'pages/calendar', component: AppCalendarComponent},
+            {path: 'pages/invoice', component: AppInvoiceComponent},
+            {path: 'pages/help', component: AppHelpComponent},
+            {path: 'pages/empty', component: EmptyDemoComponent},
+            {path: 'documentation', component: DocumentationComponent}
+            
+        ]
+    },
+    {path: 'error', component: AppErrorComponent},
+    {path: 'access', component: AppAccessdeniedComponent},
+    {path: 'notfound', component: AppNotfoundComponent},
+    {path: 'login', component: AppLoginComponent},
+    {path: 'auth', loadChildren: () => import('./auth/auth.module').then( module => module.AuthModule)},
+    {path: 'dash', loadChildren: () => import('./dashboard/dashboard.module').then( module => module.DashboardModule)},
+    {path: '**', redirectTo: '/notfound'},
+]
 
 @NgModule({
     imports: [
-        RouterModule.forRoot([
-            {
-                path: '', component: AppMainComponent,
-                children: [
-                    {path: '', component: DashboardDemoComponent},
-                    {path: 'uikit/formlayout', component: FormLayoutDemoComponent},
-                    {path: 'uikit/input', component: InputDemoComponent},
-                    {path: 'uikit/button', component: ButtonDemoComponent},
-                    {path: 'uikit/table', component: TableDemoComponent},
-                    {path: 'uikit/list', component: ListDemoComponent},
-                    {path: 'uikit/tree', component: TreeDemoComponent},
-                    {path: 'uikit/panel', component: PanelsDemoComponent},
-                    {path: 'uikit/overlay', component: OverlaysDemoComponent},
-                    {path: 'uikit/media', component: MediaDemoComponent},
-                    {path: 'uikit/menu', component: MenusDemoComponent},
-                    {path: 'uikit/message', component: MessagesDemoComponent},
-                    {path: 'uikit/misc', component: MiscDemoComponent},
-                    {path: 'uikit/charts', component: ChartsDemoComponent},
-                    {path: 'uikit/file', component: FileDemoComponent},
-                    {path: 'utilities/display', component: DisplayComponent},
-                    {path: 'utilities/elevation', component: ElevationComponent},
-                    {path: 'utilities/flexbox', component: FlexboxComponent},
-                    {path: 'utilities/grid', component: GridComponent},
-                    {path: 'utilities/icons', component: IconsComponent},
-                    {path: 'utilities/widgets', component: WidgetsComponent},
-                    {path: 'utilities/spacing', component: SpacingComponent},
-                    {path: 'utilities/typography', component: TypographyComponent},
-                    {path: 'utilities/text', component: TextComponent},
-                    {path: 'pages/crud', component: AppCrudComponent},
-                    {path: 'pages/calendar', component: AppCalendarComponent},
-                    {path: 'pages/invoice', component: AppInvoiceComponent},
-                    {path: 'pages/help', component: AppHelpComponent},
-                    {path: 'pages/empty', component: EmptyDemoComponent},
-                    {path: 'documentation', component: DocumentationComponent}
-                ]
-            },
-            {path: 'error', component: AppErrorComponent},
-            {path: 'access', component: AppAccessdeniedComponent},
-            {path: 'notfound', component: AppNotfoundComponent},
-            {path: 'login', component: AppLoginComponent},
-            {path: '**', redirectTo: '/notfound'},
-        ], {scrollPositionRestoration: 'enabled'})
+        RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})
     ],
     exports: [RouterModule]
 })

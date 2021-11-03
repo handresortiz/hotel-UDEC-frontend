@@ -131,6 +131,7 @@ import {NodeService} from './demo/service/nodeservice';
 import {PhotoService} from './demo/service/photoservice';
 import {ProductService} from './demo/service/productservice';
 import {MenuService} from './app.menu.service';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
     imports: [
@@ -205,7 +206,8 @@ import {MenuService} from './app.menu.service';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        AppCodeModule
+        AppCodeModule,
+        DashboardModule
     ],
     declarations: [
         AppComponent,

@@ -1,0 +1,82 @@
+<div class="register-body">
+    <div class="p-col-6 p-offset-3 card p-shadow-24 p-fluid">
+        <div class="card">
+            <h4>Formulario de registro</h4>
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 p-md-6">
+                    <span class="p-float-label">
+                        
+                        <input id="firstname" type="text" pInputText> 
+                        <label for="firstname">Primer nombre</label>
+                </span>
+                </div>
+                <div class="p-field p-col-12 p-md-6">
+                    <span class="p-float-label">
+
+                        <input id="secondname" type="text" pInputText> 
+                        <label for="secondname">Segundo nombre</label>
+                </span>
+                </div>
+                <div class="p-field p-col-12 p-md-6">
+                    <span class="p-float-label">
+
+                        <input id="firstlastname" type="text" pInputText> 
+                        <label for="firstlastname">Primer apellido</label>
+                </span>
+                </div>
+                <div class="p-field p-col-12 p-md-6">
+                    <span class="p-float-label">
+                        <input id="secondlastname" type="text" pInputText> 
+                        <label for="secondlastname">Segundo apellido</label>
+                    </span>
+                </div>
+                <div class="p-field p-col-12 p-md-8">
+                    <span class="p-float-label">
+                        <input id="secondlastname" type="email" pInputText> 
+                        <label for="secondlastname">Correo electrónico</label>
+                    </span>
+                </div>
+
+                <div class="p-field p-col-12 p-md-6">
+                    <span class="p-float-label">
+                        <input type="password" id="pass" pPassword />
+                        <label for="pass">Contraseña</label>
+                    </span>
+                </div>
+                <div class="p-field p-col-12 p-md-6">
+                    <span class="p-float-label">
+                        <input type="password" id="pass2" pPassword />
+                        <label for="pass2">Confirmar contraseña</label>
+                    </span>
+                </div>
+               
+                <div class="p-field p-col-12">
+                    <label for="address">Dirección</label>
+                    <textarea id="address" type="text" rows="4" pInputText></textarea>
+                </div>
+                <div class="p-field p-col-12 p-md-8">
+                    <label for="state">Razón Social</label>
+                    <input id="state" type="text" pInputText> 
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="tel">Telefono</label>
+                    <p-inputNumber  mode="decimal" inputId="tel" [useGrouping]="false">
+                    </p-inputNumber>
+                </div>
+                <div *ngFor="let category of categories" class="p-field-radiobutton p-md-2">
+                    <p-radioButton inpudIt="category.key" name="category" [value]="category" [(ngModel)]="selectedCategory" [disabled]="category.key === 'R'"></p-radioButton>
+                    <label [for]="category.key">{{category.name}}</label>
+                </div>
+                <div class="p-field p-col-12 p-md-8">
+                    <span class="p-float-label">
+                    <label for="id">Número de identificación</label>
+                    <p-inputNumber  mode="decimal" inputId="id" [useGrouping]="false"></p-inputNumber>
+                </span>
+                </div>
+                <div class="p-field p-col-12 p-md-4">
+                    <button pButton pRipple icon="pi pi-user-plus" type="button" label="Registrar" class="p-button-raised p-button-success" styleClass="p-button-lg"></button>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
