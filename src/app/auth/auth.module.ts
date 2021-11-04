@@ -7,6 +7,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { EmailConfirmComponent } from './pages/email-confirm/email-confirm.component';
 import { PrimengModule } from '../primeng/primeng.module';
 import { CapchaComponent } from './components/capcha/capcha.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { CapchaComponent } from './components/capcha/capcha.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    PrimengModule
+    PrimengModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }
