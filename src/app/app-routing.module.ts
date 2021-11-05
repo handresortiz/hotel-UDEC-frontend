@@ -78,6 +78,8 @@ import {AppHelpComponent} from './pages/app.help.component';
             {path: 'access', component: AppAccessdeniedComponent},
             {path: 'notfound', component: AppNotfoundComponent},
             {path: 'login', component: AppLoginComponent},
+            {path: 'bill', loadChildren: () => import('./bill/bill.module').then( module => module.BillModule)},
+            {path: 'report', loadChildren: () => import('./report/report.module').then( module => module.ReportModule)},
             {path: '**', redirectTo: '/notfound'},
         ], {scrollPositionRestoration: 'enabled'})
     ],
