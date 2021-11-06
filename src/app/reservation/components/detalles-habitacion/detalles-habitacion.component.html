@@ -1,13 +1,15 @@
-<div class="contenedorprinc">
-    <p-galleria [(value)]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '640px'}" [numVisible]="5"
-        [showThumbnails]="false" [showIndicators]="true" [changeItemOnIndicatorHover]="true"> 
-        <ng-template pTemplate="item" let-item>
-            <img [src]="item.previewImageSrc" style="height: 400px; display: block;" />
-        </ng-template>
-        <ng-template pTemplate="thumbnail" let-item>
-            <div class="p-grid p-nogutter p-justify-center">
-                <img [src]="item.thumbnailImageSrc" style="display: block;" />
-            </div>
-        </ng-template>
-    </p-galleria>
+<div class="contenedor2" align="center">
+    <div class="contedia">
+        <div class="galeria" style="width: 40%; height: 40%; object-fit: contain;">
+            <p-galleria [(value)]="tipo.galeria" [responsiveOptions]="responsiveOptions" [numVisible]="5" [showThumbnails]="false" [showIndicators]="true" [changeItemOnIndicatorHover]="true"> 
+                <ng-template pTemplate="item" let-item>
+                    <img [src]="item.url_imagen" style="width: 650px;height: 400px; object-fit: contain;"/>
+                </ng-template>
+            </p-galleria>
+        </div>
+
+        <div class="detalleshab" style="width: 60%; height: 60%; object-fit: contain;">
+            <p>{{tipo.nom_tipo_habitacion}}</p>
+        </div>
+    </div>
 </div>
