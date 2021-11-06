@@ -1,144 +1,125 @@
-
-
 <div class="register-body">
-    
-
     <div class="p-col-6 p-offset-3 card p-shadow-24 p-fluid">
         <div class="card">
             <h4>Formulario de registro</h4>
-            <form autocomplete="off"
-         (ngSubmit)="onRegister()"
-         [formGroup]="registerForm">
-            <div class="p-fluid p-formgrid p-grid">
+            <form autocomplete="off" (ngSubmit)="onRegister()" [formGroup]="registerForm">
+                <div class="p-fluid p-formgrid p-grid">
 
-                
-                <div class="p-field p-col-12 p-md-6">
-                    <span class="p-float-label">
-                        <input  formControlName="pri_nombre"
-                                id="firstname" 
-                                type="text" 
-                                pInputText> 
-                        <label for="firstname">Primer nombre</label>
-                </span>
-                </div>
-                <div class="p-field p-col-12 p-md-6">
-                    <span class="p-float-label">
 
-                        <input
-                         id="secondname"
-                          type="text"
-                          formControlName="seg_nombre"
-                           pInputText> 
-                        <label for="secondname">Segundo nombre</label>
-                </span>
-                </div>
-                <div class="p-field p-col-12 p-md-6">
-                    <span class="p-float-label">
+                    <div class="p-field p-col-12 p-md-6">
+                        <span class="p-float-label">
+                            <input id="firstname" type="text" formControlName="pri_nombre" pInputText>
+                            <label for="firstname">Primer nombre *</label>
+                            <small *ngIf="isValid('pri_nombre')" style="color: red;" class="p-invalid">
+                                Nombre es requerido
+                            </small>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <span class="p-float-label">
 
-                        <input 
-                        id="firstlastname"
-                         type="text"
-                         formControlName="pri_apellido"
-                          pInputText> 
-                        <label for="firstlastname">Primer apellido</label>
-                </span>
-                </div>
-                <div class="p-field p-col-12 p-md-6">
-                    <span class="p-float-label">
-                        <input 
-                        formControlName="seg_apellido"
-                        id="secondlastname"
-                         type="text" 
-                         pInputText> 
-                        <label for="secondlastname">Segundo apellido</label>
-                    </span>
-                </div>
-                <div class="p-field p-col-12 p-md-8">
-                   
-                        <label for="email">Correo electrónico</label>
-                        <input style="border-color: red;"
-                                id="email" 
-                                type="email"
-                                aria-describedby="email"
-                                class="p-invalid"
-                                formControlName="correo" pInputText> 
-                        <small style="color: red;" id="secondlastname" class="p-invalid">Correo electronico no válido</small>
-                    
-                </div>
+                            <input id="secondname" type="text" formControlName="seg_nombre" pInputText>
+                            <label for="secondname">Segundo nombre</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <span class="p-float-label">
 
-                <div class="p-field p-col-12 p-md-6">
-                    <span class="p-float-label">
-                        <input 
-                        type="password"
-                         id="pass"
-                         formControlName="pass"
-                          pPassword />
-                        <label for="pass">Contraseña</label>
-                    </span>
+                            <input id="firstlastname" type="text" formControlName="pri_apellido" pInputText>
+                            <label for="firstlastname">Primer apellido * </label>
+                            <small *ngIf="isValid('pri_apellido')" style="color: red;" class="p-invalid">
+                                Apellido es requerido
+                            </small>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <span class="p-float-label">
+                            <input formControlName="seg_apellido" id="secondlastname" type="text" pInputText>
+                            <label for="secondlastname">Segundo apellido</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-8">
+                        <span class="p-float-label">
+                            <input ngClass="p-invalid: isValid('correo')" id="email" type="email"
+                                aria-describedby="email" formControlName="correo" pInputText>
+                            <label for="email">Correo electrónico * </label>
+                            <small *ngIf="isValid('correo')" style="color: red;" class="p-invalid">
+                                Correo electronico no válido
+                            </small>
+                        </span>
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-6">
+                        <span class="p-float-label">
+                            <input type="password" id="pass" formControlName="pass" pPassword />
+                            <label for="pass">Contraseña * </label>
+                            <small *ngIf="isValid('pass')" style="color: red;" class="p-invalid">
+                                Contraseña demasiado corta
+                            </small>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <span class="p-float-label">
+                            <input type="password" id="pass2" formControlName="pass2" pPassword />
+                            <label for="pass2">Confirmar contraseña * </label>
+                            <small *ngIf="isValid('pass2')" style="color: red;" class="p-invalid">
+                                Contraseñas no coinciden
+                            </small>
+                        </span>
+                    </div>
+
+                    <div class="p-field p-col-12">
+                        <span class="p-float-label">
+                            <textarea id="address" type="text" rows="4" formControlName="direccion"
+                                pInputText></textarea>
+                            <label for="address">Dirección *</label>
+                            <small *ngIf="isValid('direccion')" style="color: red;" class="p-invalid">
+                                Dirección es requerida
+                            </small>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-8">
+                        <span class="p-float-label">
+                            <input id="state" type="text" formControlName="razon_social" pInputText>
+                            <label for="state">Razón Social</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label">
+                            <p-inputNumber formControlName="telefono" mode="decimal" inputId="tel"
+                                [useGrouping]="false"></p-inputNumber>
+                            <label for="tel">Telefono</label>
+                            
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-8">
+                        <span class="p-float-label">
+                            <p-inputNumber mode="decimal" inputId="id" [useGrouping]="false"
+                                formControlName="identificacion"></p-inputNumber>
+                            <label for="id">Número de identificación * </label>
+                            <small  *ngIf="isValid('identificacion')"
+                                style="color: red;"
+                                class="p-invalid">
+                                Identificación inválida
+                                </small>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <p-dropdown [options]="optionSex" formControlName="genero" placeholder="Genero * "
+                            [showClear]="true"></p-dropdown>
+                            <small  *ngIf="isValid('genero')"
+                                style="color: red;"
+                                class="p-invalid">
+                                Genero inválido
+                                </small>
+                    </div>
+                    <div class=" p-grid p-field p-col-12 p-md-12">
+                        <button  [disabled]="!registerForm.valid" pButton icon="pi pi-user-plus" type="submit" label="Continuar con el registro"
+                            class="p-button-raised p-button-success" styleClass="p-button-lg"></button>
+                    </div>
+
                 </div>
-                <div class="p-field p-col-12 p-md-6">
-                    <span class="p-float-label">
-                        <input type="password"
-                         id="pass2"
-                         formControlName="pass2" 
-                         pPassword />
-                        <label for="pass2">Confirmar contraseña</label>
-                    </span>
-                </div>
-               
-                <div class="p-field p-col-12">
-                    <span class="p-float-label" >
-                        <textarea id="address"
-                         type="text" 
-                         rows="4"
-                         formControlName="direccion" 
-                         pInputText></textarea>
-                    <label for="address">Dirección</label>
-                </span>
-                </div>
-                <div class="p-field p-col-12 p-md-8">
-                    <span class="p-float-label">
-                        <input id="state" 
-                        type="text"
-                        formControlName="razon_social" 
-                        pInputText> 
-                    <label for="state">Razón Social</label>
-                </span>
-                </div>
-                <div class="p-field p-col-12 p-md-4">
-                    <span class="p-float-label">
-                        <p-inputNumber 
-                        formControlName="telefono"
-                         mode="decimal" 
-                         inputId="tel"
-                        [useGrouping]="false"></p-inputNumber>
-                        <label for="tel">Telefono</label>
-                </span>
-                </div>
-                <div *ngFor="let category of categories" class="p-field-radiobutton p-md-2">
-                    <p-radioButton 
-                                    inpudIt="category.key" 
-                                    name="category" 
-                                    [value]="category" 
-                                    [(ngModel)]="selectedCategory" ></p-radioButton>
-                    <label [for]="category.key">{{category.name}}</label>
-                </div>
-                <div class="p-field p-col-12 p-md-8">
-                    <span class="p-float-label">
-                        <p-inputNumber
-                          mode="decimal"
-                           inputId="id" 
-                           [useGrouping]="false"
-                           formControlName="identificacion"></p-inputNumber>
-                        <label for="id">Número de identificación</label>
-                </span>
-                </div>
-                <div class=" p-grid p-field p-col-12 p-md-4">
-                    <button pButton  icon="pi pi-user-plus" type="submit" label="Registrar" class="p-button-raised p-button-success" styleClass="p-button-lg"></button>  
-                </div>
-            
-        </div>
-    </form>
+            </form>
         </div>
     </div>
 
