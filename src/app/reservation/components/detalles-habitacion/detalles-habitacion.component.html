@@ -1,0 +1,13 @@
+<div class="contenedorprinc">
+    <p-galleria [(value)]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '640px'}" [numVisible]="5"
+        [showThumbnails]="false" [showIndicators]="true" [changeItemOnIndicatorHover]="true"> 
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.previewImageSrc" style="height: 400px; display: block;" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+            <div class="p-grid p-nogutter p-justify-center">
+                <img [src]="item.thumbnailImageSrc" style="display: block;" />
+            </div>
+        </ng-template>
+    </p-galleria>
+</div>
