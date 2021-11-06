@@ -4,8 +4,7 @@
             <h4>Formulario de registro</h4>
             <form autocomplete="off" (ngSubmit)="onRegister()" [formGroup]="registerForm">
                 <div class="p-fluid p-formgrid p-grid">
-
-
+                    <p-toast key="tst"></p-toast>
                     <div class="p-field p-col-12 p-md-6">
                         <span class="p-float-label">
                             <input id="firstname" type="text" formControlName="pri_nombre" pInputText>

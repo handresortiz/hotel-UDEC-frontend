@@ -99,7 +99,7 @@ export class RegisterComponent implements OnInit {
     .subscribe( message => {
       console.log(message);
     },(error => {
-      console.log(error.error.mensaje)
+      this.showErrorViaToast(error.error.mensaje);
     })
     )
   }
@@ -126,6 +126,10 @@ export class RegisterComponent implements OnInit {
       error = JSON.stringify(control.errors);
     }
     return error;
+  }
+
+  showErrorViaToast(message: string) {
+    this.messageService.add({ key: 'tst', severity: 'error', summary: message, detail: message });
   }
 
 }
