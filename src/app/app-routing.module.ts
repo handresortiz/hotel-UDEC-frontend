@@ -36,6 +36,7 @@ import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
 
+
 @NgModule({
     imports: [
         RouterModule.forRoot([
@@ -78,6 +79,7 @@ import {AppHelpComponent} from './pages/app.help.component';
             {path: 'access', component: AppAccessdeniedComponent},
             {path: 'notfound', component: AppNotfoundComponent},
             {path: 'login', component: AppLoginComponent},
+            {path: 'reservation', loadChildren: () => import('./reservation/reservation.module').then( module => module.ReservationModule)},
             {path: '**', redirectTo: '/notfound'},
         ], {scrollPositionRestoration: 'enabled'})
     ],

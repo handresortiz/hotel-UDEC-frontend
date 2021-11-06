@@ -132,6 +132,9 @@ import {PhotoService} from './demo/service/photoservice';
 import {ProductService} from './demo/service/productservice';
 import {MenuService} from './app.menu.service';
 
+//Reservation
+import { ReservationModule } from './reservation/reservation.module';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -205,7 +208,8 @@ import {MenuService} from './app.menu.service';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        AppCodeModule
+        AppCodeModule,
+        ReservationModule
     ],
     declarations: [
         AppComponent,
