@@ -48,8 +48,7 @@
                         <div class="p-text-center-italic">Acomodacion</div>
                         <div class="p-text-center-italic">Precio</div>
                         <div class="p-text-center-italic">{{tipo.num_adultos+tipo.num_ninos}}</div>
-                        <div class="p-text-center-italic">${{tipo.precio_habitacion}}</div>
-                        <div class="p-text-center-italic"></div>
+                        <div class="p-text-center-italic">{{tipo.precio_habitacion | currency: 'COP'}}</div>
                     </div>
                 </p-panel>
             </div>

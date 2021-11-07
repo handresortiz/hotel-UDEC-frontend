@@ -1,0 +1,31 @@
+
+<div class="contenedor">
+    <div class="p-grid p-nogutter p-justify-center">
+        <img src="https://memoflores.com/fotos-de-hoteles-05.jpg" style="width: 80%" />
+
+    </div>
+
+    <div class="p-field p-col-12 p-md-6">
+        <h1>Reserve ahora</h1>
+        <label>desde: </label>
+        <p-calendar [(ngModel)]="fec_inicio"></p-calendar>
+        <label>hasta: </label>
+        <p-calendar [(ngModel)]="fec_fin"></p-calendar>
+    </div>
+
+    <div class="p-field p-col-12 p-md-6">
+        <label>Adultos: </label>
+            <p-inputNumber [(ngModel)]="num_adultos" [min]="1" [max]="4" [showButtons]="true" buttonLayout="vertical" spinnerMode="vertical" inputId="vertical"
+            decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" style="width: 20%">
+            </p-inputNumber>
+        <label>Niños: </label>
+        <p-inputNumber [(ngModel)]="num_ninos" [min]="0" [max]="4" [showButtons]="true" buttonLayout="vertical" spinnerMode="vertical" inputId="vertical"
+            decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" style="width: 20%">
+            </p-inputNumber>
+    </div>
+    
+    
+</div>
+
+
+<!-- <p-calendar [(ngModel)]="value"></p-calendar> -->
