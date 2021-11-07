@@ -6,7 +6,7 @@
 .titulo{
     text-align:center;
     font-style: bold;
-    font-family: "Georgia";
+    font-family: "Times New Roman";
 }
 hr {
     border: 0;
@@ -18,7 +18,7 @@ hr {
         display:grid;
         color:black;
         text-align: center;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-template-rows:repeat(3, 1fr);
         gap: 5px;
     }

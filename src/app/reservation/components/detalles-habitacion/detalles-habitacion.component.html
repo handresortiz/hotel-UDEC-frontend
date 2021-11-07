@@ -20,24 +20,30 @@
                 <p></p>
                 <p-panel header="Servicios">
                     <div class="servicios">
-                        <div><img src="https://cdn-icons-png.flaticon.com/512/566/566280.png" style="width:40px"/></div>
-                        <div class="p-text-center-italic">Wifi</div>
-                        <div><img src="https://cdn-icons-png.flaticon.com/512/48/48688.png" style="width:35px"/></div>
-                        <div class="p-text-center-italic">Parqueadero</div>
-                        <div><img src="https://cdn-icons-png.flaticon.com/512/91/91544.png" style="width:35px"/></div>
-                        <div class="p-text-center-italic">Mascotas</div>
-                        <div><img src="https://cdn-icons-png.flaticon.com/512/3144/3144982.png" style="width:40px"/></div>
-                        <div class="p-text-center-italic">Piscina</div>
-                        <div><img src="https://cdn-icons-png.flaticon.com/512/2258/2258863.png" style="width:40px"/></div>
-                        <div class="p-text-center-italic">Television</div>
-                        <div><img src="https://cdn-icons-png.flaticon.com/512/33/33738.png" style="width:40px"/></div>
-                        <div class="p-text-center-italic">Restaurante</div>
-                        <div><img src="https://cdn-icons-png.flaticon.com/512/3014/3014598.png" style="width:40px"/></div>
-                        <div class="p-text-center-italic">Gimnasio</div>
-                        <div><img src="https://cdn-icons-png.flaticon.com/512/2957/2957424.png" style="width:40px"/></div>
-                        <div class="p-text-center-italic">Bar</div>
-                        <div><img src="https://cdn-icons.flaticon.com/png/512/612/premium/612335.png?token=exp=1635875635~hmac=873e02fb54eac787a1f328a89dde68e1" style="width:40px"/></div>
-                        <div class="p-text-center-italic">Spa</div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/566/566280.png" style="width:40px"/>
+                            <span><div class="p-text-center-italic">Wifi</div></span>
+                        </div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/48/48688.png" style="width:35px"/>
+                            <span><div class="p-text-center-italic">Parqueadero</div></span>
+                        </div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/91/91544.png" style="width:35px"/>
+                            <span><div class="p-text-center-italic">Mascotas</div></span>
+                        </div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/3144/3144982.png" style="width:40px"/>
+                            <span><div class="p-text-center-italic">Piscina</div></span>
+                        </div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/2258/2258863.png" style="width:40px"/>
+                            <span><div class="p-text-center-italic">Television</div></span>
+                        </div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/33/33738.png" style="width:40px"/>
+                            <span><div class="p-text-center-italic">Restaurante</div></span>
+                        </div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/3014/3014598.png" style="width:40px"/>
+                            <span><div class="p-text-center-italic">Gimnasio</div></span>
+                        </div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/2957/2957424.png" style="width:40px"/>
+                            <span><div class="p-text-center-italic">Bar</div></span>
+                        </div>
                     </div>
                 </p-panel>
                 <p></p>
@@ -48,7 +54,7 @@
                         <div class="p-text-center-italic">Acomodacion</div>
                         <div class="p-text-center-italic">Precio</div>
                         <div class="p-text-center-italic">{{tipo.num_adultos+tipo.num_ninos}}</div>
-                        <div class="p-text-center-italic">{{tipo.precio_habitacion | currency: 'COP'}}</div>
+                        <span><div class="p-text-center-italic">${{tipo.precio_habitacion | number:0 }}</div></span>
                     </div>
                 </p-panel>
             </div>
