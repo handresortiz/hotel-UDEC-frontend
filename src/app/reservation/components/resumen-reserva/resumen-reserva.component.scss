@@ -1,6 +1,7 @@
 .principal{
     display:flex;
     justify-content: center;
+    /* background-color: rgba(240, 240, 240, 1); */
 }
 .cont1{
     display: block;
@@ -53,7 +54,7 @@
     grid-template-rows: repeat(7, 1fr);
     gap:1em 1.5em;
     align-items: center;
-    justify-items: center;
+    justify-items: left;
 }
 .datos div{
     text-align:left;

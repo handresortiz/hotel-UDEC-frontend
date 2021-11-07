@@ -1,37 +1,37 @@
-<div class="principal">
+<div class="principal" style="width: 100%; height: 100vh; background-color: rgba(250, 250, 250, 1);">
     <div class="cont1">
         <p-card header="Datos personales" styleClass="p-card-shadow">
             <div class="datos">
-                <div class="p-text-center-italic">Primer Nombre:</div>
+                <div class="p-text-center-italic">Primer nombre:</div>
                 <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
-                <div class="p-text-center-italic">Segundo Nombre:</div>
+                <div class="p-text-center-italic">Segundo nombre:</div>
                 <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
-                <div class="p-text-center-italic">Primer Apellido:</div>
+                <div class="p-text-center-italic">Primer apellido:</div>
                 <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
-                <div class="p-text-center-italic">Segundo Apellido:</div>
+                <div class="p-text-center-italic">Segundo apellido:</div>
                 <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
-                <div class="p-text-center-italic">N. Identificación:</div>
+                <div class="p-text-center-italic">N. identificación:</div>
                 <div><input type="text" size=28px style="height: 30px" pKeyFilter="num" placeholder="" pInputText /></div>
                 <div class="p-text-center-italic">Correo:</div>
                 <div><input type="text" size=28px style="height: 30px" [pKeyFilter]="blockSpecial" placeholder="" pInputText /></div>
-                <div class="p-text-center-italic">Telefono:</div>
+                <div class="p-text-center-italic">Teléfono:</div>
                 <div><input type="text" size=28px style="height: 30px" pKeyFilter="num" placeholder="" pInputText /></div>
             </div>
         </p-card>
         <p></p>
         <p-card header="Reserva" styleClass="p-card-shadow">
             <div class="Fechas">
-                <div class="p-text-center-italic">Fecha de Entrada</div>
-                <div class="p-text-center-italic">Fecha de Salida</div>
-                <div class="p-text-center-italic">Dia Entrada</div>
-                <div class="p-text-center-italic">Dia Salida</div>
+                <div class="p-text-center-italic">Fecha de entrada</div>
+                <div class="p-text-center-italic">Fecha de salida</div>
+                <div class="p-text-center-italic">Dia entrada</div>
+                <div class="p-text-center-italic">Dia salida</div>
             </div>
             <ng-template pTemplate="footer">
                 <div class="imagen">
                     <img class="centrar" src="https://memoflores.com/fotos-de-hoteles-05.jpg" width="70%" height="70%"/>
                 </div>
             </ng-template>
-        </p-card>  
+        </p-card>
     </div>
 
     <div class="cont2">
@@ -51,7 +51,7 @@
                         quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse,
                         cupiditate
                         neque quas!</p>
-                    <div class="p-text-center-italic">Tipo de Habitación</div>
+                    <div class="p-text-center-italic">Tipo de habitación</div>
                     <p>Estandar</p>
                     <div class="p-text-center-italic">Acomodación:</div>
                     <p>3 Personas</p>
@@ -61,15 +61,18 @@
                 </div>
             </div>
         </p-card>
-
         <p></p>
-
-        <p-card header="Detalles Precio" styleClass="p-card-shadow">
-            <ng-template pTemplate="header"></ng-template>
+        <p-card header="Cotización" styleClass="p-card-shadow" [style]="{'width': '40%', 'background-color': 'rgba(255, 255, 255, 1)'}">
+            <p>Precio por noche: $160.000</p>
+            <p></p>
+            <p>Días reservados: 4</p>
+            <p></p>
             <ng-template pTemplate="footer">
-                <p-button label="Confirmar" icon="pi pi-check" [style]="{'margin-end': '.30em','align-self':'right'}"></p-button>
+                <div class="fo" style="display: flex; flex-direction: row ; align-content: center; align-items: center;">
+                    <h1 style="margin: 0px; margin-right: auto; font-size: 17px;">Total: $640.000</h1>
+                    <p-button label="Confirmar" icon="pi pi-check" [style]="{}"></p-button>
+                </div>
             </ng-template>
-            <div class="Precio"></div>
         </p-card>
     </div>
 </div>
