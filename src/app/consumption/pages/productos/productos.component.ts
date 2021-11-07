@@ -47,10 +47,11 @@ export class ProductosComponent implements OnInit {
             {name: 'Barcelona', code: 'BRC'},
             {name: 'Rome', code: 'RM'}];
 
-        this.sortOptions = [
-            {label: 'Price High to Low', value: '!price'},
-            {label: 'Price Low to High', value: 'price'}
-        ];
+            this.sortOptions = [
+                {label: 'Alimentos', value: '!category'},
+                {label: 'Bebidas', value: 'category'},
+                {label: 'Servicios', value: 'category'}
+            ];
     }
 
     onSortChange(event) {
