@@ -47,7 +47,7 @@
 						</td>
 						<td>{{product.name}}</td>
 						<td><img [src]="'assets/demo/images/product/' + product.image" [alt]="product.name" width="100" class="p-shadow-4" /></td>
-						<td>{{product.price | currency:'USD'}}</td>
+						<td>{{product.price | currency:'COP'}}</td>
 						<td>{{product.category}}</td>
 						<td><span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span></td>
 						<td>
@@ -81,20 +81,16 @@
 					<label class="p-mb-3">Categoria</label>
 					<div class="p-formgrid p-grid">
 						<div class="p-field-radiobutton p-col-6">
-							<p-radioButton id="category1" name="category" value="Accessories" [(ngModel)]="product.category"></p-radioButton>
-							<label for="category1">Accessories</label>
+							<p-radioButton id="category1" name="category" value="Bebidas" [(ngModel)]="product.category"></p-radioButton>
+							<label for="category1">Bebidas</label>
 						</div>
 						<div class="p-field-radiobutton p-col-6">
-							<p-radioButton id="category2" name="category" value="Clothing" [(ngModel)]="product.category"></p-radioButton>
-							<label for="category2">Clothing</label>
+							<p-radioButton id="category2" name="category" value="Alimentos" [(ngModel)]="product.category"></p-radioButton>
+							<label for="category2">Alimentos</label>
 						</div>
 						<div class="p-field-radiobutton p-col-6">
-							<p-radioButton id="category3" name="category" value="Electronics" [(ngModel)]="product.category"></p-radioButton>
-							<label for="category3">Electronics</label>
-						</div>
-						<div class="p-field-radiobutton p-col-6">
-							<p-radioButton id="category4" name="category" value="Fitness" [(ngModel)]="product.category"></p-radioButton>
-							<label for="category4">Fitness</label>
+							<p-radioButton id="category3" name="category" value="Servicios" [(ngModel)]="product.category"></p-radioButton>
+							<label for="category3">Servicios</label>
 						</div>
 					</div>
 				</div>
@@ -102,7 +98,7 @@
 				<div class="p-formgrid p-grid">
 					<div class="p-field p-col">
 						<label for="price">Precio</label>
-						<p-inputNumber id="price" [(ngModel)]="product.price" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
+						<p-inputNumber id="price" [(ngModel)]="product.price" mode="currency" currency="COP" locale="es-CO"></p-inputNumber>
 					</div>
 					<div class="p-field p-col">
 						<label for="quantity">Cantidad</label>
