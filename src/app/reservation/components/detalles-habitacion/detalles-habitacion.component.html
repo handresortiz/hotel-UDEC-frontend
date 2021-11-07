@@ -1,15 +1,58 @@
 <div class="contenedor2" align="center">
     <div class="contedia">
-        <div class="galeria" style="width: 40%; height: 40%; object-fit: contain;">
+        <div class="galeria" style="width: 50%; height: 50%; object-fit: contain;">
             <p-galleria [(value)]="tipo.galeria" [responsiveOptions]="responsiveOptions" [numVisible]="5" [showThumbnails]="false" [showIndicators]="true" [changeItemOnIndicatorHover]="true"> 
                 <ng-template pTemplate="item" let-item>
-                    <img [src]="item.url_imagen" style="width: 650px;height: 400px; object-fit: contain;"/>
+                    <img [src]="item.url_imagen" style="width: 700px;height: 500px; object-fit: contain;"/>
                 </ng-template>
             </p-galleria>
         </div>
 
-        <div class="detalleshab" style="width: 60%; height: 60%; object-fit: contain;">
-            <p>{{tipo.nom_tipo_habitacion}}</p>
+            <div class="detalleshab" style="width: 50%; height: 50%; object-fit: contain;">
+                <!-- <p>{{tipo.nom_tipo_habitacion}}</p> -->
+                <div class="titulo">
+                    <h1>{{tipo.nom_tipo_habitacion}}</h1>
+                </div>
+                <hr>
+                <p-panel header="Descripción">
+                    <p>{{tipo.desc_tipo_habitacion}}</p>
+                </p-panel>
+                <p></p>
+                <p-panel header="Servicios">
+                    <div class="servicios">
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/566/566280.png" style="width:40px"/></div>
+                        <div class="p-text-center-italic">Wifi</div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/48/48688.png" style="width:35px"/></div>
+                        <div class="p-text-center-italic">Parqueadero</div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/91/91544.png" style="width:35px"/></div>
+                        <div class="p-text-center-italic">Mascotas</div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/3144/3144982.png" style="width:40px"/></div>
+                        <div class="p-text-center-italic">Piscina</div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/2258/2258863.png" style="width:40px"/></div>
+                        <div class="p-text-center-italic">Television</div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/33/33738.png" style="width:40px"/></div>
+                        <div class="p-text-center-italic">Restaurante</div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/3014/3014598.png" style="width:40px"/></div>
+                        <div class="p-text-center-italic">Gimnasio</div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/2957/2957424.png" style="width:40px"/></div>
+                        <div class="p-text-center-italic">Bar</div>
+                        <div><img src="https://cdn-icons.flaticon.com/png/512/612/premium/612335.png?token=exp=1635875635~hmac=873e02fb54eac787a1f328a89dde68e1" style="width:40px"/></div>
+                        <div class="p-text-center-italic">Spa</div>
+                    </div>
+                </p-panel>
+                <p></p>
+                <p-panel header="Detalles">
+                    <div class="detalles">
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" style="width:40px"/></div>
+                        <div><img src="https://cdn-icons-png.flaticon.com/128/3037/3037150.png" style="width:40px"/></div>
+                        <div class="p-text-center-italic">Acomodacion</div>
+                        <div class="p-text-center-italic">Precio</div>
+                        <div class="p-text-center-italic">{{tipo.num_adultos+tipo.num_ninos}}</div>
+                        <div class="p-text-center-italic">${{tipo.precio_habitacion}}</div>
+                        <div class="p-text-center-italic"></div>
+                    </div>
+                </p-panel>
+            </div>
+
         </div>
     </div>
-</div>

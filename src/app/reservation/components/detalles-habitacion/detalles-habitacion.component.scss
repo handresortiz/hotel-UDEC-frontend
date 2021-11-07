@@ -3,9 +3,43 @@
     justify-content: center;
     align-items: center;
 }
-
-.contedia{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.titulo{
+    text-align:center;
+    font-style: bold;
+    font-family: "Georgia";
 }
+hr {
+    border: 0;
+    border-top: 2px solid rgb(153, 153, 153); 
+    border-bottom: 2px solid #333;
+    height:0;
+    }
+.servicios{
+        display:grid;
+        color:black;
+        text-align: center;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows:repeat(3, 1fr);
+        gap: 5px;
+    }
+    
+.servicios div{
+        text-align-last:center;
+    }
+    
+.detalles{
+        display:grid;
+        color:black;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        text-align-last:center;
+    }
+.detalles div{
+    font-weight:bold;
+}
+:host ::ng-deep .p-panel p {
+            line-height: 1.5;
+            margin: 0;
+            text-align: justify;
+        }
+           

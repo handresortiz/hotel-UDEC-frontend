@@ -14,6 +14,9 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { DialogService } from 'primeng/dynamicdialog';
 
+//Detalles Habitacion
+import {PanelModule} from 'primeng/panel';
+
 @NgModule({
   declarations: [
     DetallesHabitacionComponent,
@@ -24,6 +27,7 @@ import { DialogService } from 'primeng/dynamicdialog';
     GalleriaModule,
     ButtonModule,
     DynamicDialogModule,
+    PanelModule,
     ReservationRoutingModule
   ],
   providers: [

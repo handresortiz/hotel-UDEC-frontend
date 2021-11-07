@@ -21,13 +21,21 @@ export class CatalogoComponent implements OnInit {
     public dialogService: DialogService,
   ) {
     this.tipo = {
-      "id_tipo_habitacion": 1,
-      "nom_tipo_habitacion": "Clásica doble",
-      "desc_tipo_habitacion": "Lorem ipsum",
-      "precio_habitacion": 160000,
-      "num_adultos": 2,
-      "num_ninos": 0,
-      "galeria": [
+      id_tipo_habitacion: 1,
+      nom_tipo_habitacion: "Clásica doble",
+      desc_tipo_habitacion: "El Hotel UDEC se encuentra en la histórica ciudad de Cartagena.\
+      Dispone de una piscina en el exterior, habitaciones con aire acondicionado, suelos de mármol, conestilo rústico. \
+      Disponen de mobiliario antiguo de madera y techos tradicionales con vigas a la vista. Están equipadas con TV vía satélite, conexión inalámbrica a internet gratuita y un minibar.\
+      El Hotel UDEC se encuentra en la histórica ciudad de Cartagena.\
+      Dispone de una piscina en el exterior, habitaciones con aire acondicionado, suelos de mármol, conestilo rústico. \
+      Disponen de mobiliario antiguo de madera y techos tradicionales con vigas a la vista. Están equipadas con TV vía satélite, conexión inalámbrica a internet gratuita y un minibar.\
+      El Hotel UDEC se encuentra en la histórica ciudad de Cartagena.\
+      Dispone de una piscina en el exterior, habitaciones con aire acondicionado, suelos de mármol, conestilo rústico. \
+      Disponen de mobiliario antiguo de madera y techos tradicionales con vigas a la vista. Están equipadas con TV vía satélite, conexión inalámbrica a internet gratuita y un minibar.",
+      precio_habitacion: 160000,
+      num_adultos: 2,
+      num_ninos: 0,
+      galeria: [
         {
           "id": 1,
           "url_imagen": "https://lasrosas.com/wp-content/uploads/revslider/habitaciones/habitaciones-lasrosas-ensenada-2.jpg"
