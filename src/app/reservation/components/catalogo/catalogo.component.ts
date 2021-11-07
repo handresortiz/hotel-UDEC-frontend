@@ -6,6 +6,10 @@ import { DetallesHabitacionComponent } from '../detalles-habitacion/detalles-hab
 //Modelos
 import { TipoHabitacion } from '../../models/tipohabitacion';
 
+//Services
+import { CatalogoService } from '../../services/catalogo.service'
+
+
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
@@ -18,7 +22,8 @@ export class CatalogoComponent implements OnInit {
   tipo: TipoHabitacion
 
   constructor(
-    public dialogService: DialogService,
+    private dialogService: DialogService,
+    private catalogoService: CatalogoService
   ) {
     this.tipo = {
       id_tipo_habitacion: 1,
@@ -48,6 +53,9 @@ export class CatalogoComponent implements OnInit {
           "id": 3,
           "url_imagen": "https://www.hotel-atriumpalacebarcelona.com/wp-content/blogs.dir/576/files/dobleslider/hotel_atriumpalace_doble_5.jpg"
         }
+      ],
+      habitaciones: [
+        { id_habitacion: 1, num_habitacion: 101 }
       ]
     }
   }
