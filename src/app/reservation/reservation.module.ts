@@ -20,12 +20,19 @@ import {InputNumberModule} from 'primeng/inputnumber';
 
 //Detalles Habitacion
 import {PanelModule} from 'primeng/panel';
+import { ResumenReservaComponent } from './components/resumen-reserva/resumen-reserva.component';
+
+// Resumen Reserva 
+import {CardModule} from 'primeng/card';
+import {InputTextModule} from 'primeng/inputtext';
+import {KeyFilterModule} from 'primeng/keyfilter';
 
 @NgModule({
   declarations: [
     DetallesHabitacionComponent,
     CatalogoComponent,
-    ReservarComponent
+    ReservarComponent,
+    ResumenReservaComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +45,9 @@ import {PanelModule} from 'primeng/panel';
     InputNumberModule,
     ButtonModule,
     PanelModule,
+    InputTextModule,
+    KeyFilterModule,
+    CardModule
   ],
   providers: [
     PhotoService,

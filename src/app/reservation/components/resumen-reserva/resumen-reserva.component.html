@@ -1,0 +1,75 @@
+<div class="principal">
+    <div class="cont1">
+        <p-card header="Datos personales" styleClass="p-card-shadow">
+            <div class="datos">
+                <div class="p-text-center-italic">Primer Nombre:</div>
+                <div><input type="text" size=30px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
+                <div class="p-text-center-italic">Segundo Nombre:</div>
+                <div><input type="text" size=30px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
+                <div class="p-text-center-italic">Primer Apellido:</div>
+                <div><input type="text" size=30px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
+                <div class="p-text-center-italic">Segundo Apellido:</div>
+                <div><input type="text" size=30px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
+                <div class="p-text-center-italic">N. Identificación:</div>
+                <div><input type="text" size=30px style="height: 30px" pKeyFilter="num" placeholder="" pInputText /></div>
+                <div class="p-text-center-italic">Correo:</div>
+                <div><input type="text" size=30px style="height: 30px" [pKeyFilter]="blockSpecial" placeholder="" pInputText /></div>
+                <div class="p-text-center-italic">Telefono:</div>
+                <div><input type="text" size=30px style="height: 30px" pKeyFilter="num" placeholder="" pInputText /></div>
+            </div>
+        </p-card>
+        <p></p>
+        <p-card header="Reserva" styleClass="p-card-shadow">
+            <div class="Fechas">
+                <div class="p-text-center-italic">Fecha de Entrada</div>
+                <div class="p-text-center-italic">Fecha de Salida</div>
+                <div class="p-text-center-italic">Dia Entrada</div>
+                <div class="p-text-center-italic">Dia Salida</div>
+            </div>
+            <ng-template pTemplate="footer">
+                <div class="imagen">
+                    <img alt="Card"src="https://memoflores.com/fotos-de-hoteles-05.jpg" width="100%" height="300"/>
+                </div>
+            </ng-template>
+        </p-card>  
+    </div>
+
+    <div class="cont2">
+        <p-card header="Habitación" styleClass="p-card-shadow">
+            <div class="habit">
+                <div class="habitacion">
+                    <div class="p-text-bold">Descripción:</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+                        repudiandae
+                        numquam deserunt
+                        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse,
+                        cupiditate
+                        neque quas!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+                        repudiandae
+                        numquam deserunt
+                        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse,
+                        cupiditate
+                        neque quas!</p>
+                    <div class="p-text-center-italic">Tipo de Habitación</div>
+                    <p>Estandar</p>
+                    <div class="p-text-center-italic">Acomodación:</div>
+                    <p>3 Personas</p>
+                </div>
+                <div class="imagen">
+                    <img alt="Card"src="https://www.tangol.com/Fotos/Hospedaje/hotel-finch-bay-habitaciones-vista-al-mar_8319_201910141140247.JPG" width="520" height="350">
+                </div>
+            </div>
+        </p-card>
+
+        <p></p>
+
+        <p-card header="Detalles Precio" styleClass="p-card-shadow">
+            <ng-template pTemplate="header"></ng-template>
+            <ng-template pTemplate="footer">
+                <p-button label="Confirmar" icon="pi pi-check" [style]="{'margin-end': '.30em','align-self':'right'}"></p-button>
+            </ng-template>
+            <div class="Precio"></div>
+        </p-card>
+    </div>
+</div>
