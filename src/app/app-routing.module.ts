@@ -35,6 +35,8 @@ import {AppCrudComponent} from './pages/app.crud.component';
 import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
+import { InventarioComponent } from './consumption/pages/inventario/inventario.component';
+import { ProductosComponent } from './consumption/pages/productos/productos.component';
 
 @NgModule({
     imports: [
@@ -43,6 +45,8 @@ import {AppHelpComponent} from './pages/app.help.component';
                 path: '', component: AppMainComponent,
                 children: [
                     {path: '', component: DashboardDemoComponent},
+                    {path: 'inventario', component: InventarioComponent},
+                    {path: 'productos', component: ProductosComponent},
                     {path: 'uikit/formlayout', component: FormLayoutDemoComponent},
                     {path: 'uikit/input', component: InputDemoComponent},
                     {path: 'uikit/button', component: ButtonDemoComponent},
