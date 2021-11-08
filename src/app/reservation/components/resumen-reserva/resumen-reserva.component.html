@@ -3,19 +3,19 @@
         <p-card header="Datos personales" styleClass="p-card-shadow">
             <div class="datos">
                 <div class="p-text-center-italic">Primer nombre:</div>
-                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText [(ngModel)]="cliente.pri_nombre"/></div>
                 <div class="p-text-center-italic">Segundo nombre:</div>
-                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText [(ngModel)]="cliente.seg_nombre"/></div>
                 <div class="p-text-center-italic">Primer apellido:</div>
-                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText [(ngModel)]="cliente.pri_apellido"/></div>
                 <div class="p-text-center-italic">Segundo apellido:</div>
-                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText /></div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText [(ngModel)]="cliente.seg_apellido"/></div>
                 <div class="p-text-center-italic">N. identificación:</div>
-                <div><input type="text" size=28px style="height: 30px" pKeyFilter="num" placeholder="" pInputText /></div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="num" placeholder="" pInputText [(ngModel)]="cliente.identificacion"/></div>
                 <div class="p-text-center-italic">Correo:</div>
-                <div><input type="text" size=28px style="height: 30px" [pKeyFilter]="blockSpecial" placeholder="" pInputText /></div>
+                <div><input type="text" size=28px style="height: 30px" [pKeyFilter]="blockSpecial" placeholder="" pInputText [(ngModel)]="cliente.correo"/></div>
                 <div class="p-text-center-italic">Teléfono:</div>
-                <div><input type="text" size=28px style="height: 30px" pKeyFilter="num" placeholder="" pInputText /></div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="num" placeholder="" pInputText [(ngModel)]="cliente.telefono"/></div>
             </div>
         </p-card>
         <p></p>
@@ -23,8 +23,8 @@
             <div class="Fechas">
                 <div class="p-text-center-italic">Fecha de entrada</div>
                 <div class="p-text-center-italic">Fecha de salida</div>
-                <div class="p-text-center-italic">Dia entrada</div>
-                <div class="p-text-center-italic">Dia salida</div>
+                <div class="p-text-center-italic"> {{fechaInicio}} </div>
+                <div class="p-text-center-italic"> {{fechaFin}} </div>
             </div>
             <ng-template pTemplate="footer">
                 <div class="imagen">
@@ -39,22 +39,11 @@
             <div class="habit">
                 <div class="habitacion">
                     <div class="p-text-bold">Descripción:</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
-                        repudiandae
-                        numquam deserunt
-                        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse,
-                        cupiditate
-                        neque quas!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
-                        repudiandae
-                        numquam deserunt
-                        quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse,
-                        cupiditate
-                        neque quas!</p>
+                    <p> {{tipoHabitacion.desc_tipo_habitacion}} </p>
                     <div class="p-text-center-italic">Tipo de habitación</div>
-                    <p>Estandar</p>
+                    <p> {{tipoHabitacion.nom_tipo_habitacion}} </p>
                     <div class="p-text-center-italic">Acomodación:</div>
-                    <p>3 Personas</p>
+                    <p> {{tipoHabitacion.num_adultos + tipoHabitacion.num_ninos}} </p>
                 </div>
                 <div class="imagenh">
                     <img alt="Card"src="https://www.tangol.com/Fotos/Hospedaje/hotel-finch-bay-habitaciones-vista-al-mar_8319_201910141140247.JPG" width="400" height="220">
@@ -63,13 +52,13 @@
         </p-card>
         <p></p>
         <p-card header="Cotización" styleClass="p-card-shadow" [style]="{'width': '40%', 'background-color': 'rgba(255, 255, 255, 1)'}">
-            <p>Precio por noche: $160.000</p>
+            <p>Precio por noche: ${{tipoHabitacion.precio_habitacion | number:0 }}</p>
             <p></p>
-            <p>Días reservados: 4</p>
+            <p>Días reservados: {{ diasHosp }}</p>
             <p></p>
             <ng-template pTemplate="footer">
                 <div class="fo" style="display: flex; flex-direction: row ; align-content: center; align-items: center;">
-                    <h1 style="margin: 0px; margin-right: auto; font-size: 17px;">Total: $640.000</h1>
+                    <h1 style="margin: 0px; margin-right: auto; font-size: 17px;">Total: ${{precioTotal | number:0 }}</h1>
                     <p-button label="Confirmar" icon="pi pi-check" [style]="{}"></p-button>
                 </div>
             </ng-template>
