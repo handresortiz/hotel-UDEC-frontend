@@ -1,93 +1,105 @@
-<button pButton label="Print" type="button" icon="pi pi-print" (click)="print()"
-		style="display:block;margin-bottom: 20px; margin-left: 6px;"></button>
+<!DOCTYPE html>
+<html>
+	<head>
 
-<div class="p-grid">
-	<div class="p-col">
-		<div class="card" >
-			<div id="invoice-content">
-				<div class="invoice">
-					<div class="invoice-header">
-						<div class="invoice-company">
-							<img id="invoice-logo" class="logo-image" src="assets/layout/images/logo-black.png" alt="barcelona-layout" />
-							<div class="company-name">YOUR COMPANY</div>
-							<div>9137 3rd Lane California City</div>
-							<div>CA 93504, U.S.A.</div>
-						</div>
-						<div>
-							<div class="invoice-title">INVOICE</div>
-							<div class="invoice-details">
-								<div class="invoice-label">DATE</div>
-								<div class="invoice-value">30/08/2019</div>
+	</head>
 
-								<div class="invoice-label">INVOICE #</div>
-								<div class="invoice-value">8523</div>
+	<body style="background-color: rgb(121, 187, 7);">
 
-								<div class="invoice-label">CUSTOMER ID</div>
-								<div class="invoice-value">C1613</div>
+		<div class="p-grid">
+			<div class="p-col">
+				<div class="card" >
+					<div id="invoice-content">
+						<div class="invoice">
+							<div class="invoice-header">
+								<div class="invoice-company">
+									<img id="invoice-logo" class="logo-image" src="assets/layout/images/logo_Universidad.png" alt="barcelona-layout" />
+									<div class="company-name">HOTEL UDEC</div>
+									<div>Fusagasuaga</div>
+									<div>Cundinamarca </div>
+								</div>
+								<div>
+									<div class="invoice-title">FACTURA</div>
+									<div class="invoice-details">
+										<div class="invoice-label">FECHA</div>
+										<div class="invoice-value"></div>
+		
+										<div class="invoice-label">FACTURA #</div>
+										<div class="invoice-value"></div>
+		
+										<div class="invoice-label">ID CLIENTE</div>
+										<div class="invoice-value"></div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-					<div class="invoice-to">
-						<div class="bill-to">BILL TO</div>
-						<div class="invoice-to-info">
-							<div>Claire Williams, 148 Hope Lane</div>
-							<div>Palo Alto, CA 94304. </div>
-						</div>
-					</div>
-					<div class="invoice-items">
-						<table>
-							<thead>
-							<tr>
-								<th>Description</th>
-								<th>Quantity</th>
-								<th>Unit Price</th>
-								<th>Line Total</th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr>
-								<td>Green T-Shirt</td>
-								<td>1</td>
-								<td>$49.00</td>
-								<td>$49.00</td>
-							</tr>
-							<tr>
-								<td>Game Controller</td>
-								<td>2</td>
-								<td>$99.00</td>
-								<td>$198.00</td>
-							</tr>
-							<tr>
-								<td>Mini Speakers</td>
-								<td>1</td>
-								<td>$85.00</td>
-								<td>$85.00</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="invoice-summary">
-						<div class="invoice-notes">
-							<b>NOTES</b>
-							<div>
-
+							<div class="invoice-to">
+								<div class="bill-to">Cobrar a </div>
+								<div class="invoice-to-info">
+									<div>Carlos ducuara</div>
+									<div>Acacias meta </div>
+								</div>
 							</div>
-						</div>
-						<div>
-							<div class="invoice-details">
-								<div class="invoice-label">SUBTOTAL</div>
-								<div class="invoice-value">$332.00</div>
-
-								<div class="invoice-label">VAT</div>
-								<div class="invoice-value">0</div>
-
-								<div class="invoice-label">TOTAL</div>
-								<div class="invoice-value">$332.00</div>
+							<div class="invoice-items">
+								<table style="background-color: rgb(179, 180, 177);">
+									<thead>
+									<tr>
+										<th>Descripcion</th>
+										<th>cantidad</th>
+										<th>Precio unitario</th>
+										<th>Total</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="invoice-summary">
+								<div class="invoice-notes">
+									<b>NOTAS</b>
+									<div>
+		
+									</div>
+								</div>
+								<div>
+									<div class="invoice-details">
+										<div class="invoice-label">SUBTOTAL</div>
+										<div class="invoice-value">$0</div>
+		
+										<div class="invoice-label">IVA</div>
+										<div class="invoice-value">$0</div>
+		
+										<div class="invoice-label">TOTAL</div>
+										<div class="invoice-value">$0</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
+		<button pButton label="Print" type="button" icon="pi pi-print" (click)="print()"
+				style="font-size:15px;width: 100px; height:30px;cursor:pointer;display:block;margin-bottom: 30px; margin-left: 1250px;">Impirmir</button>
+		
+	</body>
+	
+
+</html>
