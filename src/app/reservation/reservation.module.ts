@@ -26,13 +26,15 @@ import { ResumenReservaComponent } from './components/resumen-reserva/resumen-re
 import {CardModule} from 'primeng/card';
 import {InputTextModule} from 'primeng/inputtext';
 import {KeyFilterModule} from 'primeng/keyfilter';
+import { TarjetaHabitacionComponent } from './components/tarjeta-habitacion/tarjeta-habitacion.component';
 
 @NgModule({
   declarations: [
     DetallesHabitacionComponent,
     CatalogoComponent,
     ReservarComponent,
-    ResumenReservaComponent
+    ResumenReservaComponent,
+    TarjetaHabitacionComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +50,7 @@ import {KeyFilterModule} from 'primeng/keyfilter';
     InputTextModule,
     KeyFilterModule,
     CardModule
+
   ],
   providers: [
     PhotoService,

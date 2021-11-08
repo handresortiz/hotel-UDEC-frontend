@@ -1,31 +1,38 @@
 
-<div class="contenedor">
-    <div class="p-grid p-nogutter p-justify-center">
-        <img src="https://memoflores.com/fotos-de-hoteles-05.jpg" style="width: 80%" />
+        <img src="https://www.detectahotel.com/himg/69/12/b5/arbisoftimages-158935-piscina2-961686.jpg" alt="Image did not load..."
+            style="width:100%;height: 400px">
+<div>
+    <h3>Reserve ahora</h3>
+    <div class="contenedor-inputs">
 
-    </div>
+        <div class="p-field">
+            <label>desde: </label>
+            <p-calendar [(ngModel)]="fec_inicio"></p-calendar>
+        </div>
 
-    <div class="p-field p-col-12 p-md-6">
-        <h1>Reserve ahora</h1>
-        <label>desde: </label>
-        <p-calendar [(ngModel)]="fec_inicio"></p-calendar>
-        <label>hasta: </label>
-        <p-calendar [(ngModel)]="fec_fin"></p-calendar>
-    </div>
-
-    <div class="p-field p-col-12 p-md-6">
-        <label>Adultos: </label>
-            <p-inputNumber [(ngModel)]="num_adultos" [min]="1" [max]="4" [showButtons]="true" buttonLayout="vertical" spinnerMode="vertical" inputId="vertical"
-            decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" style="width: 20%">
+        <div class="p-field">
+            <label>hasta: </label>
+            <p-calendar [(ngModel)]="fec_fin"></p-calendar>
+        </div>
+        <div class="p-field">
+            <label>Adultos: </label>
+            <p-inputNumber [(ngModel)]="num_adultos" [min]="1" [max]="4" [showButtons]="true" inputId="stacked"
+            size=1px>
             </p-inputNumber>
-        <label>Niños: </label>
-        <p-inputNumber [(ngModel)]="num_ninos" [min]="0" [max]="4" [showButtons]="true" buttonLayout="vertical" spinnerMode="vertical" inputId="vertical"
-            decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" style="width: 20%">
+        </div>
+        <div class="p-field">
+            <label>Niños: </label>
+            <p-inputNumber [(ngModel)]="num_ninos" [min]="0" [max]="4" [showButtons]="true" inputId="stacked"
+            size=1px>
             </p-inputNumber>
+        </div>
+            <p-button label=" BUSCAR AHORA"></p-button>
+        
     </div>
-    
-    
 </div>
+        <div class="contenedor-tarjetas">
+            <app-tarjeta-habitacion *ngFor="let tipo of [1,2,3,4,5,6,7,8]"></app-tarjeta-habitacion>
 
+        </div>
 
 <!-- <p-calendar [(ngModel)]="value"></p-calendar> -->

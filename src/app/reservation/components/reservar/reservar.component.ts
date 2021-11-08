@@ -11,10 +11,10 @@ export class ReservarComponent implements OnInit {
 //aqui poner los atributos xD
 fec_inicio= new Date() ;
 fec_fin= new Date() ;
-num_adultos: number=0;
+num_adultos: number=1;
 num_ninos: number=0;
 handleClick() {
-  //execute action
+
 }
 
   constructor() {
