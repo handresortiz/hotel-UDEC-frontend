@@ -7,7 +7,7 @@
 			"description": "Product Description",
 			"image": "ponqueramo.jpg",
 			"price": 3400,
-			"category": "Accessories",
+			"category": "Alimentos",
 			"quantity": 24,
 			"inventoryStatus": "INSTOCK",
 			"rating": 5
@@ -19,7 +19,7 @@
 			"description": "Product Description",
 			"image": "papas-margarita-pollo.jpg",
 			"price": 1700,
-			"category": "Accessories",
+			"category": "Alimentos",
 			"quantity": 61,
 			"inventoryStatus": "OUTOFSTOCK",
 			"rating": 4
@@ -31,7 +31,7 @@
 			"description": "Product Description",
 			"image": "papas-margarita-natural.jpg",
 			"price": 1700,
-			"category": "Fitness",
+			"category": "Alimentos",
 			"quantity": 2,
 			"inventoryStatus": "LOWSTOCK",
 			"rating": 3
@@ -43,7 +43,7 @@
 			"description": "Product Description",
 			"image": "choco-ramo.jpg",
 			"price": 1650,
-			"category": "Clothing",
+			"category": "Alimentos",
 			"quantity": 25,
 			"inventoryStatus": "INSTOCK",
 			"rating": 5
@@ -55,7 +55,7 @@
 			"description": "Product Description",
 			"image": "coca-cola.jpg",
 			"price": 2200,
-			"category": "Accessories",
+			"category": "Bebidas",
 			"quantity": 73,
 			"inventoryStatus": "INSTOCK",
 			"rating": 4
@@ -67,7 +67,7 @@
 			"description": "Product Description",
 			"image": "limpieza-habitacion.jpg",
 			"price": 10000,
-			"category": "Accessories",
+			"category": "Servicios",
 			"quantity": 0,
 			"inventoryStatus": "OUTOFSTOCK",
 			"rating": 4
@@ -79,7 +79,7 @@
 			"description": "Product Description",
 			"image": "limonada-natural.png",
 			"price": 4000,
-			"category": "Accessories",
+			"category": "Bebidas",
 			"quantity": 5,
 			"inventoryStatus": "LOWSTOCK",
 			"rating": 3
@@ -91,7 +91,7 @@
 			"description": "Product Description",
 			"image": "servicio-habitacion.jpg",
 			"price": 2000,
-			"category": "Accessories",
+			"category": "Servicios",
 			"quantity": 23,
 			"inventoryStatus": "INSTOCK",
 			"rating": 5
@@ -103,7 +103,7 @@
 			"description": "Product Description",
 			"image": "gatorade.jpg",
 			"price": 3000,
-			"category": "Electronics",
+			"category": "Bebidas",
 			"quantity": 2,
 			"inventoryStatus": "LOWSTOCK",
 			"rating": 4
@@ -115,7 +115,7 @@
 			"description": "Product Description",
 			"image": "doritos.jpg",
 			"price": 2500,
-			"category": "Electronics",
+			"category": "Alimentos",
 			"quantity": 63,
 			"inventoryStatus": "INSTOCK",
 			"rating": 3
@@ -128,7 +128,7 @@
 			"description": "Product Description",
 			"image": "corona.jpg",
 			"price": 5000,
-			"category": "Accessories",
+			"category": "Bebidas",
 			"quantity": 0,
 			"inventoryStatus": "OUTOFSTOCK",
 			"rating": 4
@@ -140,7 +140,7 @@
 			"description": "Product Description",
 			"image": "chocolate.jpg",
 			"price": 3500,
-			"category": "Electronics",
+			"category": "Alimentos",
 			"quantity": 23,
 			"inventoryStatus": "INSTOCK",
 			"rating": 4
@@ -152,7 +152,7 @@
 			"description": "Product Description",
 			"image": "trident.jpg",
 			"price": 2000,
-			"category": "Clothing",
+			"category": "Alimentos",
 			"quantity": 74,
 			"inventoryStatus": "INSTOCK",
 			"rating": 5
@@ -164,7 +164,7 @@
 			"description": "Product Description",
 			"image": "vino.jpg",
 			"price": 38000,
-			"category": "Clothing",
+			"category": "Bebidas",
 			"quantity": 0,
 			"inventoryStatus": "OUTOFSTOCK",
 			"rating": 3
@@ -176,7 +176,7 @@
 			"description": "Product Description",
 			"image": "pringles.jpg",
 			"price": 12500,
-			"category": "Electronics",
+			"category": "Almentos",
 			"quantity": 8,
 			"inventoryStatus": "LOWSTOCK",
 			"rating": 5
@@ -188,7 +188,7 @@
 			"description": "Product Description",
 			"image": "coco2.png",
 			"price": 5000,
-			"category": "Clothing",
+			"category": "Bebidas",
 			"quantity": 34,
 			"inventoryStatus": "INSTOCK",
 			"rating": 4
@@ -200,7 +200,7 @@
 			"description": "Product Description",
 			"image": "hamburguesa.jpg",
 			"price": 7000,
-			"category": "Fitness",
+			"category": "Alimentos",
 			"quantity": 12,
 			"inventoryStatus": "INSTOCK",
 			"rating": 3
@@ -212,7 +212,7 @@
 			"description": "Product Description",
 			"image": "doble.jpg",
 			"price": 13000,
-			"category": "Clothing",
+			"category": "Alimentos",
 			"quantity": 42,
 			"inventoryStatus": "INSTOCK",
 			"rating": 4
@@ -224,7 +224,7 @@
 			"description": "Product Description",
 			"image": "salchipapa.jpg",
 			"price": 11000,
-			"category": "Accessories",
+			"category": "Alimentos",
 			"quantity": 41,
 			"inventoryStatus": "INSTOCK",
 			"rating": 5
@@ -236,7 +236,7 @@
 			"description": "Product Description",
 			"image": "perro.jpg",
 			"price": 7000,
-			"category": "Fitness",
+			"category": "Alimentos",
 			"quantity": 63,
 			"inventoryStatus": "INSTOCK",
 			"rating": 4
@@ -248,7 +248,7 @@
 			"description": "Product Description",
 			"image": "sprite.jpg",
 			"price": 3000,
-			"category": "Accessories",
+			"category": "Bebidas",
 			"quantity": 0,
 			"inventoryStatus": "OUTOFSTOCK",
 			"rating": 4
