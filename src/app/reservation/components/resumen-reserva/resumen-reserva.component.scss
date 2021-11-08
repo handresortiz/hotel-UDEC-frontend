@@ -30,12 +30,10 @@
     color:black;
     text-align: center;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows:30% 20%;
+    grid-template-rows:30% 30% 30%;
     gap:0.5em 1em;
 }
-.Fechas div{
-    font-weight:bold;
-}
+
 .habitacion{
     text-align: start;
     text-align: justify;
