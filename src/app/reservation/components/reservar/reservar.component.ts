@@ -57,8 +57,8 @@ export class ReservarComponent implements OnInit {
       num_habitaciones:this.num_habitaciones ,
       num_adultos: this.num_adultos,
       num_ninos: this.num_ninos ,
-      fecInicio: this.fec_inicio ,
-      fecFin: this.fec_fin ,
+      fecInicio: moment(this.fec_inicio).format('YYYY-MM-DD') ,
+      fecFin: moment(this.fec_fin).format('YYYY-MM-DD') ,
       tipo
       
     }

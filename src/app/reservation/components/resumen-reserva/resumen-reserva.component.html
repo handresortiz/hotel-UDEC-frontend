@@ -49,7 +49,7 @@
                     <p> {{tipoHabitacion.num_adultos + tipoHabitacion.num_ninos}} </p>
                 </div>
                 <div class="imagenh">
-                    <img alt="Card"src="https://www.tangol.com/Fotos/Hospedaje/hotel-finch-bay-habitaciones-vista-al-mar_8319_201910141140247.JPG" width="400" height="220">
+                    <img alt="Card" [src]="tipoHabitacion.galeria[0].url_imagen" width="400" height="220">
                 </div>
             </div>
         </p-card>

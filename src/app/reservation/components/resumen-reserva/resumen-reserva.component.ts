@@ -51,8 +51,9 @@ export class ResumenReservaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.metodoPrueba();
     const data = JSON.parse(sessionStorage.getItem("reserva"))
+    sessionStorage.clear()
+    
     this.fechaInicio = data.fecInicio;
     this.fechaFin = data.fecFin;
     this.numAdultos = data.num_adultos;
@@ -66,7 +67,7 @@ export class ResumenReservaComponent implements OnInit {
 
   irCatalogo(){
     setTimeout(() => {
-      this.router.navigate(['reservation/catalogo'])
+      this.router.navigate(['reservation/reserve-ahora'])
     }, 200);
   }
 
@@ -118,56 +119,13 @@ export class ResumenReservaComponent implements OnInit {
     });
   }
 
-  metodoPrueba() {
-    const reserva = {
-      num_habitaciones: 1,
-      fecInicio: "2021-11-08",
-      fecFin: "2021-11-10",
-      num_adultos: 2,
-      num_ninos: 0,
-      tipo: {
-        id_tipo_habitacion: 1,
-        nom_tipo_habitacion: "Clásica doble",
-        desc_tipo_habitacion: "El Hotel UDEC se encuentra en la histórica ciudad de Cartagena.\
-        Dispone de una piscina en el exterior, habitaciones con aire acondicionado, suelos de mármol, conestilo rústico. \
-        Disponen de mobiliario antiguo de madera y techos tradicionales con vigas a la vista. Están equipadas con TV vía satélite, conexión inalámbrica a internet gratuita y un minibar.\
-        El Hotel UDEC se encuentra en la histórica ciudad de Cartagena.\
-        Dispone de una piscina en el exterior, habitaciones con aire acondicionado, suelos de mármol, conestilo rústico. \
-        Disponen de mobiliario antiguo de madera y techos tradicionales con vigas a la vista. Están equipadas con TV vía satélite, conexión inalámbrica a internet gratuita y un minibar.\
-        El Hotel UDEC se encuentra en la histórica ciudad de Cartagena.\
-        Dispone de una piscina en el exterior, habitaciones con aire acondicionado, suelos de mármol, conestilo rústico. \
-        Disponen de mobiliario antiguo de madera y techos tradicionales con vigas a la vista. Están equipadas con TV vía satélite, conexión inalámbrica a internet gratuita y un minibar.",
-        precio_habitacion: 160000,
-        num_adultos: 2,
-        num_ninos: 0,
-        galeria: [
-          {
-            "id": 1,
-            "url_imagen": "https://lasrosas.com/wp-content/uploads/revslider/habitaciones/habitaciones-lasrosas-ensenada-2.jpg"
-          },
-          {
-            "id": 2,
-            "url_imagen": "https://www.amarehotels.com/wp-content/uploads/2019/02/amare-marbella-habitaciones-oh-la%CC%80-la%CC%80-_theone_-vista-mar-frontal-hab-twin-21.jpg"
-          },
-          {
-            "id": 3,
-            "url_imagen": "https://www.hotel-atriumpalacebarcelona.com/wp-content/blogs.dir/576/files/dobleslider/hotel_atriumpalace_doble_5.jpg"
-          }
-        ],
-        habitaciones: [
-          { id_habitacion: 1, num_habitacion: 101 },
-          { id_habitacion: 2, num_habitacion: 102 },
-          { id_habitacion: 3, num_habitacion: 103 },
-          { id_habitacion: 4, num_habitacion: 401 },
-          { id_habitacion: 5, num_habitacion: 301 }
-        ]
-      }
-    }
-    sessionStorage.setItem("reserva", JSON.stringify(reserva))
-  }
-
   calcDias() {
-    return moment(this.fechaFin).diff(moment(this.fechaInicio), 'days')
+    if(this.fechaFin == this.fechaInicio){
+      return 1
+    }else{
+      return moment(new Date(this.fechaFin)).diff(moment(new Date(this.fechaInicio)), 'days')
+    }
+    
   }
 
   calcPrec() {
