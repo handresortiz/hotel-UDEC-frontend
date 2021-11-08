@@ -81,6 +81,7 @@ const routes: Routes = [
     {path: 'login', component: AppLoginComponent},
     {path: 'auth', loadChildren: () => import('./auth/auth.module').then( module => module.AuthModule)},
     {path: 'dash', loadChildren: () => import('./dashboard/dashboard.module').then( module => module.DashboardModule)},
+    {path: 'reservation', loadChildren: () => import('./reservation/reservation.module').then( module => module.ReservationModule)},
     {path: '**', redirectTo: '/notfound'},
 ]
 

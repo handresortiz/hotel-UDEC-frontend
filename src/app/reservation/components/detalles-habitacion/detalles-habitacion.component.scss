@@ -1,0 +1,90 @@
+.contenedor2{
+    height: 79.5vh;
+}
+
+.contedia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titulo{
+    text-align:center;
+    font-style: bold;
+}
+hr {
+    border: 0;
+    border-top: 2px solid rgb(153, 153, 153); 
+    border-bottom: 2px solid #333;
+    height:0;
+    width: 700px;
+    }
+.servicios{
+        display:grid;
+        color:black;
+        text-align: center;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows:repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+.servicios div{
+        text-align-last:center;
+    }
+    
+.detalles{
+        display:grid;
+        color:black;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        text-align-last:center;
+    }
+.detalles div{
+    font-weight:bold;
+}
+:host ::ng-deep .p-panel p {
+            line-height: 1.5;
+            margin: 0;
+            text-align: justify;
+        }
+
+.contimgal{
+    width: 700px;
+    height: 394px;
+    object-fit: contain;
+}
+
+@media screen and (max-width: 1665px) {
+    .contimgal{
+        width: 585px; height: 330px;
+    }
+    hr{
+        width: 585px;;
+    }
+}
+
+@media screen and (max-width: 1383px) {
+    .contimgal{
+        width: 480px; height: 270px;
+    }
+    hr{
+        width: 480px;;
+    }
+}
+
+@media screen and (max-width: 1152px) {
+    .contedia{
+        display: block;
+    }
+    hr{
+        width: 100%;;
+    }
+    .contimgal{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .contimgal{
+        height: 200px;
+    }
+}

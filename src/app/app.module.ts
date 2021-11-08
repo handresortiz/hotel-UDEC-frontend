@@ -133,6 +133,9 @@ import {ProductService} from './demo/service/productservice';
 import {MenuService} from './app.menu.service';
 import { DashboardModule } from './dashboard/dashboard.module';
 
+//Reservation
+import { ReservationModule } from './reservation/reservation.module';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -207,7 +210,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
         TreeTableModule,
         VirtualScrollerModule,
         AppCodeModule,
-        DashboardModule
+        DashboardModule,
+        ReservationModule
     ],
     declarations: [
         AppComponent,
