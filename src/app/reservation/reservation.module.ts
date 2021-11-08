@@ -29,6 +29,10 @@ import {InputTextModule} from 'primeng/inputtext';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import { TarjetaHabitacionComponent } from './components/tarjeta-habitacion/tarjeta-habitacion.component';
 
+//
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+
 @NgModule({
   declarations: [
     DetallesHabitacionComponent,
@@ -50,12 +54,13 @@ import { TarjetaHabitacionComponent } from './components/tarjeta-habitacion/tarj
     PanelModule,
     InputTextModule,
     KeyFilterModule,
-    CardModule
-
+    ConfirmDialogModule,
+    CardModule,
   ],
   providers: [
     PhotoService,
-    DialogService
+    DialogService,
+    ConfirmationService
   ]
 })
 export class ReservationModule { }
