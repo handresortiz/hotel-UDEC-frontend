@@ -11,5 +11,10 @@ export class OcupacionComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  print() {
+    window.print();
+}
+
+  
 
 }

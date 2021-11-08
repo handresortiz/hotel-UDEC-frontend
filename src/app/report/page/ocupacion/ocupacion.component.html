@@ -1,1 +1,110 @@
-<p>ocupacion works!</p>
+<!DOCTYPE html>
+<html>
+	<head>
+
+	</head>
+
+	<body style="background-color: rgb(121, 187, 7);">
+
+		<div class="p-grid">
+			<div class="p-col">
+				<div class="card" >
+					<div id="invoice-content">
+						<div class="invoice">
+							<div class="invoice-header">
+								<div class="invoice-company">
+									<img id="invoice-logo" class="logo-image" src="assets/layout/images/logo_Universidad.png" alt="barcelona-layout" />
+									<div class="company-name" style="background-color: rgb(244, 245, 238);">HOTEL UDEC</div>
+									<div>Fusagasuaga</div>
+									<div>Cundinamarca </div>
+								</div>
+								<div>
+									<div class="invoice-title" style="background-color: rgb(251, 252, 248);">REPORTES</div>
+									<div class="invoice-details">
+										<div class="invoice-label">FECHA</div>
+										<div class="invoice-value"></div>
+
+									</div>
+								</div>
+							</div>
+							<div class="invoice-to">
+								<div class="bill-to">Informacion Detallada </div>
+								<div class="invoice-to-info">
+								</div>
+							</div>
+							<div class="invoice-items">
+								<table border="5" style="background-color: rgb(252, 253, 252);">
+									<thead style="background-color: rgb(250, 250, 249);">
+									<tr>
+										<td><span style="color: #050505;"></span>Descripcion</td>
+<td><span style="color: #070707;"></span>Cantidad</td>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td>Habitaciones Disponibles</td>
+										<td></td>
+									
+									</tr>
+									<tr>
+										<td>Habitaciones Ocupadas</td>
+										<td></td>
+									
+									</tr>
+									<tr>
+										<td>Total </td>
+										<td></td>
+									
+									</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="invoice-summary">
+								<div class="invoice-notes">
+									<b>Informacion Adicional</b>
+									<div class="invoice-items">
+										<table border="5" style="background-color: rgb(250, 252, 249);">
+											<thead style="background-color:rgb(253, 253, 252) ;">
+											<tr>
+												<th>Habitacion</th>
+												<th>Estado</th>
+												<th>Huesped</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr>
+												<td>1</td>
+												<td>Ocupado</td>
+												<td>Steward</td>
+											
+											</tr>
+											<tr>
+												<td></td>
+												<td></td>
+												<td></td>
+											
+											</tr>
+											<tr>
+												<td></td>
+												<td></td>
+												<td></td>
+											
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button pButton label="Print" type="button" icon="pi pi-print" (click)="print()"
+				style="font-size:15px;width: 150px; height:60px;cursor:pointer;display:block;margin-bottom: 30px; margin-left: 1250px;">Impirmir reporte</button>
+		
+	</body>
+	
+
+</html>
