@@ -1,3 +1,5 @@
+import { Habitacion } from './habitacion'
+
 interface Imagen{
     id: number,
     url_imagen: string
@@ -10,5 +12,6 @@ export interface TipoHabitacion{
     precio_habitacion: number,
     num_adultos: number,
     num_ninos: number,
+    habitaciones: Habitacion[]
     galeria: Imagen[]
 }
