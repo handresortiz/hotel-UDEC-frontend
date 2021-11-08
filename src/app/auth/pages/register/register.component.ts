@@ -43,8 +43,8 @@ export class RegisterComponent implements OnInit {
 
 
     profile: Profile = {
-      desc_perfil: 'Perfil de usuario comun',
-      nom_perfil: 'User Perfil'
+      desc_perfil: 'Perfil creado por defecto al registrarse'  ,
+      nom_perfil: 'Profile Default'
     }
 
   constructor( private registerService: RegisterService,
@@ -81,27 +81,33 @@ export class RegisterComponent implements OnInit {
       clave: this.registerForm.controls['pass'].value,
     }
 
-    this.registerService.registerProfile(this.profile)
-    .subscribe( message => {
-        console.log(message);
-    },(error => {
-      console.log(error.error.mensaje)
-    }));
+    
       
     this.registerService.registerPerson( person )
     .subscribe( message => {
-      console.log(message);
-    },(error => {
-      console.log(error.error.mensaje)
-    }));
 
-    this.registerService.registerUser( user )
-    .subscribe( message => {
-      console.log(message);
+        this.registerService.registerProfile(this.profile)
+      .subscribe( message => {
+          this.registerService.registerUser( user )
+          .subscribe( message => {
+            
+            this.showSuccessViaToast(message.mensaje)
+            console.log(message);
+
+          },(error => {
+            this.showErrorViaToast(error.error.mensaje);
+          })
+          )
+
+      },(error => {
+        this.showErrorViaToast(error.error.mensaje);
+      }));
+
     },(error => {
       this.showErrorViaToast(error.error.mensaje);
-    })
-    )
+    }));
+
+    
   }
 
   isValid(campo: string) {
@@ -130,6 +136,10 @@ export class RegisterComponent implements OnInit {
 
   showErrorViaToast(message: string) {
     this.messageService.add({ key: 'tst', severity: 'error', summary: message, detail: message });
+  }
+
+  showSuccessViaToast(message: string) {
+    this.messageService.add({ key: 'tst', severity: 'success', summary: 'Usuario logeado', detail: message  });
   }
 
 }
