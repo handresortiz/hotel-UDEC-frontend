@@ -15,8 +15,6 @@ import { TipoHabitacion } from '../../models/tipohabitacion';
 })
 export class DetallesHabitacionComponent implements OnInit {
 
-
-
   images: any[];
 
   responsiveOptions: any[] = [
