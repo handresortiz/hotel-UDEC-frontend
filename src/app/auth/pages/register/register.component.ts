@@ -94,17 +94,17 @@ export class RegisterComponent implements OnInit {
           this.registerService.registerUser( user )
           .subscribe( message => {
 
-           // let mail: Email = {
-           //   email: this.registerForm.controls,
-           //   name: ''
-           // }
+            let mail: Email = {
+              email: this.registerForm.controls['correo'].value,
+              name:  this.registerForm.controls['pri_nombre'].value
+            }
 
-           // this.mailService.sendEmail(mail)
-           // .subscribe( message =>{
-           //   this.showSuccessViaToast('Verificacion enviada correctamente')
-           // },( error => {
-           //   this.showErrorViaToast(error.error.mensaje);
-           // }) );
+            this.mailService.sendEmail(mail)
+            .subscribe( message =>{
+              this.showSuccessViaToast('Verificacion enviada correctamente')
+            },( error => {
+            this.showErrorViaToast(error.error.mensaje);
+            }) );
             
             this.showSuccessViaToast(message.mensaje)
             console.log(message);
