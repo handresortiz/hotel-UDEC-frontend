@@ -18,6 +18,7 @@ import {CalendarModule} from 'primeng/calendar';
 import{ FormsModule } from '@angular/forms';
 import {InputNumberModule} from 'primeng/inputnumber';
 
+
 //Detalles Habitacion
 import {PanelModule} from 'primeng/panel';
 import { ResumenReservaComponent } from './components/resumen-reserva/resumen-reserva.component';
