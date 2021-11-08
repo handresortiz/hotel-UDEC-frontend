@@ -5,6 +5,8 @@ import { MessageService, SelectItem } from 'primeng/api';
 import { Profile } from '../../interfaces/profile';
 import { Person } from '../../interfaces/person';
 import { User } from '../../interfaces/user';
+import { MailService } from '../../services/mail.service';
+import { Email } from '../../interfaces/email';
 
 
 @Component({
@@ -49,7 +51,8 @@ export class RegisterComponent implements OnInit {
 
   constructor( private registerService: RegisterService,
                private fb             : FormBuilder,
-               private messageService : MessageService) {
+               private messageService : MessageService,
+               private mailService    : MailService) {
                 this.registerForm.get('pass2').setValidators(
                   this.equalsValidator( this.registerForm.get('pass') )
                   );
@@ -90,6 +93,18 @@ export class RegisterComponent implements OnInit {
       .subscribe( message => {
           this.registerService.registerUser( user )
           .subscribe( message => {
+
+           // let mail: Email = {
+           //   email: this.registerForm.controls,
+           //   name: ''
+           // }
+
+           // this.mailService.sendEmail(mail)
+           // .subscribe( message =>{
+           //   this.showSuccessViaToast('Verificacion enviada correctamente')
+           // },( error => {
+           //   this.showErrorViaToast(error.error.mensaje);
+           // }) );
             
             this.showSuccessViaToast(message.mensaje)
             console.log(message);
