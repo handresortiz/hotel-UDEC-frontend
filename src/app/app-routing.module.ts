@@ -45,8 +45,6 @@ import { ProductosComponent } from './consumption/pages/productos/productos.comp
                 path: '', component: AppMainComponent,
                 children: [
                     {path: '', component: DashboardDemoComponent},
-                    {path: 'inventario', component: InventarioComponent},
-                    {path: 'productos', component: ProductosComponent},
                     {path: 'uikit/formlayout', component: FormLayoutDemoComponent},
                     {path: 'uikit/input', component: InputDemoComponent},
                     {path: 'uikit/button', component: ButtonDemoComponent},
@@ -75,7 +73,9 @@ import { ProductosComponent } from './consumption/pages/productos/productos.comp
                     {path: 'pages/invoice', component: AppInvoiceComponent},
                     {path: 'pages/help', component: AppHelpComponent},
                     {path: 'pages/empty', component: EmptyDemoComponent},
-                    {path: 'documentation', component: DocumentationComponent}
+                    {path: 'documentation', component: DocumentationComponent},
+                    {path: 'inventario', component: InventarioComponent},
+                    {path: 'productos', component: ProductosComponent}
                 ]
             },
             {path: 'error', component: AppErrorComponent},

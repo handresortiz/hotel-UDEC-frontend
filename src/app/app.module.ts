@@ -210,6 +210,8 @@ import {MenuService} from './app.menu.service';
         AppCodeModule,
     ],
     declarations: [
+        InventarioComponent,
+        ProductosComponent, //Modulos de Mauricio
         AppComponent,
         AppMainComponent,
         AppMenuComponent,
@@ -256,9 +258,7 @@ import {MenuService} from './app.menu.service';
         AppHelpComponent,
         AppNotfoundComponent,
         AppErrorComponent,
-        AppAccessdeniedComponent,
-        InventarioComponent,
-        ProductosComponent
+        AppAccessdeniedComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
