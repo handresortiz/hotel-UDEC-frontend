@@ -85,6 +85,57 @@ const routes: Routes = [
     {path: '**', redirectTo: '/notfound'},
 ]
 
+// Componentes de consumo
+import { InventarioComponent } from './consumption/pages/inventario/inventario.component';
+import { ProductosComponent } from './consumption/pages/productos/productos.component';
+
+
+const routes: Routes =
+                    [{
+    path: '', component: AppMainComponent,
+    children: [
+        {path: '', component: DashboardDemoComponent},
+        {path: 'uikit/formlayout', component: FormLayoutDemoComponent},
+        {path: 'uikit/input', component: InputDemoComponent},
+        {path: 'uikit/button', component: ButtonDemoComponent},
+        {path: 'uikit/table', component: TableDemoComponent},
+        {path: 'uikit/list', component: ListDemoComponent},
+        {path: 'uikit/tree', component: TreeDemoComponent},
+        {path: 'uikit/panel', component: PanelsDemoComponent},
+        {path: 'uikit/overlay', component: OverlaysDemoComponent},
+        {path: 'uikit/media', component: MediaDemoComponent},
+        {path: 'uikit/menu', component: MenusDemoComponent},
+        {path: 'uikit/message', component: MessagesDemoComponent},
+        {path: 'uikit/misc', component: MiscDemoComponent},
+        {path: 'uikit/charts', component: ChartsDemoComponent},
+        {path: 'uikit/file', component: FileDemoComponent},
+        {path: 'utilities/display', component: DisplayComponent},
+        {path: 'utilities/elevation', component: ElevationComponent},
+        {path: 'utilities/flexbox', component: FlexboxComponent},
+        {path: 'utilities/grid', component: GridComponent},
+        {path: 'utilities/icons', component: IconsComponent},
+        {path: 'utilities/widgets', component: WidgetsComponent},
+        {path: 'utilities/spacing', component: SpacingComponent},
+        {path: 'utilities/typography', component: TypographyComponent},
+        {path: 'utilities/text', component: TextComponent},
+        {path: 'pages/crud', component: AppCrudComponent},
+        {path: 'pages/calendar', component: AppCalendarComponent},
+        {path: 'pages/invoice', component: AppInvoiceComponent},
+        {path: 'pages/help', component: AppHelpComponent},
+        {path: 'pages/empty', component: EmptyDemoComponent},
+        {path: 'documentation', component: DocumentationComponent},
+        {path: 'inventario', component: InventarioComponent},
+        {path: 'productos', component: ProductosComponent}
+    ]
+},
+{path: 'error', component: AppErrorComponent},
+{path: 'access', component: AppAccessdeniedComponent},
+{path: 'notfound', component: AppNotfoundComponent},
+{path: 'login', component: AppLoginComponent},
+
+{path: '**', redirectTo: '/notfound'},]
+
+
 @NgModule({
     imports: [
         RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})

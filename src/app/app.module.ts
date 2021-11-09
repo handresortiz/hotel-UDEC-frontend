@@ -121,6 +121,8 @@ import {WidgetsComponent} from './utilities/widgets.component';
 import {SpacingComponent} from './utilities/spacing.component';
 import {TypographyComponent} from './utilities/typography.component';
 import {TextComponent} from './utilities/text.component';
+import {InventarioComponent} from './consumption/pages/inventario/inventario.component';
+import { ProductosComponent } from './consumption/pages/productos/productos.component';
 
 // Demo services
 import {CountryService} from './demo/service/countryservice';
@@ -214,6 +216,8 @@ import { ReservationModule } from './reservation/reservation.module';
         ReservationModule
     ],
     declarations: [
+        InventarioComponent,
+        ProductosComponent, //Modulos de Mauricio
         AppComponent,
         AppMainComponent,
         AppMenuComponent,
@@ -260,7 +264,7 @@ import { ReservationModule } from './reservation/reservation.module';
         AppHelpComponent,
         AppNotfoundComponent,
         AppErrorComponent,
-        AppAccessdeniedComponent,
+        AppAccessdeniedComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
