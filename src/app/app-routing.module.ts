@@ -35,6 +35,8 @@ import {AppCrudComponent} from './pages/app.crud.component';
 import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
+
+// Componentes de consumo
 import { InventarioComponent } from './consumption/pages/inventario/inventario.component';
 import { ProductosComponent } from './consumption/pages/productos/productos.component';
 
@@ -82,6 +84,7 @@ import { ProductosComponent } from './consumption/pages/productos/productos.comp
             {path: 'access', component: AppAccessdeniedComponent},
             {path: 'notfound', component: AppNotfoundComponent},
             {path: 'login', component: AppLoginComponent},
+
             {path: '**', redirectTo: '/notfound'},
         ], {scrollPositionRestoration: 'enabled'})
     ],
