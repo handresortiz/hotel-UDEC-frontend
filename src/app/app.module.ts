@@ -207,7 +207,7 @@ import {MenuService} from './app.menu.service';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        AppCodeModule,
+        AppCodeModule
     ],
     declarations: [
         InventarioComponent,
