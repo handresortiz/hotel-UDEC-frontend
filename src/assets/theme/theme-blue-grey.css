@@ -1399,7 +1399,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
 
 .p-button {
   color: #ffffff;
-  background: #607D8B;
+  background:#258530;
   border: 0 none;
   padding: 0.714rem 1rem;
   font-size: 1rem;
@@ -1407,7 +1407,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
   border-radius: 4px;
 }
 .p-button:enabled:hover {
-  background: rgba(96, 125, 139, 0.92);
+  background: #45d355;
   color: #ffffff;
   border-color: transparent;
 }

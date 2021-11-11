@@ -1,0 +1,53 @@
+<div class="p-grid">
+	<div class="p-col-10"
+	style="text-align: center;">
+		<div class="card" *ngIf="habitacion">
+			<h5>Modificar Estado De Habitación</h5>
+			<form>
+				<label for="text">Id Habitacion</label><br>
+				<input type="text" id="disabled-input" pInputText [disabled]="disabled" [(ngModel)]="habitacion.id"  value="{{habitacion.id}}" disabled style="text-align: center;"><br>
+				<label for="text">Numero de camas: </label><br>
+				<input type="text" id="disabled-input" pInputText [(ngModel)]="habitacion.numeroCamas" value="{{habitacion.numeroCamas}}" disabled style="text-align: center;" ><br>
+				<label for="text">Piso </label><br>
+				<input type="text" id="disabled-input"  pInputText [(ngModel)]="habitacion.piso" value="{{habitacion.piso}}" disabled style="text-align: center;"><br>
+				<label for="address">Piso</label><br>
+                <input id="city" type="text" pInputText [(ngModel)]="habitacion.piso" value="{{habitacion.piso}}" disabled style="text-align: center;"><br>
+				<label for="city"> Observación	
+				</label><br>
+				<textarea id="address" type="text" rows="4" [(ngModel)]="habitacion.observacion" pInputTextarea disabled style="text-align: center;">{{habitacion.observacion}}</textarea><br>
+				<label for="state">Estado</label><br>
+				
+				<select [compareWith]="compararEstado" class="form-control"  name="estado" [(ngModel)]="habitacion.estado">
+					<option [ngValue]="undefined">--- Seleccionar un estado</option>
+					<option *ngFor="let estado of estados" [ngValue]="estado">{{estado.nombre}}</option>
+				</select><br>
+				<label for="zip">Tipo</label>
+				<br>
+				<select [compareWith]="compararTipo" class="form-control"  name="tipo" [(ngModel)]="habitacion.tipo" disabled>
+					<option [ngValue]="undefined">--- Seleccionar un Tipo</option>
+					<option *ngFor="let tipo of tipos" [ngValue]="tipo">{{tipo.nombre}}</option>
+			</select><br>
+			<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+width="64" height="64"
+viewBox="0 0 172 172"
+style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="#ffffff"></path><g id="original-icon" fill="#000000" opacity="0" visibility="hidden"><path d="M91.375,0c-39.25301,0 -64.37079,28.39964 -64.91346,66.15385h-23.15385c-1.31791,0 -2.6875,0.7494 -2.6875,2.06731c-0.67187,1.31791 -0.67187,2.63582 0,3.30769l39.69231,50.85577c0.67188,0.67188 1.36959,1.24038 2.6875,1.24038c1.31791,0 2.01563,-0.56851 2.6875,-1.24038l39.69231,-50.85577c0.67188,-0.67187 0.67188,-1.98978 0,-3.30769c-0.67187,-1.31791 -2.01562,-2.06731 -2.6875,-2.06731h-23.15385c0.4393,-49.84796 25.94471,-60.93389 31.83654,-65.53365c1.31791,-0.67187 1.31791,-0.62019 0,-0.62019zM129,48.58173c-0.98197,0 -2.01562,0.36178 -2.6875,1.03365l-39.69231,50.85577c-0.67187,1.31791 -0.62019,2.63582 -0.62019,3.30769c0.67188,1.31791 2.01563,2.06731 2.6875,2.06731h23.77404c-0.4393,49.84796 -25.94471,60.9339 -31.83654,65.53365c-1.31791,0.67188 -1.31791,0.62019 0,0.62019c39.25301,0 64.37079,-28.39964 64.91346,-66.15385h22.53365c1.31791,0 2.6875,-0.7494 2.6875,-2.06731c1.31791,-1.31791 1.29207,-2.63581 0.62019,-3.30769l-39.69231,-50.85577c-0.67187,-0.67187 -1.70553,-1.03365 -2.6875,-1.03365z"></path></g><g id="subtracted-icon" fill="#000000"><path d="M91.375,0.62019c-5.89183,4.59976 -31.39724,15.6857 -31.83654,65.53365h23.15385c0.67188,0 2.01563,0.7494 2.6875,2.06731c0.67188,1.31791 0.67188,2.63582 0,3.30769l-39.69231,50.85577c-0.67187,0.67188 -1.36959,1.24038 -2.6875,1.24038c-1.31791,0 -2.01562,-0.56851 -2.6875,-1.24038l-39.69231,-50.85577c-0.67187,-0.67187 -0.67187,-1.98978 0,-3.30769c0,-1.31791 1.36959,-2.06731 2.6875,-2.06731h23.15385c0.54267,-37.75421 25.66046,-66.15385 64.91346,-66.15385c1.31791,0 1.31791,-0.05168 0,0.62019zM131.6875,49.61538l30.49276,39.06885c-8.51588,-5.86099 -18.81215,-9.29962 -29.87257,-9.29962c-19.15248,0 -36.01367,10.31079 -45.30685,25.65565c-0.38219,-0.32887 -0.74155,-0.75281 -1.00084,-1.26142c0,-0.67187 -0.05168,-1.98978 0.62019,-3.30769l39.69231,-50.85577c0.67188,-0.67187 1.70553,-1.03365 2.6875,-1.03365c0.98197,0 2.01563,0.36178 2.6875,1.03365zM80.625,172c-1.31791,0 -1.31791,0.05169 0,-0.62019c1.80658,-1.4104 5.45722,-3.43063 9.66385,-6.99115c1.66359,2.17074 3.49089,4.21025 5.46301,6.09965c-4.76644,0.99209 -9.81734,1.5117 -15.12686,1.5117z"></path></g><g><g id="Windows_x5F_8" fill="#59a896"><path d="M132.30769,92.61538c-21.83077,0 -39.69231,17.86154 -39.69231,39.69231c0,21.83077 17.86154,39.69231 39.69231,39.69231c21.83077,0 39.69231,-17.86154 39.69231,-39.69231c0,-21.83077 -17.86154,-39.69231 -39.69231,-39.69231zM152.15385,138.92308h-13.23077v13.23077h-13.23077v-13.23077h-13.23077v-13.23077h13.23077v-13.23077h13.23077v13.23077h13.23077z"></path></g><g id="Windows_x5F_8" fill="#000000" opacity="0"><path d="M132.30769,185.23077c29.10769,0 52.92308,-23.81538 52.92308,-52.92308c0,-29.10769 -23.81538,-52.92308 -52.92308,-52.92308c-29.10769,0 -52.92308,23.81538 -52.92308,52.92308c0,29.10769 23.81538,52.92308 52.92308,52.92308z"
+	(click)='actualizarEstado()'></path></g></g></g></svg>
+			</form>
+			
+			
+				
+			
+				
+				
+				
+
+			
+				
+			
+				
+              
+			</div>
+		</div>
+	</div>
+
+

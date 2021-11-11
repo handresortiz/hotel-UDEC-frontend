@@ -5,6 +5,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AppRoutingModule} from './app-routing.module';
+import { OcupationModule } from "./ocupation/ocupation.module";
 
 // PrimeNG Components for demos
 import {AccordionModule} from 'primeng/accordion';
@@ -121,6 +122,8 @@ import {WidgetsComponent} from './utilities/widgets.component';
 import {SpacingComponent} from './utilities/spacing.component';
 import {TypographyComponent} from './utilities/typography.component';
 import {TextComponent} from './utilities/text.component';
+import {InventarioComponent} from './consumption/pages/inventario/inventario.component';
+import { ProductosComponent } from './consumption/pages/productos/productos.component';
 
 // Demo services
 import {CountryService} from './demo/service/countryservice';
@@ -131,6 +134,10 @@ import {NodeService} from './demo/service/nodeservice';
 import {PhotoService} from './demo/service/photoservice';
 import {ProductService} from './demo/service/productservice';
 import {MenuService} from './app.menu.service';
+import { DashboardModule } from './dashboard/dashboard.module';
+
+//Reservation
+import { ReservationModule } from './reservation/reservation.module';
 
 @NgModule({
     imports: [
@@ -205,9 +212,14 @@ import {MenuService} from './app.menu.service';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        AppCodeModule
+        AppCodeModule,
+        DashboardModule,
+        ReservationModule,
+        OcupationModule
     ],
     declarations: [
+        InventarioComponent,
+        ProductosComponent, //Modulos de Mauricio
         AppComponent,
         AppMainComponent,
         AppMenuComponent,
@@ -255,6 +267,7 @@ import {MenuService} from './app.menu.service';
         AppNotfoundComponent,
         AppErrorComponent,
         AppAccessdeniedComponent,
+        
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

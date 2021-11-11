@@ -1,0 +1,78 @@
+<div class="principal" style="width: 100%; height: 100vh; background-color: rgba(250, 250, 250, 1);">
+    <div class="cont1">
+        <p-card header="Datos personales" styleClass="p-card-shadow">
+            <div class="datos">
+                <div class="p-text-center-italic">Primer nombre:</div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText [(ngModel)]="cliente.pri_nombre"/></div>
+                <div class="p-text-center-italic">Segundo nombre:</div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText [(ngModel)]="cliente.seg_nombre"/></div>
+                <div class="p-text-center-italic">Primer apellido:</div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText [(ngModel)]="cliente.pri_apellido"/></div>
+                <div class="p-text-center-italic">Segundo apellido:</div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="alpha" placeholder="" pInputText [(ngModel)]="cliente.seg_apellido"/></div>
+                <div class="p-text-center-italic">Nº identificación:</div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="num" placeholder="" pInputText [(ngModel)]="cliente.identificacion"/></div>
+                <div class="p-text-center-italic">Correo:</div>
+                <div><input type="text" size=28px style="height: 30px" [pKeyFilter]="blockSpecial" placeholder="" pInputText [(ngModel)]="cliente.correo"/></div>
+                <div class="p-text-center-italic">Teléfono:</div>
+                <div><input type="text" size=28px style="height: 30px" pKeyFilter="num" placeholder="" pInputText [(ngModel)]="cliente.telefono"/></div>
+            </div>
+        </p-card>
+        <p></p>
+        <p-card header="Reserva" styleClass="p-card-shadow">
+            <div class="Fechas">
+                <div class="p-text-center-italic"><strong>Fecha de entrada</strong> </div>
+                <div class="p-text-center-italic"><strong>Fecha de salida</strong></div>
+                <p> {{fechaInicio}} </p>
+                <p> {{fechaFin}} </p>
+                <div class="p-text-center-italic"><strong>Adultos: </strong>{{numAdultos}}</div> 
+                <div class="p-text-center-italic"><strong>Niños: </strong>{{numNinos}}</div>
+
+            </div>
+            <ng-template pTemplate="footer">
+                <div class="imagen">
+                    <img class="centrar" src="https://memoflores.com/fotos-de-hoteles-05.jpg" width="70%" height="70%"/>
+                </div>
+            </ng-template>
+        </p-card>
+    </div>
+
+    <div class="cont2">
+        <p-card header="Habitación" styleClass="p-card-shadow">
+            <div class="habit">
+                <div class="habitacion">
+                    <div class="p-text-bold">Descripción:</div>
+                    <p> {{tipoHabitacion.desc_tipo_habitacion}} </p>
+                    <div class="p-text-center-italic">Tipo de habitación</div>
+                    <p> {{tipoHabitacion.nom_tipo_habitacion}} </p>
+                    <div class="p-text-center-italic">Acomodación:</div>
+                    <p> {{tipoHabitacion.num_adultos + tipoHabitacion.num_ninos}} </p>
+                </div>
+                <div class="imagenh">
+                    <img alt="Card" [src]="tipoHabitacion.galeria[0].url_imagen" width="400" height="220">
+                </div>
+            </div>
+        </p-card>
+        <p></p>
+        <p-card header="Cotización" styleClass="p-card-shadow" [style]="{'width': '40%', 'background-color': 'rgba(255, 255, 255, 1)'}">
+            <p><strong>- Precio por noche:</strong>  ${{tipoHabitacion.precio_habitacion | number:0 }}</p>
+            <p></p>
+            <p><strong>- Días reservados:</strong> {{ diasHosp }}</p>
+            <p></p>
+            <p><strong>- Nº Habitaciones:</strong> {{numHabitacion}}</p>
+            <ng-template pTemplate="footer">
+                <div class="fo" style="display: flex; flex-direction: row ; align-content: center; align-items: center;">
+                    <h1 style="margin: 0px; margin-right: auto; font-size: 17px;">Total: ${{precioTotal | number:0 }}</h1>
+                    <p-confirmDialog #cd header="Alerta" icon="pi pi-exclamation-triangle">
+                        <p-footer>
+                            <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+                            <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+                        </p-footer>
+
+                    </p-confirmDialog>
+                    <button type="text" (click)="confirm()" pButton icon="pi pi-check" label="Reservar" ></button>
+                </div>
+            </ng-template>
+        </p-card>
+    </div>
+</div>
