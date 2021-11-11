@@ -5,6 +5,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AppRoutingModule} from './app-routing.module';
+import { OcupationModule } from "./ocupation/ocupation.module";
 
 // PrimeNG Components for demos
 import {AccordionModule} from 'primeng/accordion';
@@ -213,7 +214,8 @@ import { ReservationModule } from './reservation/reservation.module';
         VirtualScrollerModule,
         AppCodeModule,
         DashboardModule,
-        ReservationModule
+        ReservationModule,
+        OcupationModule
     ],
     declarations: [
         InventarioComponent,
@@ -264,7 +266,8 @@ import { ReservationModule } from './reservation/reservation.module';
         AppHelpComponent,
         AppNotfoundComponent,
         AppErrorComponent,
-        AppAccessdeniedComponent
+        AppAccessdeniedComponent,
+        
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

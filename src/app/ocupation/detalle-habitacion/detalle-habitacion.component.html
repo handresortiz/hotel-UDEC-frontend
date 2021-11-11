@@ -1,0 +1,44 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <div class="card">
+            <h4>Log de la habitacion</h4>
+        </div>
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>ID Habitacion</th>
+                    <th>Piso</th>
+                    <th>Estado</th>
+                    <th>Tipo</th>
+                    <th>Fecha Modificacion</th>
+                    <th>Precio</th>
+                    <th>Cliente</th>
+                    <th>Fecha Entrada</th>
+                    <th>Fecha Salida</th>
+                    <th>Observacion</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let log of logs">
+                    <td>{{log.habitacion.id}}</td>
+                    <td>{{log.habitacion.piso}}</td>
+                    <td> 
+                    <button style="background-color: {{log.habitacion.estado.color}}; color : white;">{{log.habitacion.estado.nombre}}</button>
+                    </td>
+                    <td>{{log.habitacion.tipo.nombre}}</td>
+                    <td>{{log.fecha}}</td>
+                        <td *ngFor="let item of log.habitacion.items">{{item.precio}}</td>
+                        <td *ngFor="let item of log.habitacion.items">{{item.cliente.nombres}} {{item.cliente.apellidos}}</td>
+                        <td *ngFor="let item of log.habitacion.items">{{item.fecha_entrada}}</td>
+                        <td *ngFor="let item of log.habitacion.items">{{item.fecha_salida}}</td>
+                        <td *ngFor="let item of log.habitacion.items">{{item.observacion}}</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+    </div>
+</div>

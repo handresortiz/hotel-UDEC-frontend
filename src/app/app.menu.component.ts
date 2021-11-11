@@ -25,8 +25,16 @@ export class AppMenuComponent implements OnInit {
                 items: [
                     {label: 'Productos', icon: 'pi pi-fw pi-list', routerLink: ['/productos']},
                     {label: 'Inventario', icon: 'pi pi-fw pi-pencil', routerLink: ['/inventario']},
+                    
                 ]
             },
+            {
+                label: 'Ocupación', icon:"pi pi-user", routerLink:['/habitaciones']
+            },
+            {
+                label: 'Check-in', icon:"pi pi-check", routerLink:['/reservas']
+            },
+            
             {
                 label: 'UI Kit', icon: 'pi pi-fw pi-star-o', routerLink: ['/uikit'], badge: 6,
                 items: [

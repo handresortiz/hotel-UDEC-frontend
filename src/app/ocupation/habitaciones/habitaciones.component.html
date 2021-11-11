@@ -1,0 +1,93 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <div class="card"
+            style="text-align: center;">
+            <h4>Habitaciones</h4>
+        </div>
+
+        <table class="styled-table"
+        style="margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th># Habitacion</th>
+                    <th># Camas Disponibles</th>
+                    <th>Piso</th>
+                    <th>Observacion</th>
+                    <th>Estado</th>
+                    <th>Tipo</th>
+                    <th>Opciones</th>
+                    <th>Cambios</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let habitacion of habitaciones">
+                    <td>{{habitacion.id}}</td>
+                    <td>{{habitacion.numeroCamas}}</td>
+                    <td>{{habitacion.piso}}</td>
+                    <td>{{habitacion.observacion}}</td>
+                    <td> 
+                    <button style="background-color: {{habitacion.estado.color}}; color : white;">{{habitacion.estado.nombre}}</button>
+                    </td>
+                    <td>{{habitacion.tipo.nombre}}</td>
+                    <td>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        width="32" height="32"
+                        viewBox="0 0 172 172"
+                        style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="#1abc9c"></path><g fill="#000000"><path d="M128.57675,19.78008c-1.68706,0 -3.37599,0.64264 -4.66169,1.93164l-11.25501,11.25501l26.3733,26.3733l11.25501,-11.25501c2.57799,-2.57799 2.57799,-6.75198 0,-9.32337l-17.04992,-17.04993c-1.289,-1.289 -2.97462,-1.93164 -4.66169,-1.93164zM102.77006,42.85672l-75.82324,75.82324v26.3733h26.3733l75.82324,-75.82324z"
+                            [routerLink]="['/habitacion', habitacion.id]"></path></g></g></svg>
+                       
+                    </td>
+                    <td>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="10px" y="0px"
+                        width="32" height="32"
+                        viewBox="0 0 172 172"
+                        style=" fill:#000000;">
+                        <g fill="none"
+                         fill-rule="nonzero"
+                          stroke="none" 
+                          stroke-width="1" 
+                          stroke-linecap="butt"
+                           stroke-linejoin="miter" stroke-miterlimit="10"
+                            stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                             font-weight="none" font-size="none" text-anchor="none"
+                              style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z"
+                              style="margin-top: 50%;" 
+                              fill="none" stroke="none">
+                            </path><g id="original-icon" 
+                            fill="#000000" 
+                            stroke="none" 
+                            opacity="0" 
+                            visibility="hidden">
+                            <path d="M48.375,21.5c-8.86035,0 -16.125,7.26465 -16.125,16.125v118.08203l53.75,-39.38867l53.75,39.38867v-118.08203c0,-8.86035 -7.26465,-16.125 -16.125,-16.125zM48.375,32.25h75.25c3.02344,0 5.375,2.35156 5.375,5.375v96.91797l-43,-31.57812l-43,31.57813v-96.91797c0,-3.02344 2.35156,-5.375 5.375,-5.375z"></path></g><g id="subtracted-icon" fill="#000000" stroke="none"><path d="M123.625,21.5c8.86035,0 16.125,7.26465 16.125,16.125v39.96281l-10.75,0v-39.96281c0,-3.02344 -2.35156,-5.375 -5.375,-5.375h-75.25c-3.02344,0 -5.375,2.35156 -5.375,5.375v96.91797l43,-31.57812l39.27043,28.83922h-18.13855l-21.13188,-15.4857l-53.75,39.38867v-118.08203c0,-8.86035 7.26465,-16.125 16.125,-16.125z"></path></g><g stroke="none"><g id="Layer_1" fill="#009879"><path d="M150.3135,144.89187v-54.21626h-10.84325v54.21626h-21.6865l27.10813,27.10813l27.10813,-27.10813z"></path></g><g id="Layer_1" fill="#000000" opacity="0"><path d="M161.15675,77.58781h-10.84325h-10.84325h-10.84325v10.84325v43.37301h-10.84325h-26.17561l18.50943,18.50943l27.10813,27.10813l7.66618,7.66618l7.66618,-7.66618l27.10813,-27.10813l18.50943,-18.50943h-26.17561h-10.84325v-43.37301v-10.84325z"></path></g></g><path d="M117.78374,172v-81.32439h54.21626v81.32439z" id="overlay-drag" fill="#ff0000" stroke="none" opacity="0"
+                        [routerLink]="['/habitacion/detalle', habitacion.id]"></path></g></svg>
+                        <a *ngIf="habitacion.estado.nombre == 'Reservado' " button pButton type="button" label="Check-In" (click)="realizarCheckIn(habitacion.id)" ></a>
+                    </td>
+                    
+                </tr>
+
+
+            </tbody>
+        </table>
+
+        <div class="card"
+        style="text-align: center;">
+            <h4>Cantidad Por Estado </h4>
+        </div>
+
+        <table class="styled-table" style="margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>Nombre Estado</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let detalle of cantidadEstado | keyvalue">
+                    <td>{{detalle.key}}</td>
+                    <td>{{detalle.value}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

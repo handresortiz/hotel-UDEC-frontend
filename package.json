@@ -28,10 +28,11 @@
         "chart.js": "2.7.3",
         "moment": "^2.29.1",
         "primeflex": "2.0.0",
-        "primeicons": "4.0.0",
-        "primeng": "^10.0.2",
+        "primeicons": "^4.0.0",
+        "primeng": "^10.0.3",
         "prismjs": "1.20.0",
         "rxjs": "~6.5.5",
+        "sweetalert2": "^11.1.10",
         "tslib": "^2.0.0",
         "web-animations-js": "^2.3.2",
         "zone.js": "~0.10.3"
