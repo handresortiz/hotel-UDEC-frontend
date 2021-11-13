@@ -9,10 +9,11 @@ import { PrimengModule } from '../primeng/primeng.module';
 import { CapchaComponent } from './components/capcha/capcha.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PolitycsComponent } from './pages/politycs/politycs.component';
 
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, EmailConfirmComponent, CapchaComponent],
+  declarations: [RegisterComponent, LoginComponent, EmailConfirmComponent, CapchaComponent, PolitycsComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

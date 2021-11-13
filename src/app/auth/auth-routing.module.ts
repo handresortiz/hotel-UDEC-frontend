@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { EmailConfirmComponent } from './pages/email-confirm/email-confirm.component';
+import { PolitycsComponent } from './pages/politycs/politycs.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,9 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent},
       { path: 'register', component: RegisterComponent},
-      { path: 'validate', component: EmailConfirmComponent}
+      { path: 'validate', component: EmailConfirmComponent},
+      { path: 'policy', component: PolitycsComponent},
+      { path: '**', redirectTo: 'login'}
     ]
   }
 ];
