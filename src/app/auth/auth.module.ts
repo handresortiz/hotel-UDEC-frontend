@@ -10,10 +10,11 @@ import { CapchaComponent } from './components/capcha/capcha.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PolitycsComponent } from './pages/politycs/politycs.component';
+import { EnviarEmailComponent } from './pages/enviar-email/enviar-email.component';
 
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, EmailConfirmComponent, CapchaComponent, PolitycsComponent],
+  declarations: [RegisterComponent, LoginComponent, EmailConfirmComponent, CapchaComponent, PolitycsComponent, EnviarEmailComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

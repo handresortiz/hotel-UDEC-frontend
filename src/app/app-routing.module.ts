@@ -45,6 +45,7 @@ import { HabitacionEditStatusComponent } from "./ocupation/habitacion-edit-statu
 import {HabitacionesComponent  } from "./ocupation/habitaciones/habitaciones.component";
 import { ReservasComponent } from "./ocupation/reservas/reservas.component";
 import { ReservasClienteComponent } from "./ocupation/reservas-cliente/reservas-cliente.component";
+import { EnviarEmailComponent } from './auth/pages/enviar-email/enviar-email.component';
 const routes: Routes = [
 
     {
@@ -99,7 +100,8 @@ const routes: Routes = [
     {path: 'reservation', loadChildren: () => import('./reservation/reservation.module').then( module => module.ReservationModule)},
     {path: 'ocupation', loadChildren: () => import('./ocupation/ocupation.module').then( module => module.OcupationModule)},
     {path: 'bill', loadChildren: () => import('./bill/bill.module').then( module => module.BillModule)},
-    {path: 'report', loadChildren: () => import('./report/report.module').then( module => module.ReportModule)},        
+    {path: 'report', loadChildren: () => import('./report/report.module').then( module => module.ReportModule)}, 
+    { path: 'verificacion', component: EnviarEmailComponent},
     {path: '**', redirectTo: '/notfound'},
 ]
 
