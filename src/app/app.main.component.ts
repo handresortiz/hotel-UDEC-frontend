@@ -1,5 +1,6 @@
 import {Component, AfterViewInit, Renderer2, OnInit, OnDestroy} from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-main',
@@ -35,7 +36,7 @@ export class AppMainComponent implements AfterViewInit, OnInit, OnDestroy {
 
     compactMode = false;
 
-    constructor(public renderer: Renderer2, private primengConfig: PrimeNGConfig) {}
+    constructor(public renderer: Renderer2, private primengConfig: PrimeNGConfig, public router: Router) {}
 
     ngOnInit() {
         this.primengConfig.ripple = true;
@@ -119,9 +120,12 @@ export class AppMainComponent implements AfterViewInit, OnInit, OnDestroy {
         return window.innerWidth > 1024;
     }
 
+    logout(){
+        this.router.navigate(['/auth/login']);
+    }
+
+
     ngOnDestroy() {
-        if (this.documentClickListener) {
-            this.documentClickListener();
-        }
+        
     }
 }

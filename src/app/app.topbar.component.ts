@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {AppMainComponent} from './app.main.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-topbar',
@@ -53,7 +54,7 @@ import {AppMainComponent} from './app.main.component';
                             </a>
                         </li>
                         <li role="menuitem">
-                            <a href="#" (click)="app.onTopbarSubItemClick($event)">
+                            <a  (click)="app.logout()">
                                 <i class="pi pi-sign-out"></i>
                                 <span>Logout</span>
                             </a>
@@ -110,4 +111,6 @@ export class AppTopbarComponent {
 
     constructor(public app: AppMainComponent) {}
 
+
+   
 }

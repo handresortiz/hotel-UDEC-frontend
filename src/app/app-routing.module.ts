@@ -90,6 +90,7 @@ const routes: Routes = [
             
         ]
     },
+    {path: 'dashboard', component: AppMainComponent},
     {path: 'error', component: AppErrorComponent},
     {path: 'access', component: AppAccessdeniedComponent},
     {path: 'notfound', component: AppNotfoundComponent},
@@ -101,6 +102,7 @@ const routes: Routes = [
     {path: 'bill', loadChildren: () => import('./bill/bill.module').then( module => module.BillModule)},
     {path: 'report', loadChildren: () => import('./report/report.module').then( module => module.ReportModule)},        
     {path: '**', redirectTo: '/notfound'},
+
 ]
 
 

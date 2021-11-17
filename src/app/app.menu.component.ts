@@ -35,10 +35,10 @@ export class AppMenuComponent implements OnInit {
                 label: 'Check-in', icon:"pi pi-check", routerLink:['/reservas']
             },
             {
-                label: 'Reservación', icon:"pi pi-calendar-plus", routerLink:['/habitaciones']
+                label: 'Reservación', icon:"pi pi-calendar-plus", routerLink:['/reservation/catalogo']
             },
             {
-                label: 'Facturación', icon:"pi pi-ticket", routerLink:['/habitaciones']
+                label: 'Facturación', icon:"pi pi-ticket", routerLink:['/bill/factura']
             },
             /*
             {
