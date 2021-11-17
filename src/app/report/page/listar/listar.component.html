@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="card">
+    <div class="card-header">
+    <h3>Habitaciones</h3> 
+    </div>
+    <div class="card-body">
+    <table class="table table-hover">
+    <thead>
+    <tr>
+        <th style="text-align: center;">ID</th>
+        <th style="text-align: center;">Habitacion</th>
+        <th style="text-align: center;">Estado</th>   
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let habitacion of habitaciones" class="text-center">
+            <td>{{ habitacion.id_habitacion }}</td>
+            <td>{{ habitacion.num_habitacion }}</td>
+            <td>{{ habitacion.estado }}</td>
+        </tr>
+    </tbody>
+    </table>    
+    
+
+    </div>
+    
+    </div>
+    </div>
+    <button pButton label="Print" type="button" icon="pi pi-print" (click)="print()"
+				style="font-size:15px;width: 150px; height:60px;cursor:pointer;display:block;margin-bottom: 30px; margin-left: 1250px;">Impirmir reporte</button>
+    

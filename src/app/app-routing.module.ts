@@ -35,6 +35,8 @@ import {AppCrudComponent} from './pages/app.crud.component';
 import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
+import { ListarComponent } from './report/page/listar/listar.component';
+
 
 @NgModule({
     imports: [
@@ -78,6 +80,7 @@ import {AppHelpComponent} from './pages/app.help.component';
             {path: 'access', component: AppAccessdeniedComponent},
             {path: 'notfound', component: AppNotfoundComponent},
             {path: 'login', component: AppLoginComponent},
+            {path: 'listar', component: ListarComponent},
             {path: 'bill', loadChildren: () => import('./bill/bill.module').then( module => module.BillModule)},
             {path: 'report', loadChildren: () => import('./report/report.module').then( module => module.ReportModule)},
             {path: '**', redirectTo: '/notfound'},
