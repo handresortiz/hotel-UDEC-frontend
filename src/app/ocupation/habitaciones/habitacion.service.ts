@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Habitacion } from './models/Habitacion';
 import { map } from 'rxjs/operators';
+import { Habitaciones } from './models/Habitaciones';
 
 @Injectable()
 export class HabitacionService {
@@ -12,9 +12,9 @@ export class HabitacionService {
 
   constructor(private http: HttpClient) { }
 
-  getHabitaciones(): Observable<Habitacion[]>{
+  getHabitaciones(): Observable<Habitaciones[]>{
     return this.http.get(`${this.urlEndPoint}/habitaciones`).pipe(
-      map(response => response as Habitacion[]));
+      map(response => response as Habitaciones[]));
   }
 
   getCantidadPorEstado(): Observable<Array<any>>{
@@ -22,7 +22,19 @@ export class HabitacionService {
       map(response => response as Array<any>));
   }
 
-  updateStateToOccupied(id: number) : Observable<Habitacion>{
-    return this.http.put<Habitacion>(`${this.urlEndPoint}/habitacion/occupied/${id}`,id);
+  updateStateToOccupied(id: number) : Observable<Habitaciones>{
+    return this.http.put<Habitaciones>(`${this.urlEndPoint}/habitacion/updatestateoccupied/${id}`,id);
     }
+
+    cambiarEstadoMantenimiento(id : number, estado : boolean){
+      // 		@PutMapping("/habitacion/cambiarestadomantenimiento/{idhabitacion}/estado/{estado}")
+      return this.http.put<Habitaciones>(`${this.urlEndPoint}/habitacion/cambiarestadomantenimiento/${id}/estado/${estado}`,id);
+    }
+
+    cambiarEstadoLimpieza(id : number, estado : boolean){
+      //		@PutMapping("/habitacion/cambiarestadolimpieza/{idhabitacion}/estado/{estado}")
+      return this.http.put<Habitaciones>(`${this.urlEndPoint}/habitacion/cambiarestadolimpieza/${id}/estado/${estado}`,id);
+
+    }
+
 }

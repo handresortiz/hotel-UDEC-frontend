@@ -5,28 +5,31 @@
 			<h5>Modificar Estado De Habitación</h5>
 			<form>
 				<label for="text">Id Habitacion</label><br>
-				<input type="text" id="disabled-input" pInputText [disabled]="disabled" [(ngModel)]="habitacion.id"  value="{{habitacion.id}}" disabled style="text-align: center;"><br>
-				<label for="text">Numero de camas: </label><br>
-				<input type="text" id="disabled-input" pInputText [(ngModel)]="habitacion.numeroCamas" value="{{habitacion.numeroCamas}}" disabled style="text-align: center;" ><br>
-				<label for="text">Piso </label><br>
-				<input type="text" id="disabled-input"  pInputText [(ngModel)]="habitacion.piso" value="{{habitacion.piso}}" disabled style="text-align: center;"><br>
-				<label for="address">Piso</label><br>
-                <input id="city" type="text" pInputText [(ngModel)]="habitacion.piso" value="{{habitacion.piso}}" disabled style="text-align: center;"><br>
-				<label for="city"> Observación	
-				</label><br>
-				<textarea id="address" type="text" rows="4" [(ngModel)]="habitacion.observacion" pInputTextarea disabled style="text-align: center;">{{habitacion.observacion}}</textarea><br>
-				<label for="state">Estado</label><br>
+				<input type="text" id="disabled-input" pInputText [disabled]="disabled" [(ngModel)]="habitacion.id_habitacion" name="id_habitacion" value="{{habitacion.id_habitacion}}" disabled style="text-align: center;"><br>
+				<label for="text">Tipo: </label><br>
+				<input type="text" id="disabled-input" pInputText [(ngModel)]="habitacion.tipo.nom_tipo_habitacion" name="nom_tipo_habitacion" value="{{habitacion.tipo.nom_tipo_habitacion}}" disabled style="text-align: center;" ><br>
+				<label for="text">Numero Habitacion: </label><br>
+				<input type="text" id="disabled-input"  pInputText [(ngModel)]="habitacion.num_habitacion" name="num_habitacion" value="{{habitacion.num_habitacion}}" disabled style="text-align: center;"><br>
+				<label for="address">Limpieza</label><br>
+                <input id="city" type="text" pInputText [(ngModel)]="habitacion.limpieza" name="limpieza" value="{{habitacion.limpieza}}" disabled style="text-align: center;"><br>
 				
-				<select [compareWith]="compararEstado" class="form-control"  name="estado" [(ngModel)]="habitacion.estado">
-					<option [ngValue]="undefined">--- Seleccionar un estado</option>
-					<option *ngFor="let estado of estados" [ngValue]="estado">{{estado.nombre}}</option>
-				</select><br>
+				<label for="address">Mantenimiento</label><br>
+                <input id="city" type="text" pInputText [(ngModel)]="habitacion.mantenimiento" name="mantenimiento" value="{{habitacion.mantenimiento}}" disabled style="text-align: center;"><br>
+				
+
+				<label for="state">Estado</label><br>
+				<input id="estado" type="text" pInputText [(ngModel)]="habitacion.estado" name="estado" value="{{habitacion.estado}}"  style="text-align: center;"><br>
+
+
 				<label for="zip">Tipo</label>
 				<br>
 				<select [compareWith]="compararTipo" class="form-control"  name="tipo" [(ngModel)]="habitacion.tipo" disabled>
 					<option [ngValue]="undefined">--- Seleccionar un Tipo</option>
-					<option *ngFor="let tipo of tipos" [ngValue]="tipo">{{tipo.nombre}}</option>
+					<option *ngFor="let tipo of tipos" [ngValue]="tipo">{{tipo.nom_tipo_habitacion}}</option>
 			</select><br>
+
+	
+
 			<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 width="64" height="64"
 viewBox="0 0 172 172"
@@ -49,5 +52,4 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
 			</div>
 		</div>
 	</div>
-
 

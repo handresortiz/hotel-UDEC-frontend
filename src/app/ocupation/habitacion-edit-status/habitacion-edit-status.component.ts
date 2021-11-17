@@ -1,13 +1,11 @@
 import { Component, OnInit , Input} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HabitacionService } from '../habitaciones/habitacion.service';
-import { Estado } from '../habitaciones/models/Estado';
-import { Habitacion } from '../habitaciones/models/Habitacion';
-import { Tipo } from '../habitaciones/models/Tipo';
 import Swal from 'sweetalert2';
 
 import { HabitacionEditStatusService } from './habitacion-edit-status.service';
+import { Habitaciones } from '../habitaciones/models/Habitaciones';
+import { TipoHabitacion } from '../habitaciones/models/TipoHabitacion';
 
 @Component({
   selector: 'app-habitacion-edit-status',
@@ -15,9 +13,8 @@ import { HabitacionEditStatusService } from './habitacion-edit-status.service';
   styleUrls: ['./habitacion-edit-status.component.scss']
 })
 export class HabitacionEditStatusComponent implements OnInit {
-  habitacion: Habitacion;
-  tipos : Tipo[];
-  estados : Estado[];
+  habitacion: Habitaciones;
+  tipos : TipoHabitacion[];
 
   constructor(private habitacionEditStatusService : HabitacionEditStatusService,
     private router: Router,
@@ -42,37 +39,29 @@ export class HabitacionEditStatusComponent implements OnInit {
         }
       );
 
-      this.habitacionEditStatusService.getEstados().subscribe(
-        estados =>{
-          this.estados = estados;
-        }
-      );
-
   }
 
-  compararTipo(o1:Tipo, o2:Tipo):boolean{
+  compararTipo(o1:TipoHabitacion, o2:TipoHabitacion):boolean{
     if(o1 === undefined && o2 === undefined){
       return true;
     }
-    return o1 === null || o2 === null || o1 === undefined || o2 === undefined  ?false:o1.id=== o2.id;
+    return o1 === null || o2 === null || o1 === undefined || o2 === undefined  ?false:o1.id_tipo_habitacion=== o2.id_tipo_habitacion;
   }
 
-  compararEstado(o1:Estado, o2:Estado):boolean{
-    if(o1 === undefined && o2 === undefined){
-      return true;
-    }
-    return o1 === null || o2 === null || o1 === undefined || o2 === undefined  ?false:o1.id=== o2.id;
-  }
 
   actualizarEstado() : void{
-    this.habitacion.items = null;
     this.habitacionEditStatusService.updateStatusHabitacion(this.habitacion)
     .subscribe( json => {
       this.router.navigate(['/habitaciones']);
-      Swal.fire('Habitacion actualizada', `Se ha actualizado con exito el estado de la habitacion!`, 'success');
+      if(this.habitacion.estado=='O'|| this.habitacion.estado=='L'|| this.habitacion.estado=='D'|| this.habitacion.estado=='M'|| this.habitacion.estado=='R'){
+        Swal.fire('Habitacion actualizada', `¡Se ha actualizado con exito el estado de la habitacion!`, 'success');
+      }
+      else{
+
+      Swal.fire('¡Error!', `Error en el ingreso de datos, verifique e intente nuevamente`, 'error');}
+      
     }
     );
   }
-
-
 }
+

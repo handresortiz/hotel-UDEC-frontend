@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Reserva } from '../habitaciones/models/Reserva';
+import { Reservaciones } from '../habitaciones/models/Reservaciones';
+
 
 @Injectable()
 export class ReservasClienteService {
@@ -13,13 +14,13 @@ export class ReservasClienteService {
   constructor(private http: HttpClient) { }
 
 
-  getReservaPorCliente(idCliente : number) :Observable<Reserva[]>{
-    return this.http.get(`${this.urlEndPoint}/reservas/${idCliente}`).pipe(
-        map(response => response as Reserva[]));
+  getReservaPorCliente(idCliente : number) :Observable<Reservaciones[]>{
+    return this.http.get(`${this.urlEndPoint}/reserva/persona/${idCliente}`).pipe(
+        map(response => response as Reservaciones[]));
   }
 
-  checkInReserva(id: number) : Observable<Reserva>{
-    return this.http.put<Reserva>(`${this.urlEndPoint}/reserva/checkin/${id}`,id);
+  checkInReserva(id: number) : Observable<Reservaciones>{
+    return this.http.put<Reservaciones>(`${this.urlEndPoint}/reserva/checkin/${id}`,id);
     }
     
 }

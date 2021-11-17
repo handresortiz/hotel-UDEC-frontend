@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Habitacion } from '../habitaciones/models/Habitacion';
 import { Observable} from 'rxjs';
-import { Tipo } from '../habitaciones/models/Tipo';
-import { Estado } from '../habitaciones/models/Estado';
+import { Habitaciones } from '../habitaciones/models/Habitaciones';
+import { TipoHabitacion } from '../habitaciones/models/TipoHabitacion';
+
 
 @Injectable()
 export class HabitacionEditStatusService {
@@ -11,20 +11,18 @@ export class HabitacionEditStatusService {
 
   constructor(private http: HttpClient) { }
 
-  getHabitacion(id: number): Observable<Habitacion>{
-    return this.http.get<Habitacion>(`${this.urlEndPoint}/habitacion/${id}`);
+  getHabitacion(id: number): Observable<Habitaciones>{
+    return this.http.get<Habitaciones>(`${this.urlEndPoint}/habitacion/${id}`);
   }
 
-  updateStatusHabitacion(habitacion : Habitacion) : Observable<any> {
-    return this.http.put<any>(`${this.urlEndPoint}/habitacion/${habitacion.id}`,habitacion);
+  updateStatusHabitacion(habitacion : Habitaciones) : Observable<any> {
+    //	@PutMapping("/habitacion/updatestate/{idhabitacion}/estado/{estado}")
+    return this.http.put<any>(`${this.urlEndPoint}/habitacion/updatestate/${habitacion.id_habitacion}/estado/${habitacion.estado}`,null);
   }
 
-  getTipos() : Observable<Tipo[]>{
-    return this.http.get<Tipo[]>(`${this.urlEndPoint}/tipos`);
-  }
-
-  getEstados() : Observable<Estado[]>{
-    return this.http.get<Estado[]>(`${this.urlEndPoint}/estados`);
+  getTipos() : Observable<TipoHabitacion[]>{
+    return this.http.get<TipoHabitacion[]>(`${this.urlEndPoint}/tipos`);
   }
 
 }
+

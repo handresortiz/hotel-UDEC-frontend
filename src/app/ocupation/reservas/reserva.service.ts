@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Reserva } from '../habitaciones/models/Reserva';
+import { Reservaciones } from '../habitaciones/models/Reservaciones';
 
 @Injectable()
 export class ReservaService {
@@ -12,13 +12,13 @@ export class ReservaService {
 
   constructor(private http: HttpClient) { }
 
-  getReservas() :Observable<Reserva[]>{
+  getReservas() :Observable<Reservaciones[]>{
     return this.http.get(`${this.urlEndPoint}/reservas`).pipe(
-      map(response => response as Reserva[])); 
+      map(response => response as Reservaciones[])); 
   }
 
-  checkInReserva(id: number) : Observable<Reserva>{
-    return this.http.put<Reserva>(`${this.urlEndPoint}/reserva/checkin/${id}`,id);
+  checkInReserva(id: number) : Observable<Reservaciones>{
+    return this.http.put<Reservaciones>(`${this.urlEndPoint}/reserva/checkin/${id}`,id);
     }
 
 }

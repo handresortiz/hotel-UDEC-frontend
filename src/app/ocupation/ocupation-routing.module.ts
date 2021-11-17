@@ -6,7 +6,6 @@ import { HabitacionEditStatusComponent } from './habitacion-edit-status/habitaci
 import { HabitacionesComponent } from './habitaciones/habitaciones.component';
 import { DetalleHabitacionComponent } from "./detalle-habitacion/detalle-habitacion.component";
 
-
 const routes: Routes = [
   {
     path: '',
