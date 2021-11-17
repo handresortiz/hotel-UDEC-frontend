@@ -5,6 +5,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AppRoutingModule} from './app-routing.module';
+import {RouterModule} from '@angular/router';
 
 // PrimeNG Components for demos
 import {AccordionModule} from 'primeng/accordion';
@@ -73,6 +74,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import {TreeModule} from 'primeng/tree';
 import {TreeTableModule} from 'primeng/treetable';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 // Application Components
 import {AppCodeModule} from './app.code.component';
@@ -123,6 +125,7 @@ import {TypographyComponent} from './utilities/typography.component';
 import {TextComponent} from './utilities/text.component';
 import {InventarioComponent} from './consumption/pages/inventario/inventario.component';
 import { ProductosComponent } from './consumption/pages/productos/productos.component';
+import { ProductListDemo } from './consumption/pages/productos/productlistdemo';
 
 // Demo services
 import {CountryService} from './demo/service/countryservice';
@@ -207,9 +210,11 @@ import {MenuService} from './app.menu.service';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        AppCodeModule
+        AppCodeModule,
+        DynamicDialogModule
     ],
     declarations: [
+        ProductListDemo,
         InventarioComponent,
         ProductosComponent, //Modulos de Mauricio
         AppComponent,
@@ -260,6 +265,9 @@ import {MenuService} from './app.menu.service';
         AppErrorComponent,
         AppAccessdeniedComponent
     ],
+    entryComponents: [
+		ProductListDemo
+	],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         CountryService, CustomerService, EventService, IconService, NodeService,

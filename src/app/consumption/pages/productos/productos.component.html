@@ -1,7 +1,7 @@
 <div class="p-grid list-demo">
 	<div class="p-col-12">
 		<div class="card">
-			<h5>Productos</h5>
+			<h5>Productos</h5><div style="text-align: right;"><button button (click)="show()" pButton icon="pi pi-shopping-cart"></button></div>
 			<p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name"
 						[sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
 				<ng-template pTemplate="header">
@@ -57,3 +57,4 @@
 		</div>
 	</div>
 </div>
+
