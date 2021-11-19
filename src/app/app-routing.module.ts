@@ -86,7 +86,8 @@ const routes: Routes = [
             {path:'habitacion/:id',component: HabitacionEditStatusComponent},
             {path:'reservas',component: ReservasComponent},
             {path:'reservas/:idCedula',component: ReservasClienteComponent},
-            {path:'habitacion/detalle/:id',component: DetalleHabitacionComponent}
+            {path:'habitacion/detalle/:id',component: DetalleHabitacionComponent},
+            {path: 'parametricas', loadChildren: () => import('./parametrics/parametrics.module').then( module => module.ParametricsModule)},
             
         ]
     },
