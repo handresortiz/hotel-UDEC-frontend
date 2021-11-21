@@ -53,7 +53,7 @@ import {AppMainComponent} from './app.main.component';
                             </a>
                         </li>
                         <li role="menuitem">
-                            <a href="#" (click)="app.onTopbarSubItemClick($event)">
+                            <a href="#/auth/login" (click)="app.onTopbarSubItemClick($event)">
                                 <i class="pi pi-sign-out"></i>
                                 <span>Logout</span>
                             </a>
