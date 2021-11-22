@@ -52,12 +52,15 @@ import {AppMainComponent} from './app.main.component';
                                 <span>Settings</span>
                             </a>
                         </li>
-                        <li role="menuitem">
-                            <a href="#/auth/login" (click)="app.onTopbarSubItemClick($event)">
+
+                        
+                        <li onclick="location.href='#/auth/login';" role="menuitem">
+                        <a href="#/auth/login" (click)="app.onTopbarSubItemClick($event)">
                                 <i class="pi pi-sign-out"></i>
-                                <span>Logout</span>
+                                <span>Salir</span>
                             </a>
                         </li>
+                        
                     </ul>
                 </li>
                 
@@ -69,7 +72,9 @@ import {AppMainComponent} from './app.main.component';
                         <span class="topbar-item-name">Notifications</span>
                     </a>
                     <ul class="fadeInDown">
-                        <li role="menuitem">
+                       
+                    <!--Menu desplegable area de notificaciones-->
+                    <!-- <li role="menuitem"> 
                             <a href="#" (click)="app.onTopbarSubItemClick($event)">
                                 <i class="pi pi-sliders-h"></i>
                                 <span>Pending tasks</span>
@@ -93,6 +98,10 @@ import {AppMainComponent} from './app.main.component';
                                 <span>Book flight</span>
                             </a>
                         </li>
+                        -->
+
+                        <p style="text-align:center"><span style="color:darkgray;font-weight:bold">En este espacio estan nuestras notificaciones</span></p>
+                    
                     </ul>
                 </li>
                 <li #search class="search-item" [ngClass]="{'active-topmenuitem':app.activeTopbarItem === search}"
