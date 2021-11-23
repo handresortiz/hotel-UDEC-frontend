@@ -6,12 +6,19 @@ import {SelectItem, MenuItem} from 'primeng/api';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { ChartsServiceService } from '../../dashboard/services/charts-service.service';
 
 @Component({
     templateUrl: './dashboard.component.html'
 })
 export class DashboardDemoComponent implements OnInit {
 
+    data: any = [];
+
+    pieData: any;
+
+    lineData: any; 
+    
     cities: SelectItem[];
 
     products: Product[];
@@ -26,9 +33,82 @@ export class DashboardDemoComponent implements OnInit {
 
     fullcalendarOptions: any;
 
-    constructor(private productService: ProductService, private eventService: EventService) { }
+    constructor(private productService: ProductService, 
+                private eventService: EventService,
+                private chartService: ChartsServiceService) { }
 
     ngOnInit() {
+
+          this.chartService.chartReservation()
+          .subscribe( data => {
+            this.chartService.chartBuys()
+            .subscribe( buys => {
+                this.chartService.chartServices()
+                .subscribe( service => {
+
+                    this.lineData = {
+                        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto','Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                        datasets: [
+                            {
+                                label: 'Reservas',
+                                data: data,
+                                fill: false,
+                                backgroundColor: 'rgb(250, 53, 55)',
+                                borderColor: 'rgb(250, 53, 55)'
+                            },
+                            {
+                                label: 'Ventas',
+                                data: buys,
+                                fill: false,
+                                backgroundColor: 'rgb(53, 154, 55)',
+                                borderColor: 'rgb(53, 154, 55)'
+                            },
+                            {
+                                label: 'Servicios',
+                                data: service,
+                                fill: false,
+                                backgroundColor: 'rgb(236, 171, 7)',
+                                borderColor: 'rgb(236, 171, 7)'
+                            }
+                        ]
+                    };
+                });
+            })  
+          });
+
+          this.chartService.allDisponible()
+          .subscribe( disponible => {
+               this.chartService.allOcupation()
+               .subscribe( ocupation => {
+
+                this.chartService.allClean()
+                .subscribe( clean =>{
+
+                    this.chartService.allManteinance()
+                    .subscribe( mantenaince =>{
+
+                        this.pieData = {
+                            labels: ['Disponible', 'Ocupadas', 'Limpieza', 'Mantenimiento'],
+                            datasets: [
+                                {
+                                    data: [disponible,ocupation, clean, mantenaince],
+                                    backgroundColor: [
+                                        'rgb(54, 162, 235)',
+                                        'rgb(255, 99, 132)',
+                                        'rgb(255, 205, 86)',
+                                        'rgb(75, 192, 192)'
+                                    ]
+                                }]
+                        };
+
+                    })
+                })
+
+               })
+          })
+
+
+        
         this.productService.getProducts().then(data => this.products = data);
 
         this.eventService.getEvents().then(events => {this.events = events; });
@@ -73,5 +153,9 @@ export class DashboardDemoComponent implements OnInit {
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
             }
         };
+
     }
+
+
+    
 }

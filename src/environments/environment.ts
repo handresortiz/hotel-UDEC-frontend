@@ -9,5 +9,6 @@ export const environment = {
   microserviceRegister: 'http://localhost:8102/hotel',
   microserviceEmail: 'http://localhost:8103/mail',
   RESERVAS_URL: 'http://localhost:8200/api',
-  microserviceOcupation: 'http://localhost:8401/ocupation'
+  microserviceOcupation: 'http://localhost:8401/ocupation',
+  microserviceCharts: 'http://localhost:8104/chart'
 };
