@@ -1,17 +1,25 @@
+.contenedor{
+    padding-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .contenedor-inputs{
     display: flex;
-    justify-content: center;
-    padding: 1em;
     gap: 1em;
     align-items: center;
-    }
+    justify-content: center;
+}
+
 .p-field > label {
     display: block;
     margin-bottom: 0.5em;
-    }
+}
+
 .contenedor-tarjetas{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-    gap: 1em;
+    gap: 3em 1em;
+    margin-top: 2em;
 }
