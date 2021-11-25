@@ -9,6 +9,7 @@ export const environment = {
   microserviceRegister: 'http://localhost:8101/login',
   microserviceEmail: 'http://localhost:8103/mail',
   RESERVAS_URL: 'http://localhost:8200/api',
+  PARAMETRICAS_URL: 'http://localhost:8201/api',
   microserviceOcupation: 'http://localhost:8401/ocupation',
   microserviceCharts: 'http://localhost:8104/chart'
 };

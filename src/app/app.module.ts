@@ -138,7 +138,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
 
 //Reservation
 import { ReservationModule } from './reservation/reservation.module';
-
+// Parametricas
+import { ParametricsModule } from './parametrics/parametrics.module';
 @NgModule({
     imports: [
         BrowserModule,
@@ -215,6 +216,7 @@ import { ReservationModule } from './reservation/reservation.module';
         AppCodeModule,
         DashboardModule,
         ReservationModule,
+        ParametricsModule,
         OcupationModule
     ],
     declarations: [
