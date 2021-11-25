@@ -34,7 +34,7 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Check-in', icon:"pi pi-check", routerLink:['/reservas']
             },
-            
+            /*
             {
                 label: 'UI Kit', icon: 'pi pi-fw pi-star-o', routerLink: ['/uikit'], badge: 6,
                 items: [
@@ -131,6 +131,7 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Documentation', icon: 'pi pi-fw pi-info-circle', routerLink: ['/documentation']
             }
+            */
         ];
     }
 }

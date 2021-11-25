@@ -15,7 +15,11 @@ import { Response } from '../../auth/interfaces/response';
 })
 export class DashboardDemoComponent implements OnInit {
 
-    user: Response;
+    user: Response = {
+        login: '',
+        pri_nombre: '',
+
+    };
 
     data: any = [];
 
@@ -44,10 +48,9 @@ export class DashboardDemoComponent implements OnInit {
 
     ngOnInit() {
 
-        if(localStorage.length!=0){
+        if(localStorage.getItem('login') != null){
             this.loginService.getCredentials()
-            .subscribe( resp =>{
-                this.user.pri_nombre = resp.idPersona.pri_nombre;
+            .subscribe( resp =>{                
                 this.user.login = resp.login;
             });
         }

@@ -29,7 +29,7 @@ import { Response } from './auth/interfaces/response';
                             <img src="assets/layout/images/anonymus.png">
                         </div>
                         <div class="profile-info">
-                            <span class="topbar-item-name profile-name">{{ user.pri_nombre}}</span>
+                            <span class="topbar-item-name profile-name"></span>
                             <span class="topbar-item-name profile-role">{{ user.login }}</span>
                         </div>
                     </a>
@@ -121,15 +121,18 @@ import { Response } from './auth/interfaces/response';
 export class AppTopbarComponent implements OnInit{
 
 
-    user: Response;
+    user: Response = {
+        login: '',
+        pri_nombre: '',
+
+    };
 
     constructor(public app: AppMainComponent,
                 private router: Router,
                 private loginService: LoginService) {}
     ngOnInit(): void {
         this.loginService.getCredentials()
-        .subscribe( resp =>{
-            this.user.pri_nombre = resp.idPersona.pri_nombre;
+        .subscribe( resp =>{            
             this.user.login = resp.login;
         })
     }

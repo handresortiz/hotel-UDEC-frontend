@@ -5,6 +5,7 @@ import { MessageService, SelectItem } from 'primeng/api';
 import { MailService } from '../../services/mail.service';
 import { SignupRequest } from '../../interfaces/signup-request';
 import { Email } from '../../interfaces/email';
+import { Router } from '@angular/router';
 
 
 
@@ -46,7 +47,8 @@ export class RegisterComponent implements OnInit {
   constructor( private registerService: RegisterService,
                private fb             : FormBuilder,
                private messageService : MessageService,
-               private mailService    : MailService) {
+               private mailService    : MailService,
+               private router: Router) {
                 this.registerForm.get('pass2').setValidators(
                   this.equalsValidator( this.registerForm.get('pass') )
                   );
@@ -69,33 +71,35 @@ export class RegisterComponent implements OnInit {
       telefono      : this.registerForm.controls['telefono'].value,
       direccion     : this.registerForm.controls['direccion'].value,
       login         : this.registerForm.controls['correo'].value,
-      clave         : this.registerForm.controls['correo'].value,
+      clave         : this.registerForm.controls['pass'].value,
       identificacion: this.registerForm.controls['identificacion'].value,
       genero        : this.registerForm.controls['genero'].value.value
+    }
+
+    let email: Email  = { 
+      email:  this.registerForm.controls['correo'].value,
+      name: this.registerForm.controls['pri_nombre'].value
     }
   
       
 
           this.registerService.registerUser( person )
           .subscribe( message => {
-
-            let mail: Email = {
-              email: this.registerForm.controls['correo'].value,
-              name:  this.registerForm.controls['pri_nombre'].value
-            }
-
-            this.mailService.sendEmail(mail)
-            .subscribe( message =>{
-              this.showSuccessViaToast('Verificacion enviada correctamente')
-            },( error => {
-            this.showErrorViaToast(error.error.message);
-            }) );       
-
+            this.router.navigate(['/auth/validate']);
             this.showSuccessViaToast(message.message)
+            
           },(error => {
             this.showErrorViaToast(error.error.menssage);
           })
           )
+
+     //     this.mailService.sendEmail( email )
+      //    .subscribe( email =>{
+
+  
+    //      },(error => {
+    //        this.showErrorViaToast(error.error.menssage);
+     //     }))
     
   }
 
