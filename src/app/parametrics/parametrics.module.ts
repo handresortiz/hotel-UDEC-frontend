@@ -7,6 +7,20 @@ import { HabitacionesComponent } from './components/habitaciones/habitaciones.co
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { FormularioUsuarioComponent } from './components/formulario-usuario/formulario-usuario.component';
 
+//Tabla para los tipos de habitación
+import { HttpClientModule } from '@angular/common/http';
+import { TiposService } from './services/TiposService';
+import {CalendarModule} from 'primeng/calendar';
+import {SliderModule} from 'primeng/slider';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {ContextMenuModule} from 'primeng/contextmenu'
+import {ProgressBarModule} from 'primeng/progressbar';
+import {FileUploadModule} from 'primeng/fileupload';
+import {RatingModule} from 'primeng/rating';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {InputNumberModule} from 'primeng/inputnumber';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+
 // Usuarios
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
@@ -45,12 +59,25 @@ import {KeyFilterModule} from 'primeng/keyfilter';
     TableModule,
     ToastModule,
     ToolbarModule,
-    KeyFilterModule
+    KeyFilterModule,
+    HttpClientModule,
+    CalendarModule,
+    SliderModule,
+    MultiSelectModule,
+    ContextMenuModule,
+    ProgressBarModule,
+    FileUploadModule,
+    RatingModule,
+    RadioButtonModule,
+    InputNumberModule,
+    InputTextareaModule
+
   ],
   providers: [
     ConfirmationService,
     UsuariosService,
-    MessageService
+    MessageService,
+    TiposService
   ],
 
 })
