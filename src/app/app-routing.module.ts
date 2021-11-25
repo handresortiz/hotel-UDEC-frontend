@@ -39,6 +39,7 @@ import {AppHelpComponent} from './pages/app.help.component';
 // Componentes de consumo
 import { InventarioComponent } from './consumption/pages/inventario/inventario.component';
 import { ProductosComponent } from './consumption/pages/productos/productos.component';
+import { NuevoProductoComponent } from './consumption/pages/inventario/nuevo-producto.component';
 
 
 const routes: Routes =
@@ -76,7 +77,8 @@ const routes: Routes =
         {path: 'pages/empty', component: EmptyDemoComponent},
         {path: 'documentation', component: DocumentationComponent},
         {path: 'inventario', component: InventarioComponent},
-        {path: 'productos', component: ProductosComponent}
+        {path: 'productos', component: ProductosComponent},
+        {path: 'nuevo', component: NuevoProductoComponent}
     ]
 },
 {path: 'error', component: AppErrorComponent},

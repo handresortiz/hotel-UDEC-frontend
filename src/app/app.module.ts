@@ -126,6 +126,7 @@ import {TextComponent} from './utilities/text.component';
 import {InventarioComponent} from './consumption/pages/inventario/inventario.component';
 import { ProductosComponent } from './consumption/pages/productos/productos.component';
 import { ProductListDemo } from './consumption/pages/productos/productlistdemo';
+import { NuevoProductoComponent } from './consumption/pages/inventario/nuevo-producto.component';
 
 // Demo services
 import {CountryService} from './demo/service/countryservice';
@@ -214,6 +215,7 @@ import {MenuService} from './app.menu.service';
         DynamicDialogModule
     ],
     declarations: [
+        NuevoProductoComponent,
         ProductListDemo,
         InventarioComponent,
         ProductosComponent, //Modulos de Mauricio
