@@ -20,7 +20,8 @@ export class HabitacionesComponent implements OnInit {
 
   ngOnInit(): void {
     this.habitacionService.getHabitaciones().subscribe(
-      habitaciones => this.habitaciones = habitaciones
+      habitaciones => {this.habitaciones = habitaciones
+      }
     );
     this.habitacionService.getCantidadPorEstado().subscribe(
       cantidadEstado => this.cantidadEstado = cantidadEstado
@@ -43,7 +44,7 @@ export class HabitacionesComponent implements OnInit {
         this.habitacionService.updateStateToOccupied(id)
         .subscribe(
           data => {
-            this.router.navigate(['/habitaciones']);
+            this.ngOnInit()
             swal.fire("Actualizacion correcta", "Se realizo correctamente el Check-In", "success"); 
           }
         );
@@ -66,11 +67,7 @@ export class HabitacionesComponent implements OnInit {
         .subscribe(
           data => {
             swal.fire("Inactivacion exitosa", "Se inactivo con exito el mantenimiento", "success"); 
-
-            setTimeout(() => {
-              location.reload();
-            }, 300);
-
+            this.ngOnInit()
           }
         );
       } else if (result.isDenied) {
@@ -91,10 +88,8 @@ export class HabitacionesComponent implements OnInit {
         this.habitacionService.cambiarEstadoMantenimiento(id,true)
         .subscribe(
           data => {
+            this.ngOnInit()
             swal.fire("Activacion exitosa", "Se activo con exito el mantenimiento", "success"); 
-            setTimeout(() => {
-              location.reload();
-            }, 300);
           }
         );
       } else if (result.isDenied) {
@@ -116,9 +111,7 @@ export class HabitacionesComponent implements OnInit {
         .subscribe(
           data => {
             swal.fire("Inactivacion exitosa", "Se inactivo con exito la limpieza", "success"); 
-            setTimeout(() => {
-              location.reload();
-            }, 300);
+            this.ngOnInit()
           }
         );
       } else if (result.isDenied) {
@@ -140,9 +133,7 @@ export class HabitacionesComponent implements OnInit {
         .subscribe(
           data => {
             swal.fire("Activacion exitosa", "Se activo con exito la limpieza", "success"); 
-            setTimeout(() => {
-              location.reload();
-            }, 300);
+            this.ngOnInit()
           }
         );
       } else if (result.isDenied) {
@@ -151,3 +142,4 @@ export class HabitacionesComponent implements OnInit {
     });
   }
 }
+

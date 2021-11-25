@@ -14,19 +14,49 @@ import { ReservasClienteService } from './reservas-cliente/reservas-cliente.serv
 import { DetalleHabitacionService } from './detalle-habitacion/detalle-habitacion.service';
 import { HabitacionEditStatusService } from './habitacion-edit-status/habitacion-edit-status.service';
 import { HabitacionService } from './habitaciones/habitacion.service';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { InputMaskModule } from 'primeng/inputmask';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ListboxModule } from 'primeng/listbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { TableModule } from 'primeng/table';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { EstadiaComponent } from './estadia/estadia.component';
 @NgModule({
   declarations: [
      DetalleHabitacionComponent, 
      HabitacionEditStatusComponent,
      HabitacionesComponent,
      ReservasComponent,
-     ReservasClienteComponent
+     ReservasClienteComponent,
+     EstadiaComponent
     ],
   imports: [
     CommonModule,
+    ListboxModule,
+    InputNumberModule,
+    InputMaskModule,
+    InputSwitchModule,
+    InputTextModule,
+    InputTextareaModule,
     OcupationRoutingModule,
+    SplitButtonModule,
+    ToggleButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule,
+    DialogModule,
+    ButtonModule,
+    Ng2SearchPipeModule,
+    SelectButtonModule,
+    RadioButtonModule,
   ],
   providers: [
   ReservaService,

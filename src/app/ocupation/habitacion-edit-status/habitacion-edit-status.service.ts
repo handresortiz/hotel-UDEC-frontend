@@ -24,5 +24,15 @@ export class HabitacionEditStatusService {
     return this.http.get<TipoHabitacion[]>(`${this.urlEndPoint}/tipos`);
   }
 
+  cambiarEstadoMantenimiento(id : number, estado : boolean){
+    // 		@PutMapping("/habitacion/cambiarestadomantenimiento/{idhabitacion}/estado/{estado}")
+    return this.http.put<Habitaciones>(`${this.urlEndPoint}/habitacion/cambiarestadomantenimiento/${id}/estado/${estado}`,id);
+  }
+
+  cambiarEstadoLimpieza(id : number, estado : boolean){
+    //		@PutMapping("/habitacion/cambiarestadolimpieza/{idhabitacion}/estado/{estado}")
+    return this.http.put<Habitaciones>(`${this.urlEndPoint}/habitacion/cambiarestadolimpieza/${id}/estado/${estado}`,id);
+
+  }
 }
 

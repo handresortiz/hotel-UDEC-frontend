@@ -3,28 +3,93 @@
         <div class="card"
         style="text-align: center;">
             <h4>Reservas</h4>
-        </div>
-
-        <div class="Card"
-        style="width: 800px; margin: 0 auto; ">
-            <div class="CardInner">
-            <label>Ingresa id del cliente</label>
-            <div class="container">
-
-              <div class="InputContainer">
-                <input  [(ngModel)]='idCliente'/>
+            <div class="Card" style="width: 800px; margin: 0 auto; ">
+                <h5 style="margin:1rem;">Ingresa id del cliente</h5>
+                <input type="text" [(ngModel)]="term">
+                
               </div>
-              
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-              width="40" height="40"
-              viewBox="0 0 172 172"
-              style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="#009879"></path><g fill="#000000"><path d="M67.75937,8.03898c-32.99837,0 -59.72038,26.72202 -59.72038,59.72038c0,32.99837 26.72202,59.72038 59.72038,59.72038c13.93159,0 26.74579,-4.92123 36.89731,-12.93308l5.32538,5.32538c-2.23476,4.208 -1.45021,9.58094 2.09212,13.12327l27.95827,28.14846c4.35065,4.35065 11.43531,4.35065 15.78596,0l5.32538,-5.32538c4.35065,-4.35065 4.35065,-11.43531 0,-15.78596l-28.14846,-27.95827c-3.5661,-3.5661 -8.91527,-4.18423 -13.12327,-1.90192l-5.32538,-5.32538c8.0594,-10.17529 12.93308,-23.08459 12.93308,-37.0875c0,-32.99837 -26.72202,-59.72038 -59.72038,-59.72038zM67.75937,19.07014c26.88844,0 48.68923,21.80079 48.68923,48.68923c0,26.88844 -21.80079,48.68923 -48.68923,48.68923c-26.88844,0 -48.68923,-21.80079 -48.68923,-48.68923c0,-26.88844 21.80079,-48.68923 48.68923,-48.68923zM36.94822,52.35379c-3.13817,5.08765 -4.945,11.0787 -4.945,17.49769c0,18.42488 14.85877,33.28365 33.28365,33.28365c7.10844,0 13.78894,-2.30608 19.20942,-6.08615c-1.45021,0.16642 -3.06685,0.19019 -4.56462,0.19019c-23.82158,0 -42.98346,-19.16187 -42.98346,-42.98346c0,-0.6419 -0.02377,-1.26002 0,-1.90192z" 
-                  [routerLink]="['/reservas', idCliente]" ></path></g></g></svg>
-            </div>
-
-           </div>
+        </div>
+        <h1 class="display1">Check-in</h1>
+          <div class="Card"
+        style="width: 800px; margin: 0  auto; ">
+        <table class="styled-table"
+        style="margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>ID Reserva</th>
+                    <th>Valor</th>
+                    <th>Fecha Ultima Modificacion</th>
+                    <th>ID Cliente</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Telefono</th>
+                    <th>Estado</th>
+                    <th>Check in</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reserva of reservas |filter:term">
+                    <td>{{reserva.id_reservacion}}</td>
+                    <td>{{reserva.valor}}</td>
+                    <td>{{reserva.fec_cambio  | date:'medium'}}</td>
+                    <td> {{reserva.cuenta.huesped.persona.id_persona}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.pri_nombre}} {{reserva.cuenta.huesped.persona.seg_nombre}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.pri_apellido}} {{reserva.cuenta.huesped.persona.seg_apellido}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.telefono}}</td>
+                    <td *ngIf="!reserva.estado"> Sin ingreso</td>
+                    <td *ngIf="reserva.estado"> ingreso</td>
+                    <td>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" *ngIf="!reserva.estado"
+width="30" height="30"
+viewBox="0 0 172 172"
+style=" fill:#000000;">
+<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" 
+stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+ font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+ <path d="M0,172v-172h172v172z" fill="none"></path><g fill="#1abc9c"><path d="M86,17.2c-37.9948,0 -68.8,30.8052 -68.8,68.8c0,37.9948 30.8052,68.8 68.8,68.8c37.9948,0 68.8,-30.8052 68.8,-68.8c0,-12.49509 -3.38268,-24.17668 -9.20469,-34.27682l-64.4888,64.4776c-1.07213,1.07213 -2.52858,1.67969 -4.05364,1.67969c-1.51933,0 -2.98151,-0.60182 -4.05364,-1.67969l-25.53125,-25.53125c-2.24173,-2.24173 -2.24173,-5.86556 0,-8.10729c2.24173,-2.24173 5.86556,-2.24173 8.10729,0l21.4776,21.4776l61.92448,-61.92448c-12.61907,-15.222 -31.66081,-24.91536 -52.97734,-24.91536zM138.97734,42.11536c2.47479,2.98465 4.66412,6.21693 6.61797,9.59661l13.25833,-13.25833c2.24173,-2.24747 2.24173,-5.86556 0,-8.10729c-2.24173,-2.24173 -5.86556,-2.24173 -8.10729,0z"
+    (click)="realizarCheckIn(reserva.cuenta.huesped.persona.id_persona,reserva.habitacion)" ></path></g></g></svg>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
           </div>
+        <h1 class="display1">Utilizada</h1>
+        <table class="styled-table"
+        style="margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>ID Reserva</th>
+                    <th>Valor</th>
+                    <th>Fecha Entrada</th>
+                    <th>Fecha Ultima Modificacion</th>
+                    <th>ID Cliente</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Telefono</th>
+                    <th>Estado</th>
+                    <th>Check out</th>
 
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reserva of checkIn | filter:term">
+                    <td>{{reserva.id_reservacion}}</td>
+                    <td>{{reserva.valor}}</td>
+                    <td>{{reserva.fec_inicio  | date:'medium'}}</td>
+                    <td>{{reserva.fec_cambio  | date:'medium'}}</td>
+                    <td> {{reserva.cuenta.huesped.persona.id_persona}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.pri_nombre}} {{reserva.cuenta.huesped.persona.seg_nombre}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.pri_apellido}} {{reserva.cuenta.huesped.persona.seg_apellido}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.telefono}}</td>
+                    <td>{{estados(reserva.habitacion.estado)}}</td>
+                    <td>
+                        <i class="pi pi-check-circle" (click)="modal=true;capUsu(reserva)" style="font-size: 2rem;cursor: pointer;"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h1 class="display-h1">Check-out</h1>
         <table class="styled-table"
         style="margin: 0 auto;">
             <thead>
@@ -39,32 +104,93 @@
                     <th>Apellidos</th>
                     <th>Telefono</th>
                     <th>Estado</th>
-                    <th>Check in</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let reserva of reservas">
+                <tr *ngFor="let reserva of checkOut |filter:term">
                     <td>{{reserva.id_reservacion}}</td>
                     <td>{{reserva.valor}}</td>
-                    <td>{{reserva.fec_inicio}}</td>
-                    <td>{{reserva.fec_cambio}}</td>
-                    <td>{{reserva.fec_cambio}}</td>
+                    <td>{{reserva.fec_inicio  | date:'medium'}}</td>
+                    <td>{{reserva.fec_fin  | date:'medium'}}</td>
+                    <td>{{reserva.fec_cambio  | date:'medium'}}</td>
                     <td> {{reserva.cuenta.huesped.persona.id_persona}}</td>
                     <td>{{reserva.cuenta.huesped.persona.pri_nombre}} {{reserva.cuenta.huesped.persona.seg_nombre}}</td>
                     <td>{{reserva.cuenta.huesped.persona.pri_apellido}} {{reserva.cuenta.huesped.persona.seg_apellido}}</td>
                     <td>{{reserva.cuenta.huesped.persona.telefono}}</td>
-                    <td *ngIf="!reserva.estado"> Sin ingreso</td>
-                    <td *ngIf="reserva.estado"> ingreso</td>
-                    <td>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" *ngIf="reserva.estado == false "
-width="30" height="30"
-viewBox="0 0 172 172"
-style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#1abc9c"><path d="M86,17.2c-37.9948,0 -68.8,30.8052 -68.8,68.8c0,37.9948 30.8052,68.8 68.8,68.8c37.9948,0 68.8,-30.8052 68.8,-68.8c0,-12.49509 -3.38268,-24.17668 -9.20469,-34.27682l-64.4888,64.4776c-1.07213,1.07213 -2.52858,1.67969 -4.05364,1.67969c-1.51933,0 -2.98151,-0.60182 -4.05364,-1.67969l-25.53125,-25.53125c-2.24173,-2.24173 -2.24173,-5.86556 0,-8.10729c2.24173,-2.24173 5.86556,-2.24173 8.10729,0l21.4776,21.4776l61.92448,-61.92448c-12.61907,-15.222 -31.66081,-24.91536 -52.97734,-24.91536zM138.97734,42.11536c2.47479,2.98465 4.66412,6.21693 6.61797,9.59661l13.25833,-13.25833c2.24173,-2.24747 2.24173,-5.86556 0,-8.10729c-2.24173,-2.24173 -5.86556,-2.24173 -8.10729,0z"(click)="realizarCheckIn(reserva.id_persona)" ></path></g></g></svg>
-                        
-                    </td>
+                    <td>{{estados(reserva.habitacion.estado)}}</td>
                 </tr>
+                <div *ngIf="display">
+                    <p-dialog header="Estado" [(visible)]="display" modal="modal" showEffect="fade" [style]="{width: '400px'}">
+                        <div style="line-height: 1.5">
+                      <h6>Seleccona una de las siguientes opciones</h6>
+                      <div class="card">
+                        <select [(ngModel)]="valores" >
+                            <option selected value='L'>Limpieza</option>
+                                <option value='M'>Mantenimiento</option>
+                        </select>
+                    </div>
+                        </div>
+                        <p-footer>
+                            <button type="button"  pButton icon="pi pi-check" (click)="prueba(reserva); display = false;" label="Enviar" class="p-button-text"></button>
+                            <button type="button" pButton icon="pi pi-times" (click)="display=false" label="Cancelar" class="p-button-text"></button>
+                        </p-footer>
+                    </p-dialog>
+                </div>
             </tbody>
         </table>
-
+       
     </div>
+</div>
+<div *ngIf="modal">
+    <p-dialog header='{{reservas1.pri_nombre}}  {{reservas1.pri_apellido}}' [(visible)]="modal" modal="modal" showEffect="fade" [style]="{width: '800px'}">
+        <div style="line-height: 1.5">
+      <h6>Informacion del cliente</h6>
+      <div class="card">
+          <table>
+              <thead>
+                <tr>
+                    <th>Valores</th>
+                    <th>Datos</th>
+                  </tr>
+                  <tr>
+                  <th>Correo</th>
+                  <td>{{reservas1.correo}}</td>
+                </tr>
+                <tr>
+                    <th>Identificacion</th>
+                    <td>{{reservas1.identificacion}}</td>
+                  </tr>
+                  <tr>
+                    <th>Fecha entrada</th>
+                    <td> {{r.fec_inicio  | date:'medium'}}</td>
+                  </tr>
+                  <tr>
+                    <th>Fecha salida</th>
+                    <td> {{r.fec_fin  | date:'medium'}}</td>
+                  </tr>
+                  <tr>
+                    <th>Correo</th>
+                    <td>{{reservas1.correo}}</td>
+                  </tr>
+                  <tr>
+                    <th>Telefono</th>
+                    <td>{{reservas1.telefono}}</td>
+                  </tr>
+                  <tr>
+                    <th>Valor cuenta</th>
+                    <td>${{r.cuenta.total}}</td>
+                  </tr>
+                  <tr>
+                    <th>Total a pagar</th>
+                    <td>${{r.valor}}</td>
+                  </tr>
+                </thead>
+          </table>
+    </div>
+        </div>
+        <p-footer>
+            <button type="button"  pButton icon="pi pi-check" (click)="modal=false;checkOut2(r)" label="Check-out" class="p-button-text"></button>
+            <button type="button" pButton icon="pi pi-times" (click)="modal=false" label="Cancelar" class="p-button-text"></button>
+        </p-footer>
+    </p-dialog>
 </div>

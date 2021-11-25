@@ -45,6 +45,7 @@ import { HabitacionEditStatusComponent } from "./ocupation/habitacion-edit-statu
 import {HabitacionesComponent  } from "./ocupation/habitaciones/habitaciones.component";
 import { ReservasComponent } from "./ocupation/reservas/reservas.component";
 import { ReservasClienteComponent } from "./ocupation/reservas-cliente/reservas-cliente.component";
+import { EstadiaComponent } from './ocupation/estadia/estadia.component';
 const routes: Routes = [
 
     {
@@ -86,8 +87,8 @@ const routes: Routes = [
             {path:'habitacion/:id',component: HabitacionEditStatusComponent},
             {path:'reservas',component: ReservasComponent},
             {path:'reservas/:idCedula',component: ReservasClienteComponent},
-            {path:'habitacion/detalle/:id',component: DetalleHabitacionComponent}
-            
+            {path:'habitacion/detalle/:id',component: DetalleHabitacionComponent},
+            {path:'estadia',component: EstadiaComponent}
         ]
     },
     {path: 'error', component: AppErrorComponent},

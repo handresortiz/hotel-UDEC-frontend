@@ -49,8 +49,27 @@ export class HabitacionEditStatusComponent implements OnInit {
   }
 
 
-  actualizarEstado() : void{
-    this.habitacionEditStatusService.updateStatusHabitacion(this.habitacion)
+  actualizarEstado() {
+    console.log('Actualizar ')
+    console.log(this.habitacion.estado)
+    switch(this.habitacion.estado) {
+      case 'L':{
+        console.log('Limpieza')
+        this.habitacionEditStatusService.cambiarEstadoLimpieza(this.habitacion.id_habitacion, true).subscribe(res=>{
+          this.router.navigate(['/habitaciones']);
+          Swal.fire('Habitacion actualizada', `¡Se ha actualizado con exito el estado de la habitacion!`, 'success');
+        })
+      }
+        break;
+          case 'M':{
+            this.habitacionEditStatusService.cambiarEstadoMantenimiento(this.habitacion.id_habitacion, true).subscribe(res=>{
+              this.router.navigate(['/habitaciones']);
+              Swal.fire('Habitacion actualizada', `¡Se ha actualizado con exito el estado de la habitacion!`, 'success');
+            })
+          }
+            break;
+            case 'O':{
+               this.habitacionEditStatusService.updateStatusHabitacion(this.habitacion)
     .subscribe( json => {
       this.router.navigate(['/habitaciones']);
       if(this.habitacion.estado=='O'|| this.habitacion.estado=='L'|| this.habitacion.estado=='D'|| this.habitacion.estado=='M'|| this.habitacion.estado=='R'){
@@ -62,6 +81,20 @@ export class HabitacionEditStatusComponent implements OnInit {
       
     }
     );
+            }
+              break;
+    
+      default:
+        break;
+    }
+  }
+
+  getEstado(e:any){
+    if(e == 'R'){
+      return 'R'
+    }else{
+      return 'D'
+    }
   }
 }
 
