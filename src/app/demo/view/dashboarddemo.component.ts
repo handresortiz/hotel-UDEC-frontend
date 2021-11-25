@@ -7,11 +7,15 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { ChartsServiceService } from '../../dashboard/services/charts-service.service';
+import { LoginService } from '../../auth/services/login.service';
+import { Response } from '../../auth/interfaces/response';
 
 @Component({
     templateUrl: './dashboard.component.html'
 })
 export class DashboardDemoComponent implements OnInit {
+
+    user: Response;
 
     data: any = [];
 
@@ -35,9 +39,18 @@ export class DashboardDemoComponent implements OnInit {
 
     constructor(private productService: ProductService, 
                 private eventService: EventService,
-                private chartService: ChartsServiceService) { }
+                private chartService: ChartsServiceService,
+                private loginService: LoginService) { }
 
     ngOnInit() {
+
+        if(localStorage.length!=0){
+            this.loginService.getCredentials()
+            .subscribe( resp =>{
+                this.user.pri_nombre = resp.idPersona.pri_nombre;
+                this.user.login = resp.login;
+            });
+        }
 
           this.chartService.chartReservation()
           .subscribe( data => {

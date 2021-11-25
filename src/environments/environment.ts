@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   microserviceLogin: 'http://localhost:8101/login',
-  microserviceRegister: 'http://localhost:8102/hotel',
+  microserviceRegister: 'http://localhost:8101/login',
   microserviceEmail: 'http://localhost:8103/mail',
   RESERVAS_URL: 'http://localhost:8200/api',
   microserviceOcupation: 'http://localhost:8401/ocupation',
