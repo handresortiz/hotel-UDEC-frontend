@@ -1,0 +1,20 @@
+{
+	"data": [
+		{ 
+			"id_tipo_habitacion": 1,
+			"nom_tipo_habitacion": "Clásica doble",
+			"desc_tipo_habitacion": "Descripción de prueba para el tipo 'Clásica doble'.",
+			"precio_habitacion": 160000,
+			"num_adultos": 2,
+			"num_ninos": 1
+		},
+		{ 
+			"id_tipo_habitacion": 2,
+			"nom_tipo_habitacion": "Clásica triple",
+			"desc_tipo_habitacion": "Descripción de prueba para el tipo 'Clásica triple'.",
+			"precio_habitacion": 205000,
+			"num_adultos": 3,
+			"num_ninos": 1
+		}
+	]
+}
