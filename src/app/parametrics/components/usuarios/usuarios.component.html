@@ -1,1 +1,130 @@
-<p>usuarios works!</p>
+<p-toast></p-toast>
+    <p-toolbar styleClass="p-mb-4">
+        <ng-template pTemplate="left">
+            <button pButton pRipple label="Agregar Usuario" icon="pi pi-user-plus" class="p-button-warning p-mr-2" (click)="agregarUser()"></button>
+        </ng-template>
+    </p-toolbar>
+
+<!-- Listar Usuarios -->
+<h3>Usuarios </h3>
+<p-table styleClass="p-datatable-gridlines" [value]="usuarios">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="text-align: center" pSortableColumn="persona.pri_nombre">Nombres<p-sortIcon field="persona.pri_nombre"></p-sortIcon></th>
+            <th style="text-align: center" pSortableColumn="persona.pri_apellido">Apellidos<p-sortIcon field="persona.pri_apellido"></p-sortIcon></th>
+            <th style="text-align: center" pSortableColumn="persona.identificacion">Nº Identificación<p-sortIcon field="persona.identificacion"></p-sortIcon></th>
+            <th style="text-align: center" pSortableColumn="persona.correo">Correo<p-sortIcon field="persona.correo"></p-sortIcon></th>
+            <th style="text-align: center" pSortableColumn="persona.telefono">Telefono<p-sortIcon field="persona.telefono"></p-sortIcon></th>
+            <th style="text-align: center" pSortableColumn="perfil.nom_perfil">Cargo<p-sortIcon field="persona.telefono"></p-sortIcon></th>
+            <th style="text-align: center" >Editar Usuarios</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+        <tr>
+            <td>{{user.persona.pri_nombre+' '+(user.persona.seg_nombre ? user.persona.seg_nombre : '' )}}</td>
+            <td>{{user.persona.pri_apellido+' '+(user.persona.seg_apellido ? user.persona.seg_apellido : '' ) }}</td>
+            <td>{{user.persona.identificacion}}</td>
+            <td>{{user.persona.correo}}</td>
+            <td>{{user.persona.telefono}}</td>
+            <td>{{user.perfil.nom_perfil}}</td>
+            <td style="text-align: center" width="40px">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-Primary p-mr-2" (click)="editar(user)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table> 
+
+<!-- Formulario de editar -->
+<p-dialog header=" Datos Personales" [style]="{width: '28vw'}" [(visible)]="display">
+    <div class="datos">
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col">
+                <label>Primer Nombre</label>
+                <input type="text" pKeyFilter="alpha" pKeyFilter="alpha" [(ngModel)]="usuario.persona.pri_nombre" pInputText>
+            <small class="p-invalid" *ngIf="submitted && !usuario.persona.pri_nombre">El Primer nombre es obligatorio</small>
+        </div>
+            <div class="p-field p-col">
+                <label>Segundo Nombre</label>
+                <input type="text" pKeyFilter="alpha"  [(ngModel)]="usuario.persona.seg_nombre" pInputText>
+            </div>
+        </div>
+
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col">
+                <label>Primer Apellido</label>
+                <input type="text" pKeyFilter="alpha" [(ngModel)]="usuario.persona.pri_apellido" pInputText>
+                <small class="p-invalid " [style] color=red *ngIf="submitted && !usuario.persona.pri_apellido">El Primer apellido es obligatorio</small>
+            </div>
+            <div class="p-field p-col">
+                <label>Segundo Apellido</label>
+                <input type="text" pKeyFilter="alpha" [(ngModel)]="usuario.persona.seg_apellido" pInputText>
+            </div>
+        </div>
+
+        <div class="p-grid p-fluid">
+            <div class="p-col-12 p-md-12">
+                <label class="p-col-fixed">Nº Identificación</label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+                    <input type="text" [(ngModel)]="usuario.persona.identificacion" [disabled]="edit" pInputText>
+                    <small class="p-invalid " [style] color=red *ngIf="submitted && !usuario.persona.identificacion">Este campo requiere numeros</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-grid p-fluid">
+            <div class="p-col-12 p-md-12">
+                <label class="p-col-fixed" style="width:140px">Correo Electronico</label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                    <input type="text"  [(ngModel)]="usuario.persona.correo" pInputText>
+                    <small class="p-invalid " *ngIf="submitted && !usuario.persona.correo">Ingresar un correo</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col">
+                <label>Telefono</label>
+                <input type="text" pKeyFilter="num" [(ngModel)]="usuario.persona.telefono" pInputText>
+                <small class="p-invalid " [style] color=red *ngIf="submitted && !usuario.persona.telefono">Este campo requiere numeros</small>
+            </div>
+            <div class="p-field p-col">
+                <label>Cargo</label>
+                <span class="p-float-label">
+                    <p-dropdown  inputId="dropdown" [options]="perfil" appendTo="body" [(ngModel)]="usuario.id_perfil" placeholder="Seleccionar"></p-dropdown>
+                    <small class="p-invalid " *ngIf="submitted && !usuario.id_perfil">Seleccione un cargo</small>
+                </span>
+            </div>
+        </div>
+
+    <ng-container *ngIf="edit"> 
+        <div class="p-grid p-fluid">
+            <div class="p-col-12 p-md-12">
+                <label class="p-col-fixed">Usuario</label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text"  [(ngModel)]="usuario.login" pInputText>
+                    <small class="p-invalid " *ngIf="submitted && !usuario.login">Ingrese el usuario</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-grid p-fluid">
+            <div class="p-col-12 p-md-12">
+                <label class="p-col-fixed">Contraseña</label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                    <input type="password"  [(ngModel)]="usuario.clave" pPassword /> 
+                    <small class="p-invalid " *ngIf="submitted && !usuario.clave">La contraseña es obligatoria</small>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    </div>
+    <ng-template pTemplate="footer">
+    <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+    <button type="text" (click)="confirm()" pButton icon="pi pi-check" label="Confirm"></button>
+</ng-template>
+
+</p-dialog>

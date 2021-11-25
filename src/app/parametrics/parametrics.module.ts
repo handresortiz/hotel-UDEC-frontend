@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ParametricsRoutingModule } from './parametrics-routing.module';
 import { TiposhabitacionesComponent } from './components/tiposhabitaciones/tiposhabitaciones.component';
-import { HabitacionesComponent } from './components/habitaciones/habitaciones.component';
+
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { FormularioUsuarioComponent } from './components/formulario-usuario/formulario-usuario.component';
 import { ListarHabitacionesComponent } from './components/listar-habitaciones/listar-habitaciones.component';
@@ -32,7 +32,6 @@ import {ConfirmationService} from 'primeng/api';
 import {PasswordModule} from 'primeng/password';
 import {ToastModule} from 'primeng/toast';
 import {ToolbarModule} from 'primeng/toolbar';
-import { ConfirmDialog } from 'primeng/confirmdialog';
 //Tabla de Usuarios
 import {TableModule} from 'primeng/table';
 import { UsuariosService } from './services/usuarios.service';
@@ -42,7 +41,7 @@ import { HabitacionService } from './services/habitacion.service';
 @NgModule({
   declarations: [
     TiposhabitacionesComponent,
-    HabitacionesComponent,
+    
     UsuariosComponent,
     FormularioUsuarioComponent,
     ListarHabitacionesComponent
@@ -71,8 +70,7 @@ import { HabitacionService } from './services/habitacion.service';
     RatingModule,
     RadioButtonModule,
     InputNumberModule,
-    InputTextareaModule,
-    ConfirmDialog
+    InputTextareaModule
 
   ],
   providers: [
