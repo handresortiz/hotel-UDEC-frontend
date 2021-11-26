@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { RegisterService } from '../../services/register.service';
 import { MessageService, SelectItem } from 'primeng/api';
-import { Profile } from '../../interfaces/profile';
-import { Person } from '../../interfaces/person';
-import { User } from '../../interfaces/user';
 import { MailService } from '../../services/mail.service';
+import { SignupRequest } from '../../interfaces/signup-request';
 import { Email } from '../../interfaces/email';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -44,15 +44,11 @@ export class RegisterComponent implements OnInit {
     });
 
 
-    profile: Profile = {
-      desc_perfil: 'Perfil creado por defecto al registrarse'  ,
-      nom_perfil: 'Profile Default'
-    }
-
   constructor( private registerService: RegisterService,
                private fb             : FormBuilder,
                private messageService : MessageService,
-               private mailService    : MailService) {
+               private mailService    : MailService,
+               private router: Router) {
                 this.registerForm.get('pass2').setValidators(
                   this.equalsValidator( this.registerForm.get('pass') )
                   );
@@ -66,7 +62,7 @@ export class RegisterComponent implements OnInit {
 
   onRegister(){
 
-    let person      : Person = {
+    let person      : SignupRequest = {
       pri_nombre    : this.registerForm.controls['pri_nombre'].value,
       seg_nombre    : this.registerForm.controls['seg_nombre'].value,
       pri_apellido  : this.registerForm.controls['pri_apellido'].value,
@@ -74,54 +70,36 @@ export class RegisterComponent implements OnInit {
       razon_social  : this.registerForm.controls['razon_social'].value,
       telefono      : this.registerForm.controls['telefono'].value,
       direccion     : this.registerForm.controls['direccion'].value,
-      correo        : this.registerForm.controls['correo'].value,
+      login         : this.registerForm.controls['correo'].value,
+      clave         : this.registerForm.controls['pass'].value,
       identificacion: this.registerForm.controls['identificacion'].value,
       genero        : this.registerForm.controls['genero'].value.value
     }
 
-    let user: User = {
-      login: this.registerForm.controls['correo'].value,
-      clave: this.registerForm.controls['pass'].value,
+    let email: Email  = { 
+      email:  this.registerForm.controls['correo'].value,
+      name: this.registerForm.controls['pri_nombre'].value
     }
-
-    
+  
       
-    this.registerService.registerPerson( person )
-    .subscribe( message => {
 
-        this.registerService.registerProfile(this.profile)
-      .subscribe( message => {
-          this.registerService.registerUser( user )
+          this.registerService.registerUser( person )
           .subscribe( message => {
-
-            let mail: Email = {
-              email: this.registerForm.controls['correo'].value,
-              name:  this.registerForm.controls['pri_nombre'].value
-            }
-
-            this.mailService.sendEmail(mail)
-            .subscribe( message =>{
-              this.showSuccessViaToast('Verificacion enviada correctamente')
-            },( error => {
-            this.showErrorViaToast(error.error.mensaje);
-            }) );
+            this.router.navigate(['/auth/validate']);
+            this.showSuccessViaToast(message.message)
             
-            this.showSuccessViaToast(message.mensaje)
-            console.log(message);
-
           },(error => {
-            this.showErrorViaToast(error.error.mensaje);
+            this.showErrorViaToast(error.error.menssage);
           })
           )
 
-      },(error => {
-        this.showErrorViaToast(error.error.mensaje);
-      }));
+     //     this.mailService.sendEmail( email )
+      //    .subscribe( email =>{
 
-    },(error => {
-      this.showErrorViaToast(error.error.mensaje);
-    }));
-
+  
+    //      },(error => {
+    //        this.showErrorViaToast(error.error.menssage);
+     //     }))
     
   }
 

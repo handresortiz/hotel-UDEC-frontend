@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 
 import { LoginService } from '../../services/login.service';
-import { User } from '../../interfaces/user';
 import { Router } from '@angular/router';
+import { LoginRequest } from '../../interfaces/login-request';
+import { Response } from '../../interfaces/response';
 
 
 @Component({
@@ -14,6 +15,9 @@ import { Router } from '@angular/router';
   providers: [MessageService]
 })
 export class LoginComponent implements OnInit {
+
+
+  @Input() user: Response;
 
   loginForm: FormGroup = this.fb.group({
     login: ['', [Validators.required, Validators.email]],
@@ -31,14 +35,16 @@ export class LoginComponent implements OnInit {
   }
 
   onAuthorizate() {
-    let logUser: User = {
+    let logUser: LoginRequest = {
       login: this.loginForm.controls['login'].value,
       clave: this.loginForm.controls['pass'].value
     }
     this.loginService.Authentication(logUser)
       .subscribe(user => {
-        this.showSuccessViaToast(user.mensaje);
+
+        this.user = user;
         this.navegate();
+        
       }, (err => {
         this.showErrorViaToast(err.error.mensaje);
       }));

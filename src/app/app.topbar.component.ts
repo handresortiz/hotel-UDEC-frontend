@@ -1,5 +1,8 @@
-import {Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {AppMainComponent} from './app.main.component';
+import { Router } from '@angular/router';
+import { LoginService } from './auth/services/login.service';
+import { Response } from './auth/interfaces/response';
 
 @Component({
     selector: 'app-topbar',
@@ -26,8 +29,8 @@ import {AppMainComponent} from './app.main.component';
                             <img src="assets/layout/images/anonymus.png">
                         </div>
                         <div class="profile-info">
-                            <span class="topbar-item-name profile-name">Name_User</span>
-                            <span class="topbar-item-name profile-role">ROLE_SYSTEM</span>
+                            <span class="topbar-item-name profile-name"></span>
+                            <span class="topbar-item-name profile-role">{{ user.login }}</span>
                         </div>
                     </a>
 
@@ -52,12 +55,15 @@ import {AppMainComponent} from './app.main.component';
                                 <span>Settings</span>
                             </a>
                         </li>
-                        <li role="menuitem">
-                            <a href="#" (click)="app.onTopbarSubItemClick($event)">
+
+                        
+                        <li onclick="location.href='#/auth/login';" role="menuitem">
+                        <a  (click)="this.logout()">
                                 <i class="pi pi-sign-out"></i>
-                                <span>Logout</span>
+                                <span>Salir</span>
                             </a>
                         </li>
+                        
                     </ul>
                 </li>
                 
@@ -69,7 +75,9 @@ import {AppMainComponent} from './app.main.component';
                         <span class="topbar-item-name">Notifications</span>
                     </a>
                     <ul class="fadeInDown">
-                        <li role="menuitem">
+                       
+                    <!--Menu desplegable area de notificaciones-->
+                    <!-- <li role="menuitem"> 
                             <a href="#" (click)="app.onTopbarSubItemClick($event)">
                                 <i class="pi pi-sliders-h"></i>
                                 <span>Pending tasks</span>
@@ -93,6 +101,10 @@ import {AppMainComponent} from './app.main.component';
                                 <span>Book flight</span>
                             </a>
                         </li>
+                        -->
+
+                        <p style="text-align:center"><span style="color:darkgray;font-weight:bold">En este espacio estan nuestras notificaciones</span></p>
+                    
                     </ul>
                 </li>
                 <li #search class="search-item" [ngClass]="{'active-topmenuitem':app.activeTopbarItem === search}"
@@ -106,8 +118,28 @@ import {AppMainComponent} from './app.main.component';
         </div>
     `
 })
-export class AppTopbarComponent {
+export class AppTopbarComponent implements OnInit{
 
-    constructor(public app: AppMainComponent) {}
+
+    user: Response = {
+        login: '',
+        pri_nombre: '',
+
+    };
+
+    constructor(public app: AppMainComponent,
+                private router: Router,
+                private loginService: LoginService) {}
+    ngOnInit(): void {
+        this.loginService.getCredentials()
+        .subscribe( resp =>{            
+            this.user.login = resp.login;
+        })
+    }
+
+    logout(){
+        this.router.navigateByUrl('/');
+        this.loginService.logout();
+    }
 
 }
