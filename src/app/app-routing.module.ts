@@ -39,6 +39,8 @@ import { MainComponent } from './dashboard/pages/main/main.component';
 // Componentes de consumo
 import { InventarioComponent } from './consumption/pages/inventario/inventario.component';
 import { ProductosComponent } from './consumption/pages/productos/productos.component';
+import { NuevoProductoComponent } from './consumption/pages/inventario/nuevo-producto.component';
+
 //componentes ocupacion
 import { DetalleHabitacionComponent } from "./ocupation/detalle-habitacion/detalle-habitacion.component";
 import { HabitacionEditStatusComponent } from "./ocupation/habitacion-edit-status/habitacion-edit-status.component";
@@ -86,7 +88,8 @@ const routes: Routes = [
             {path:'habitacion/:id',component: HabitacionEditStatusComponent},
             {path:'reservas',component: ReservasComponent},
             {path:'reservas/:idCedula',component: ReservasClienteComponent},
-            {path:'habitacion/detalle/:id',component: DetalleHabitacionComponent}
+            {path:'habitacion/detalle/:id',component: DetalleHabitacionComponent},
+            {path: 'nuevo', component: NuevoProductoComponent}
             
         ]
     },
@@ -102,6 +105,8 @@ const routes: Routes = [
     {path: 'report', loadChildren: () => import('./report/report.module').then( module => module.ReportModule)},        
     {path: '**', redirectTo: '/notfound'},
 ]
+
+
 
 
 
