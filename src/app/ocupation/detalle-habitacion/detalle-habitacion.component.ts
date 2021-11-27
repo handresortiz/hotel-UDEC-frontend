@@ -38,4 +38,9 @@ export class DetalleHabitacionComponent implements OnInit {
     );
   }
 
+  volver(){
+    this.router.navigate(['/habitaciones']);
+  }
+
+
 }

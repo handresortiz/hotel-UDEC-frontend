@@ -27,6 +27,7 @@
         "@fullcalendar/timegrid": "4.0.1",
         "chart.js": "2.7.3",
         "moment": "^2.29.1",
+        "ng2-search-filter": "^0.5.1",
         "primeflex": "2.0.0",
         "primeicons": "^4.0.0",
         "primeng": "^10.0.3",

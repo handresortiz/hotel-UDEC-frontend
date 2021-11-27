@@ -14,6 +14,7 @@
                 
               <div class="InputContainer">
                 <input  [(ngModel)]='idCedula' />
+        
               </div>
               <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
               width="40" height="40"
@@ -29,27 +30,29 @@
             <thead>
                 <tr>
                     <th>ID Reserva</th>
-                    <th>Precio</th>
+                    <th>Valor</th>
                     <th>Fecha Entrada</th>
                     <th>Fecha Salida</th>
-                    <th>Observacion</th>
+                    <th>Fecha Ultima Modificacion</th>
                     <th>ID Cliente</th>
-                    <th>Nombres y Apellidos</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
                     <th>Telefono</th>
                     <th>Estado</th>
-                    <th>Check-In</th>
+                    <th>Check in</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let reserva of reservas">
-                    <td>{{reserva.id}}</td>
-                    <td>{{reserva.precio}}</td>
-                    <td>{{reserva.fecha_entrada}}</td>
-                    <td>{{reserva.fecha_salida}}</td>
-                    <td>{{reserva.observacion}}</td>
-                    <td> {{reserva.cliente.tipoDocumento}} {{reserva.cliente.id}}</td>
-                    <td>{{reserva.cliente.nombres}} {{reserva.cliente.apellidos}}</td>
-                    <td>{{reserva.cliente.telefono}}</td>
+                    <td>{{reserva.id_reservacion}}</td>
+                    <td>{{reserva.valor}}</td>
+                    <td>{{reserva.fec_inicio}}</td>
+                    <td>{{reserva.fec_cambio}}</td>
+                    <td>{{reserva.fec_cambio}}</td>
+                    <td> {{reserva.cuenta.huesped.persona.id_persona}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.pri_nombre}} {{reserva.cuenta.huesped.persona.seg_nombre}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.pri_apellido}} {{reserva.cuenta.huesped.persona.seg_apellido}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.telefono}}</td>
                     <td *ngIf="reserva.estado"> Sin ingreso</td>
                     <td *ngIf="!reserva.estado"> Ingreso</td>
                     <td>

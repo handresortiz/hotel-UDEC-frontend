@@ -1,9 +1,9 @@
-import { Habitacion } from './Habitacion';
+import { Habitaciones } from './Habitaciones';
 
-export class LogCambioEstado{
+export class LogCambioEstado {
     id: number;
-    habitacion : Habitacion;
-    estado : string;
-    fecha : string;
-    observacion : string;
+    habitacion: Habitaciones;
+    estado: string;
+    fecha: string;
+    observacion: string;
 }

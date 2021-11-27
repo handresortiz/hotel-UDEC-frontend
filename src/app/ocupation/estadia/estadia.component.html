@@ -1,0 +1,144 @@
+<div class="card">
+    <h1>Busqueda</h1>
+    <div style="width: 800px; margin: 1rem; ">
+        <small>Ingresa el documento</small>
+        <input type="text" [(ngModel)]="term">
+        <!-- <button pButton pRipple style="margin: 1rem;" (click)="ocultar =!ocultar" type="button" label="Consultar Horario" class="p-button-secondary p-mr-2 p-mb-2"></button> -->
+        <button pButton pRipple style="margin: 1rem;"  (click)="horarioCheck()" type="button" label="Consultar Horario" class="p-button-secondary p-mr-2 p-mb-2"></button>
+      </div>
+      
+      <div *ngIf="ocultar == true">
+        <table class="styled-table"
+        style="margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>ID Reserva</th>
+                    <th>Num. Habitacion</th>
+                    <th>Valor</th>
+                    <th>Horario check-in</th>
+                    <th>Horario check-out</th>
+                    <th>Horario Ultima Modificacion</th>
+                    <th>Identificacion Cliente</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Telefono</th>
+                    <th>Estado</th>
+                    <th>Factura</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reserva of reserva |filter:term">
+                    <td>{{reserva.id_reservacion}}</td>
+                    <td>{{reserva.habitacion.num_habitacion}}</td>
+                    <td>{{reserva.valor}}</td>
+                    <td>{{reserva.fec_inicio  | date:'medium'}}</td>
+                    <td>{{reserva.fec_fin  | date:'medium'}}</td>
+                    <td>{{reserva.fec_cambio  | date:'medium'}}</td>
+                    <td> {{reserva.cuenta.huesped.persona.identificacion}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.pri_nombre}} {{reserva.cuenta.huesped.persona.seg_nombre}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.pri_apellido}} {{reserva.cuenta.huesped.persona.seg_apellido}}</td>
+                    <td>{{reserva.cuenta.huesped.persona.telefono}}</td>
+                    <td>{{estados(reserva.habitacion.estado)}}</td>
+                    <td>
+                        <i class="pi pi-money-bill" style="font-size: 2rem; cursor:pointer" (click)="display=true;factura(reserva)"></i>
+                    
+                      </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <div *ngIf="ocultar == false">
+    <table class="styled-table"
+    style="margin: 0 auto;">
+        <thead>
+            <tr>
+                <th>ID Reserva</th>
+                <th>Num habitacion</th>
+                <th>Valor</th>
+                <th>Fecha Entrada</th>
+                <th>Fecha Salida</th>
+                <th>Fecha Ultima Modificacion</th>
+                <th>Identificacion Cliente</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Telefono</th>
+                <th>Estado</th>
+                <th>Factura</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reserva of reserva |filter:term">
+                <td>{{reserva.id_reservacion}}</td>
+                <td>{{reserva.habitacion.num_habitacion}}</td>
+                <td>{{reserva.valor}}</td>
+                <td>{{reserva.fec_inicio  | date:'medium'}}</td>
+                <td>{{reserva.fec_fin  | date:'medium'}}</td>
+                <td>{{reserva.fec_cambio  | date:'medium'}}</td>
+                <td> {{reserva.cuenta.huesped.persona.identificacion}}</td>
+                <td>{{reserva.cuenta.huesped.persona.pri_nombre}} {{reserva.cuenta.huesped.persona.seg_nombre}}</td>
+                <td>{{reserva.cuenta.huesped.persona.pri_apellido}} {{reserva.cuenta.huesped.persona.seg_apellido}}</td>
+                <td>{{reserva.cuenta.huesped.persona.telefono}}</td>
+                <td>{{estados(reserva.habitacion.estado)}}</td>
+                <td>
+                    <i class="pi pi-money-bill" style="font-size: 2rem; cursor:pointer" (click)="display=true;factura(reserva)"></i>
+                
+                  </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="display">
+    <p-dialog header='{{reserva1.pri_nombre}}  {{reserva1.pri_apellido}}' [(visible)]="display" modal="modal" showEffect="fade" [style]="{width: '800px'}">
+        <div style="line-height: 1.5">
+      <h6>Informacion del cliente</h6>
+      <div class="card">
+          <table>
+              <thead>
+                <tr>
+                    <th>Valores</th>
+                    <th>Datos</th>
+                  </tr>
+                  <tr>
+                  <th>Correo</th>
+                  <td>{{reserva1.correo}}</td>
+                </tr>
+                <tr>
+                    <th>Identificacion</th>
+                    <td>{{reserva1.identificacion}}</td>
+                  </tr>
+                  <tr>
+                    <th>Fecha entrada</th>
+                    <td> {{r.fec_inicio  | date:'medium'}}</td>
+                  </tr>
+                  <tr>
+                    <th>Fecha salida</th>
+                    <td> {{r.fec_fin  | date:'medium'}}</td>
+                  </tr>
+                  <tr>
+                    <th>Correo</th>
+                    <td>{{reserva1.correo}}</td>
+                  </tr>
+                  <tr>
+                    <th>Telefono</th>
+                    <td>{{reserva1.telefono}}</td>
+                  </tr>
+                  <tr>
+                    <th>Valor cuenta</th>
+                    <td>${{r.cuenta.total}}</td>
+                  </tr>
+                  <tr>
+                    <th>Total a pagar</th>
+                    <td>${{r.valor}}</td>
+                  </tr>
+                </thead>
+          </table>
+    </div>
+        </div>
+        <p-footer>
+        </p-footer>
+    </p-dialog>
+
+
+</div>

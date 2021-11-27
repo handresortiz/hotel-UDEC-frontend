@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Reserva } from '../habitaciones/models/Reserva';
 import { ReservasClienteService } from "./reservas-cliente.service";
 import { ActivatedRoute, Router } from '@angular/router';
+import { Reservaciones } from '../habitaciones/models/Reservaciones';
 import swal from'sweetalert2';
 
 @Component({
@@ -11,7 +11,7 @@ import swal from'sweetalert2';
 })
 export class ReservasClienteComponent implements OnInit {
 
-  reservas : Reserva[];
+  reservas : Reservaciones[];
   idCedula: string;
 
   constructor(private reservasClienteService : ReservasClienteService, 
@@ -61,3 +61,4 @@ export class ReservasClienteComponent implements OnInit {
   }
 
 }
+

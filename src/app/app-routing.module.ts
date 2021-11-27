@@ -48,6 +48,7 @@ import {HabitacionesComponent  } from "./ocupation/habitaciones/habitaciones.com
 import { ReservasComponent } from "./ocupation/reservas/reservas.component";
 import { ReservasClienteComponent } from "./ocupation/reservas-cliente/reservas-cliente.component";
 import { EnviarEmailComponent } from './auth/pages/enviar-email/enviar-email.component';
+import { EstadiaComponent } from './ocupation/estadia/estadia.component';
 const routes: Routes = [
 
     {
@@ -83,6 +84,7 @@ const routes: Routes = [
             {path: 'pages/help', component: AppHelpComponent},
             {path: 'pages/empty', component: EmptyDemoComponent},
             {path: 'documentation', component: DocumentationComponent},
+            {path: 'parametricas', loadChildren: () => import('./parametrics/parametrics.module').then( module => module.ParametricsModule)},
             {path: 'inventario', component: InventarioComponent},
             {path: 'productos', component: ProductosComponent},
             {path:'habitaciones',component: HabitacionesComponent},
@@ -90,7 +92,8 @@ const routes: Routes = [
             {path:'reservas',component: ReservasComponent},
             {path:'reservas/:idCedula',component: ReservasClienteComponent},
             {path:'habitacion/detalle/:id',component: DetalleHabitacionComponent},
-            {path: 'nuevo', component: NuevoProductoComponent}
+            {path: 'nuevo', component: NuevoProductoComponent},
+            {path:'estadia',component: EstadiaComponent}
             
         ]
     },
