@@ -9,7 +9,7 @@ import * as moment from 'moment';
 })
 export class OcupacionComponent implements OnInit {
 
-date:any;
+date: any;
   constructor() { }
 
   ngOnInit(): void {

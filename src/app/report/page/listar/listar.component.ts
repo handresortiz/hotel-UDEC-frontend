@@ -21,7 +21,7 @@ export class ListarComponent implements OnInit {
     .subscribe(data => {
 
       this.habitaciones = data;
-      
+
     });
   }
 

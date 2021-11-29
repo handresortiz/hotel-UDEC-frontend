@@ -8,8 +8,11 @@ import { SharedModule } from 'primeng/api';
 import {FormsModule} from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ServiceService } from './page/service.service';
+import { LimpiezaPComponent } from './page/limpieza-p/limpieza-p.component';
+
+
 @NgModule({
-  declarations: [OcupacionComponent, ListarComponent],
+  declarations: [OcupacionComponent, ListarComponent, LimpiezaPComponent],
   imports: [
     CommonModule,
     SharedModule,

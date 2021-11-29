@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class ServiceService {
 
-habitaciones:Habitaciones[];
+habitaciones: Habitaciones[];
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  Url='http://localhost:8505/ocupacion/list';
+  Url = 'http://localhost:8505/ocupacion/list';
 
   getHabitaciones(): Observable<Habitaciones[]>{
   return this.http.get<Habitaciones[]>(this.Url);

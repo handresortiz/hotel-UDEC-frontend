@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	</head>
+
+	<body style="background-color: rgb(121, 187, 7);">
+
+		<div class="p-grid">
+			<div class="p-col">
+				<div class="card" >
+					<div id="invoice-content">
+						<div class="invoice">
+							<div class="invoice-header">
+								<div class="invoice-company">
+									<img id="invoice-logo" class="logo-image" src="assets/layout/images/logo_Universidad.png" alt="barcelona-layout" />
+									<div class="company-name" style="background-color: rgb(244, 245, 238);">HOTEL UDEC</div>
+									<div>Fusagasuaga</div>
+									<div>Cundinamarca </div>
+								</div>
+								<div>
+									<div class="invoice-title" style="background-color: rgb(251, 252, 248);">REPORTES</div>
+									<div class="invoice-details">
+										<div style="width: 100px; height: 150px;" class="invoice-label">FECHA: {{date}} </div> 
+										<div class="invoice-value"></div>
+									</div>
+								</div>
+							</div>
+                            <div class="container">
+                                <div class="card">
+                                <div class="card-header">
+                                <h3>Habitaciones</h3> 
+                                </div>
+                                <div class="card-body">
+                                <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th style="text-align: center;">ID</th>
+                                    <th style="text-align: center;">Habitacion</th>
+                                    <th style="text-align: center;">Estado Limpieza</th>   
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let habitacion of habitaciones" class="text-center">
+                                        <td>{{ habitacion.id_habitacion }}</td>
+                                        <td>{{ habitacion.num_habitacion }}</td>
+                                        <td *ngIf="habitacion.limpieza==false; else casofalso"> Sucia </td>
+                                        <ng-template #casofalso>
+                                            <td>Limpia</td>  
+                                        </ng-template>
+                                        
+                                    </tr>
+                                </tbody>
+                                </table>    
+                                
+                            
+                                </div>
+                                
+                                </div>
+                                </div>
+							
+						</div>
+					</div>
+                    
+				</div>
+                
+			</div>
+		</div>
+        <button pButton label="Print" type="button" icon="pi pi-print" (click)="print()"
+        style="font-size:15px;width: 150px; height:60px;cursor:pointer;display:block;margin-bottom: 30px; margin-left: 1250px;">Impirmir reporte</button>
+
+		
+	</body>
+	
+
+</html>

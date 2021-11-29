@@ -9,12 +9,125 @@
 
     <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
         <span class="p-input-icon-right">
-            <input type="text" pInputText placeholder="Search"/>
+            <input #identificacion type="number" pInputText placeholder="Search"/>
             <i class="pi pi-search"></i>
         </span>
     </div>
+
+            <button pButton pRipple type="button" label="Buscar" class="p-button-raised" (click)="buscar(identificacion.value)"
+			style="font-size:15px;width: 100px; height:30px;cursor:pointer;display:block;margin-bottom: 30px; margin-left: 50px;">Buscar</button>
+
         
     </body>
+    <body *ngIf="persona==null; else casofalso" >
+		<p>error</p>
+	
+	
+	</body>
+	
+	<ng-template #casofalso >
+		<body style="background-color: rgb(121, 187, 7);">
+			<div class="p-grid">
+				<div class="p-col">
+					<div class="card" >
+						<div id="invoice-content">
+							<div class="invoice">
+								<div class="invoice-header">
+									<div class="invoice-company">
+										<img id="invoice-logo" class="logo-image" src="assets/layout/images/logo_Universidad.png" alt="barcelona-layout" />
+										<div class="company-name">HOTEL UDEC</div>
+										<div>Fusagasuaga</div>
+										<div>Cundinamarca </div>
+									</div>
+									<div>
+										<div class="invoice-title">FACTURA </div>
+										<div class="invoice-details">
+											<div class="invoice-label">FECHA: {{date}}</div>
+											<div class="invoice-value"></div>
+			
+											<div class="invoice-label">FACTURA #</div>
+											<div class="invoice-value"></div>
+			
+											<div style="width: 400px; height: 150px;" class="invoice-label">Nombre:  {{persona.pri_nombre}} {{persona.pri_apellido}}</div>
+	
+											
+										</div>
+									</div>
+								</div>
+								<div class="invoice-to">
+									<div class="bill-to">Cobrar a {{persona.pri_nombre}} {{persona.pri_apellido}} </div>
+									<div class="invoice-to-info">
+										<div></div>
+										<div> </div>
+									</div>
+								</div>
+								<div class="invoice-items">
+									<table style="background-color: rgb(179, 180, 177);">
+										<thead>
+										<tr>
+											<th>Descripcion</th>
+											<th>cantidad</th>
+											<th>Precio unitario</th>
+											<th>Total</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="invoice-summary">
+									<div class="invoice-notes">
+										<b>NOTAS</b>
+										<div>
+			
+										</div>
+									</div>
+									<div>
+										<div class="invoice-details">
+											<div class="invoice-label">SUBTOTAL</div>
+											<div class="invoice-value">$0</div>
+			
+											<div class="invoice-label">IVA</div>
+											<div class="invoice-value">$0</div>
+			
+											<div class="invoice-label">TOTAL</div>
+											<div class="invoice-value">$0</div>
+										</div>
+									</div>
+								</div>
+								<button pButton label="Print" type="button" icon="pi pi-print" (click)="print()"
+					style="font-size:15px;width: 100px; height:30px;cursor:pointer;display:block;margin-bottom: 30px; margin-left: 1250px;">Impirmir</button>
+			
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		</body>
+	</ng-template>
+
+
+
+
         
 </html>
 
