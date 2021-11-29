@@ -1,0 +1,63 @@
+<!-- seccion buscar y boton Nueva Habitacion  -->
+<p-toast position="top-right"></p-toast>
+<div class="contenedor-inputs">
+    <div class="p-fluid"> 
+        <div class="p-field">
+            <p-button label="Nueva Habitacion" (click)="CrearHabitacion()"></p-button>
+        </div>
+    </div>
+</div>
+ 
+<!-- Tabla para el Listado de las Habitaciones -->
+
+<h5>Listado de Habitaciones</h5>
+    <p-table [value]="Habitaciones" styleClass="p-datatable-gridlines" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+    currentPageReportTemplate="Ver {first} - {last} de {totalRecords} datos" [rowsPerPageOptions]="[10,20,30,40,50]"
+    (sortFunction)="customSort($event)" [customSort]="true" >
+        <ng-template pTemplate="header">
+            <tr>
+
+                <th pSortableColumn="num_habitacion" style="text-align: center" width="160px">Numero <p-sortIcon field="num_habitacion"></p-sortIcon></th>
+                <th pSortableColumn="id_tipo_habitacion" style="text-align: center" >Tipo <p-sortIcon field="id_tipo_habitacion"></p-sortIcon></th>
+                <th  width="160px"></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-habitacion>
+            <tr>
+                <td width="160px">{{habitacion.num_habitacion}}</td>
+                <td>{{getNomTipo(habitacion.id_tipo_habitacion)}}</td>
+                <td style="text-align: center" width="160px" >
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-success p-mr-2"
+                        (click)="EditarHabitacion(habitacion)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-danger"
+                        (click)="EliminarHabitacion(habitacion)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-table>
+
+<!-- Ventana Emergente de Agregar -->
+
+<p-dialog header="Agregar Nueva Habitacion" [style]="{width: '50vw'}" [(visible)]="displayform">
+    <div class="p-fluid">
+        <div class="p-field">
+            <label>Nº Habitacion: </label>
+            <p-inputNumber [(ngModel)]="Habitacion.num_habitacion" [min]="1" [max]="9999"></p-inputNumber>
+        </div>
+        <div class="p-field">
+            <label>Tipo Habitacion: </label>
+            <p-dropdown [options]="TiposdeHabitaciones" [(ngModel)]="Habitacion.id_tipo_habitacion" placeholder="Seleccione Tipo Habitacion"
+                [showClear]="true" appendTo="body"></p-dropdown>
+        </div>
+    </div>
+    <p-footer>
+        <p-button [label]="editar ? 'Guardar Cambios' : 'Guardar' " (click)="Enviar()" ></p-button>
+    </p-footer>
+
+</p-dialog>

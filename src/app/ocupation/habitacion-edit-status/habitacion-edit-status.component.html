@@ -1,0 +1,37 @@
+<div class="p-grid" style="margin-left: 10%; margin-top: 3%;text-align: center;">
+	<div class="p-col-10 text-center">
+		<div class="card " *ngIf="habitacion">		
+			<form class="">
+				<div class="p-col-12">
+					<div class="card">
+						<h5>Modificar Estado De Habitación</h5>
+						<div class="p-fluid p-formgrid p-grid">
+							<div class="p-field p-col-12 p-md-4">
+								<label for="zip">Id habitacion</label>
+								<input type="text" pInputText  [disabled]="disabled" [(ngModel)]="habitacion.id_habitacion" name="id_habitacion" value="{{habitacion.id_habitacion}}" disabled>
+							</div>
+							<div class="p-field p-col-12 p-md-4">
+								<label for="zip">Tipo habitacion</label>
+								<input type="text" pInputText  [(ngModel)]="habitacion.tipo.nom_tipo_habitacion" name="nom_tipo_habitacion" value="{{habitacion.tipo.nom_tipo_habitacion}}" disabled>
+							</div>
+							<div class="p-field p-col-12 p-md-4">
+								<label for="zip">Numero habitacion</label>
+								<input type="text" pInputText  [(ngModel)]="habitacion.num_habitacion" name="num_habitacion" value="{{habitacion.num_habitacion}}" disabled>
+							</div>
+							<div class="p-field p-col-12  text-center">
+								<label for="state">Estado</label>
+								<select pInputText  [(ngModel)]="habitacion.estado" name="estado" value="{{habitacion.estado}}">
+									<option value="{{getEstado(habitacion.estado)}}" disabled>Selecciona una opción disponible</option>
+									<option value='L'>Limpieza</option>
+									<option value='M'>Mantenimiento</option>
+									<option value='O'>Ocupada</option>
+								</select>
+							</div>
+							<button (click)="actualizarEstado()" pButton pRipple type="button" label="Actualizar" class="p-button-secondary p-button-text p-mr-2 p-mb-2"></button>
+						</div>
+					</div>
+				</div>
+			</form>           
+		</div>
+	</div>
+</div>

@@ -1,0 +1,38 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <div class="card"
+        style="margin: 0 auto;">
+            <h4>Log de la habitacion</h4>
+        </div>
+
+        <table class="styled-table"
+        style="margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>ID Habitacion</th>
+                    <th>Estado</th>
+                    <th>Tipo</th>
+                    <th>Fecha Modificacion</th>
+                    <th>Precio</th>
+                    <th>Observacion</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let log of logs">
+                    <td>{{log.habitacion.id_habitacion}}</td>
+                    <td>{{log.estado}}</td>
+                    <td>{{log.habitacion.tipo.nom_tipo_habitacion}}</td>
+                    <td>{{log.fecha | date:'medium'}}</td>
+                    <td>{{log.habitacion.tipo.precio_habitacion}}</td>
+                    <td>{{log.observacion}}</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+        <button (click)='volver()'>Volver</button>
+    </div>
+</div>
+

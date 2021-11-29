@@ -1,34 +1,14 @@
 <div class="p-grid dashboard">
-    <div class="p-col-12 p-md-6 p-lg-3">
-        <div class="p-grid p-nogutter card overview-box overview-box-1">
-            <span class="overview-box-name">Unread Messages</span>
-            <span class="overview-box-count">150</span>
-            <span class="overview-box-badge">+30%</span>
-            <img src="assets/layout/images/dashboard/chart-1.svg" />
+    <div class="p-col-12 p-md-6 p-lg-6">
+        <div class="card">           
+            <p class="card-subtitle">Estado de las habitaciones</p>
+            <p-chart type="doughnut" [data]="pieData"></p-chart> 
         </div>
     </div>
-    <div class="p-col-12 p-md-6 p-lg-3">
-        <div class="p-grid p-nogutter card overview-box overview-box-2">
-            <span class="overview-box-name">Check-Ins</span>
-            <span class="overview-box-count">532</span>
-            <span class="overview-box-badge">+45%</span>
-            <img src="assets/layout/images/dashboard/chart-2.svg" />
-        </div>
-    </div>
-    <div class="p-col-12 p-md-6 p-lg-3">
-        <div class="p-grid p-nogutter card overview-box overview-box-3">
-            <span class="overview-box-name">Files Synced</span>
-            <span class="overview-box-count">640</span>
-            <span class="overview-box-badge">-75%</span>
-            <img src="assets/layout/images/dashboard/chart-3.svg" />
-        </div>
-    </div>
-    <div class="p-col-12 p-md-6 p-lg-3">
-        <div class="p-grid p-nogutter card overview-box overview-box-4">
-            <span class="overview-box-name">Users Online</span>
-            <span class="overview-box-count">5251</span>
-            <span class="overview-box-badge">25%</span>
-            <img src="assets/layout/images/dashboard/chart-4.svg" />
+    <div class="p-col-12 p-md-6 p-lg-6">
+        <div class="card">
+        <p class="card-subtitle">Estado del hotel</p>
+            <p-chart type="line" [data]="lineData"></p-chart>
         </div>
     </div>
 
@@ -45,7 +25,7 @@
                 <p-menu #menu popup="popup" [model]="items"></p-menu>
 
                 <div class="user-card-name">
-                    <span>Name_User</span>
+                    <span>{{ user.login }}</span>
                 </div>
 
                 <div class="user-detail">

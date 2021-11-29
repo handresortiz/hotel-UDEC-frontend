@@ -1,0 +1,65 @@
+<form autocomplete="off"
+                  (ngSubmit)="onAuthorizate()"
+                  [formGroup]="loginForm">
+<div class="login-body">
+    <div class="login-panel p-fluid">
+        <div class="p-grid p-nogutter">
+            <div class="p-col-12 login-header">
+                <h1>INGRESO</h1>
+                <h2>Bienvenido a Hotel UDEC</h2>
+                <img src="assets/layout/images/logo.png">
+            </div>
+
+                  <p-toast key="tst"></p-toast>
+                <div class="p-col-12">
+                    <span class="p-float-label">
+                        <input formControlName="login"
+                               type="email"
+                               pInputText>
+                        <label> Correo </label>
+                        <small  *ngIf="isValid('login')"
+                                style="color: red;"
+                                class="p-invalid">
+                                Correo electronico no válido
+                        </small>
+                    </span>
+                </div>
+
+                <div class="p-col-12">
+                    <span class="p-float-label">
+                        <input  formControlName="pass"
+                                type="password"
+                                pInputText>
+                        <label> Contraseña </label>
+                        <small  *ngIf="isValid('pass')"
+                                style="color: red;"
+                                class="p-invalid">
+                                Password inválida
+                        </small>
+                    </span>
+                </div>
+
+                
+                <div class="p-col-12 button-container">
+                    <button [disabled]="!loginForm.valid" pButton type="submit"  label="Iniciar Sección" icon="pi pi-user"></button>
+                </div>
+
+                <div style="text-align: center;" class="p-col-12">
+                    <span>¿No tienes una cuenta? </span>
+                </div>
+
+                <div class="p-col-12 button-container">
+                    <button pButton type="button" label="Regístrate" icon="pi pi-user-plus" routerLink="/auth/register"
+                        routerLinkActive="router-link-active"></button>
+                   
+                </div>
+                <div class="p-col-4"> </div>
+                <div class="p-col-8" >
+                    <a style="margin-top: 10px; text-align: center;" [routerLink]="['/auth/policy']"  >Términos y condiciones</a>
+                </div>
+                
+        </div>
+        
+    </div>
+</div>
+</form>

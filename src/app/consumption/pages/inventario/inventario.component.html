@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Productos</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+       
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/inventario"><i class="far fa-list-alt"></i> Lista</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/nuevo"><i class="fas fa-plus-circle"></i> Nuevo Producto</a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio</th>
+        <th scope="col">N° existencias</th>
+        <th scope="col">Borrar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{producto.id_producto}}</td>
+        <td>{{producto.nom_producto}}</td>
+        <td>{{producto.desc_producto}}</td>
+        <td>${{producto.precio_producto}}</td>
+        <td>{{producto.unidades_existentes}}</td>
+        <td><button class="btn btn-outline-danger" (click)="borrar(producto.id)"><i class="far fa-trash-alt"></i> Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>

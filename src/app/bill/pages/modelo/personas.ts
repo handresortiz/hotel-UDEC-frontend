@@ -1,5 +1,5 @@
 export class Personas{
-    id:number;
+    id: number;
     pri_nombre:String;
     seg_nombre:String;
     pri_apellido:String;
